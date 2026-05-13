@@ -99,23 +99,23 @@ When designing a new page, prefer reusing these. New components should use exist
 - Homepage (`/`)
 - Mites page (`/mites/`)
 - Learn to Play page (`/learn-to-play/`)
+- Squirts page (`/squirts/`) — house development, ages 9-10, jamborees only, no tryouts. Done 2026-05-12.
+- Peewee page (`/peewee/`) — travel hockey, ages 11-12, tryout flow, 10-15 games, overnight possible. Done 2026-05-12.
+- Bantams page (`/bantams/`) — travel hockey, ages 13-14, tryout flow, 15-20 games, overnight expected. Done 2026-05-12.
+- U15 page (`/u15/`) — travel hockey, ages 14-15, tryout flow, 20+ games, overnight expected. Done 2026-05-12.
 - Brand voice doc
 - Shared `styles.css` (extracted from inline CSS — all new pages use this)
 - `/assets/coyote-mark.webp` — single logo file used everywhere (46 KB WebP; replaces 447 KB+ base64 per page)
 - `/assets/favicon.ico` + `/assets/apple-touch-icon.png`
 - OG + Twitter card meta on all pages
 
-**Remaining phase 1 pages (9):**
+**Remaining phase 1 pages (5):**
 
-1. **Squirts** (`/squirts/`) — house development team, ages 9 to 10. Use the Mites template as base but shift tone away from "team" framing. Confirm with Jeff: does Squirts have jamborees? Practice cadence? Travel scope?
-2. **Peewee** (`/peewee/`) — travel hockey, ages 11 to 12. Use Mites template adjusted for actual travel commitment (real games, longer travel). Confirm specifics with Jeff before designing.
-3. **Bantams** (`/bantams/`) — travel hockey, ages 13 to 14. Confirm specifics with Jeff.
-4. **U15** (`/u15/`) — travel hockey, ages 14 to 15. Confirm specifics with Jeff.
-5. **About** (`/about/`) — org mission, story, USA Hockey/PVAHA affiliations. Includes the mission statement (a List 2 priority-1 item to bring into phase 1).
-6. **Our Board** (`/board/`) — board member names, photos, roles.
-7. **Bylaws** (`/bylaws/`) — long-form governance doc with download link.
-8. **FAQs** (`/faq/`) — general/sitewide FAQ, distinct from the per-division FAQs that live on each division page.
-9. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
+1. **About** (`/about/`) — org mission, story, USA Hockey/PVAHA affiliations. Includes the mission statement (a List 2 priority-1 item to bring into phase 1).
+2. **Our Board** (`/board/`) — board member names, photos, roles.
+3. **Bylaws** (`/bylaws/`) — long-form governance doc with download link.
+4. **FAQs** (`/faq/`) — general/sitewide FAQ, distinct from the per-division FAQs that live on each division page.
+5. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
 
 **Registration link policy (decided 2026-05-12):** Do NOT link to SportsEngine directly on any page. Links change every season and old links have caused misdirected payments. Flow: parent contacts LYHA via email → board sends current link. All pages use this flow. Mites sign-up section rewritten 2026-05-12 to contact-first, 3-step flow (CTA: mailto:info@lynchburg.hockey).
 
@@ -156,9 +156,10 @@ Target: 6 rows, each linking to a real division page. Also add a small "find you
 
 ## What to do next, in suggested order
 
-1. **Confirm program details with Jeff** before authoring division pages. See the open questions list below. Squirts is most similar to Mites and is a good next target, but it needs specifics (jamborees, cadence, travel scope) before authoring.
-2. **Author the next division page** using the Mites template + the shared `styles.css` + `/assets/coyote-mark.webp`. No refactor work needed first — the infrastructure is in place.
-3. **Verify after every deploy**: hit the new URL, check HTTP 200, grep for em dashes and "skater" in the file. Read the new sections out loud.
+1. **Jeff reviews all four division pages** (Squirts, Peewee, Bantams, U15) for accuracy. Content is best-guess placeholder. Corrections go into the HTML directly.
+2. **Homepage Programs section restructure** — all 5 division pages now exist. The Programs section should be restructured from 4 rows to 6: Learn to Play, Mites, Squirts, Peewee, Bantams, U15. Add a mini "find your division by age" table. This is the largest information-architecture improvement remaining in phase 1. Confirm with Jeff before executing.
+3. **Author the remaining 5 phase 1 pages**: About, Our Board, Bylaws, FAQs, Calendar. Each needs content from Jeff first.
+4. **Verify after every deploy**: hit the new URL, check HTTP 200, grep for em dashes and "skater" in the file.
 
 ## What NOT to do
 
@@ -183,16 +184,16 @@ Target: 6 rows, each linking to a real division page. Also add a small "find you
 - Play It Again Sports (Roanoke, used gear): https://playitagainsports.com/locations/roanoke-va/
 - Pure Hockey (Morrisville NC, new gear, ~3 hours): https://www.purehockey.com/storelocator.aspx?mkt_id=27
 
-## Open questions to ask Jeff before designing each remaining page
+**Division pages built with best-guess placeholder content (2026-05-12):** Squirts, Peewee, Bantams, U15 are all live. Content is placeholder based on reasonable assumptions. Jeff should review and correct any specifics: exact game counts per season, exact practice cadence, whether Squirts has tryouts, actual overnight trip counts, etc.
 
-For each division (Squirts, Peewee, Bantams, U15):
-- Age range (start of season)
-- Season window (start month to end month)
-- Practice cadence (per week, where)
-- Games or jamborees count
-- Travel scope and overnight expectations
-- Are there tryouts? (Mites had none — confirm per division)
-- SportsEngine registration URL (currently `#` everywhere — needs real links)
+## Open questions to confirm with Jeff
+
+For division pages (Squirts, Peewee, Bantams, U15) — pages are live, Jeff should review:
+- Exact game / jamboree counts per season
+- Whether Squirts has tryouts (currently written as open enrollment)
+- Actual practice cadence (currently 2/wk for Squirts/Peewee, 2-3/wk for Bantams/U15)
+- Overnight trip frequency for Peewee vs Bantams vs U15
+- SportsEngine registration URL (all pages use contact-first flow — no direct link)
 - Coaching staff (placeholder until July assignments)
 
 For Learn to Play:

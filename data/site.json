@@ -1,0 +1,8 @@
+{
+  "site_name": "Lynchburg Youth Hockey Association",
+  "contact_email": "info@lynchburg.hockey",
+  "home_rink": "LaHaye Ice Center",
+  "address": "1971 University Blvd, Lynchburg, VA 24502",
+  "live_url": "https://lyha-website.vercel.app",
+  "editor_notes": "Use this CMS for launch-critical edits before the public site goes live. Changes should be reviewed on staging before production launch."
+}

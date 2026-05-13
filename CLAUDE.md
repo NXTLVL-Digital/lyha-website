@@ -24,7 +24,7 @@ Phase 1 delivers the immediate journey fully, includes board-editable CMS access
 - **Hosting**: Vercel. Project name `lyha-website`. Auto-deploys on every push to `main`. Live at `https://lyha-website.vercel.app`.
 - **Domain**: `lynchburg.hockey` is registered at GoDaddy. DNS will repoint to Vercel when phase 1 launches. The old GoDaddy hosting will be cancelled at the same time.
 - **Build**: no build step. Plain HTML, CSS, vanilla JS. Vercel serves the repo root as static.
-- **Phase 1 CMS**: Sveltia CMS at `/admin`, git-backed (free, no editor cap). Editor auth via a Cloudflare Worker running `sveltia-cms-auth` (free tier). This must be available to board members before the public site launch so they can make updates during review.
+- **Phase 1 CMS**: Sveltia CMS at `/admin`, git-backed (free, no editor cap). Editor auth via a Cloudflare Worker running `sveltia-cms-auth` (free tier). This must be available to board members before the public site launch so they can make updates during review. Repo-side CMS files now live in `/admin/`, with first editable content data in `/data/*.json`; Cloudflare Worker auth still needs deployment and `base_url` wiring.
 - **Phase 2 shop**: Fourthwall print-on-demand, embedded at `/shop`.
 
 ## Files in this repo

@@ -1,0 +1,8 @@
+name = "lyha-sveltia-cms-auth"
+main = "src/index.js"
+compatibility_date = "2026-05-13"
+
+# This is a placeholder for teams that choose to vendor the official
+# sveltia/sveltia-cms-auth worker locally. The recommended path is deploying
+# the official repository directly, then storing OAuth values as encrypted
+# Cloudflare Worker environment variables.

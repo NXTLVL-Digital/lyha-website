@@ -7,6 +7,7 @@ Static HTML site for the Lynchburg Youth Hockey Association (Hill City Coyotes).
 - `/` — Homepage
 - `/mites/` — Mites (U8) division page
 - `/faq/` — Sitewide FAQ
+- `/admin/` — Sveltia CMS editor for Phase 1 board updates
 
 ## Hosting
 

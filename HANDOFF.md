@@ -35,7 +35,7 @@ Main buckets:
 
 **B. CMS editor access (phase 1 launch requirement)**
 
-Sveltia CMS must be added at `/admin/` during phase 1, with Cloudflare Worker auth via `sveltia-cms-auth`, so LYHA board members can make updates before the public site launch. This is no longer phase 2.
+Sveltia CMS must be added at `/admin/` during phase 1, with Cloudflare Worker auth via `sveltia-cms-auth`, so LYHA board members can make updates before the public site launch. This is no longer phase 2. Repo-side CMS shell and first JSON content files have been added; next step is Cloudflare Worker auth deployment and wiring `base_url` in `admin/config.yml`.
 
 **C. Homepage restructure (Jeff approval needed, then execute)**
 

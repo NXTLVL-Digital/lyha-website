@@ -1,0 +1,97 @@
+backend:
+  name: github
+  repo: NXTLVL-Digital/lyha-website
+  branch: staging
+  # Add this after the Cloudflare Worker is deployed:
+  # base_url: https://sveltia-cms-auth.<your-subdomain>.workers.dev
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+site_url: https://lyha-website.vercel.app
+display_url: https://lyha-website.vercel.app
+publish_mode: editorial_workflow
+logo_url: /assets/coyote-mark.webp
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: launch_content
+    label: Launch Content
+    files:
+      - name: site_settings
+        label: Site Settings
+        file: data/site.json
+        fields:
+          - label: Site Name
+            name: site_name
+            widget: string
+          - label: Contact Email
+            name: contact_email
+            widget: string
+          - label: Home Rink
+            name: home_rink
+            widget: string
+          - label: Address
+            name: address
+            widget: string
+          - label: Live URL
+            name: live_url
+            widget: string
+          - label: Notes for Editors
+            name: editor_notes
+            widget: text
+            required: false
+      - name: board_members
+        label: Board Members
+        file: data/board.json
+        fields:
+          - label: Intro
+            name: intro
+            widget: text
+          - label: Members
+            name: members
+            widget: list
+            summary: "{{fields.role}}: {{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Email, name: email, widget: string, required: false }
+              - { label: Photo, name: photo, widget: image, required: false }
+              - { label: Bio, name: bio, widget: text, required: false }
+      - name: faq_items
+        label: FAQ Items
+        file: data/faq.json
+        fields:
+          - label: Sections
+            name: sections
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Questions
+                name: questions
+                widget: list
+                summary: "{{fields.question}}"
+                fields:
+                  - { label: Question, name: question, widget: string }
+                  - { label: Answer, name: answer, widget: text }
+      - name: calendar
+        label: Calendar
+        file: data/calendar.json
+        fields:
+          - { label: Status Message, name: status_message, widget: text }
+          - { label: SportsEngine Embed URL, name: sportsengine_embed_url, widget: string, required: false }
+          - { label: Notes, name: notes, widget: text, required: false }
+      - name: bylaws
+        label: Bylaws
+        file: data/bylaws.json
+        fields:
+          - { label: Document Title, name: title, widget: string }
+          - { label: PDF, name: pdf, widget: file, required: false }
+          - { label: Adopted Date, name: adopted_date, widget: string, required: false }
+          - { label: Last Amended Date, name: amended_date, widget: string, required: false }
+          - { label: Notes, name: notes, widget: text, required: false }

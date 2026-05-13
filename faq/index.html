@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FAQ &middot; Lynchburg Youth Hockey Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============ FAQ PAGE ============ */
+  .div-hero {
+    position: relative;
+    padding: 160px 48px 100px;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(6, 123, 63, 0.22), transparent 55%),
+      radial-gradient(ellipse at 15% 90%, rgba(19, 45, 28, 0.55), transparent 60%),
+      var(--ink);
+    overflow: hidden;
+  }
+  .div-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(115deg,
+        transparent 0, transparent 40px,
+        rgba(244, 241, 234, 0.015) 40px,
+        rgba(244, 241, 234, 0.015) 41px);
+    pointer-events: none;
+  }
+  .div-hero-inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  .div-hero-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 36px;
+    transition: color 0.2s ease;
+  }
+  .div-hero-back:hover { color: var(--green-bright); }
+  .div-hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(64px, 9vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin: 16px 0 28px;
+    font-variation-settings: "opsz" 144;
+  }
+  .div-hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--green-bright);
+  }
+  .div-hero-lede {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(22px, 2.5vw, 32px);
+    line-height: 1.35;
+    color: var(--bone-dim);
+    max-width: 760px;
+    margin-bottom: 0;
+  }
+
+  .div-section {
+    padding: 130px 48px;
+    position: relative;
+  }
+  .div-section.alt { background: var(--forest); }
+  .div-section.ink { background: var(--ink); }
+  .div-section-inner { max-width: 1280px; margin: 0 auto; }
+  .div-section-head { max-width: 900px; margin-bottom: 70px; }
+  .div-section-head h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-top: 18px;
+  }
+  .div-section-head h2 em {
+    font-style: italic;
+    color: var(--green-bright);
+    font-weight: 300;
+  }
+  .div-section-head p {
+    color: var(--bone-dim);
+    font-size: 17px;
+    line-height: 1.65;
+    max-width: 640px;
+    margin-top: 22px;
+  }
+
+  .div-faq { display: grid; grid-template-columns: 1fr; }
+  .div-faq-item {
+    border-bottom: 1px solid var(--rule);
+    padding: 32px 0;
+  }
+  .div-faq-item:first-child { border-top: 1px solid var(--rule); }
+  .div-faq-item h4 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+  }
+  .div-faq-item p {
+    color: var(--bone-dim);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 780px;
+  }
+  .div-faq-item p + p { margin-top: 14px; }
+  .div-faq-item p a {
+    color: var(--green-bright);
+    border-bottom: 1px solid var(--green-bright);
+    transition: opacity 0.2s ease;
+  }
+  .div-faq-item p a:hover { opacity: 0.75; }
+
+  @media (max-width: 900px) {
+    .div-hero { padding: 110px 24px 70px; }
+    .div-hero h1 { font-size: clamp(48px, 12vw, 80px); }
+    .div-hero-lede { font-size: 18px; }
+    .div-section { padding: 70px 24px; }
+    .div-section-head { margin-bottom: 40px; }
+  }
+  @media (max-width: 480px) {
+    .div-hero { padding: 96px 18px 56px; }
+    .div-hero h1 { font-size: clamp(42px, 13vw, 64px); }
+    .div-hero-lede { font-size: 17px; }
+    .div-section { padding: 56px 18px; }
+    .div-faq-item h4 { font-size: 20px; }
+  }
+</style>
+
+<link rel="stylesheet" href="/styles.css" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
+<meta property="og:title" content="FAQ &middot; Lynchburg Youth Hockey" />
+<meta property="og:description" content="Common questions about LYHA programs, costs, gear, and the season. Written for parents new to hockey." />
+<meta property="og:url" content="https://lynchburg.hockey/faq/" />
+<meta property="og:image" content="https://lynchburg.hockey/assets/coyote-mark.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <img src="/assets/coyote-mark.webp" alt="Lynchburg Coyotes" />
+    <span>Lynchburg</span>
+    <span>Coyotes</span>
+  </a>
+  <div class="nav-links" id="primary-nav">
+    <a href="/#programs">Programs</a>
+    <a href="/#about">About</a>
+    <a href="/#rink">The Rink</a>
+    <a href="/faq/">FAQ</a>
+    <a href="/#calendar">Calendar</a>
+  </div>
+  <a href="/#register" class="nav-cta">Register</a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="div-hero">
+  <div class="div-hero-inner">
+    <a href="/" class="div-hero-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <div class="section-label">Common Questions</div>
+    <h1>FAQ.<br/><em>Where to start.</em></h1>
+    <p class="div-hero-lede">
+      For questions about a specific division, check that division's page. These cover the whole program.
+    </p>
+  </div>
+</section>
+
+<section class="div-section alt">
+  <div class="div-section-inner">
+    <div class="div-section-head reveal">
+      <div class="section-label">Section 01 &middot; Getting Started</div>
+      <h2>New to hockey. <em>Where do we start?</em></h2>
+    </div>
+
+    <div class="div-faq reveal">
+      <div class="div-faq-item">
+        <h4>We've never done hockey before. Where do we start?</h4>
+        <p>If your child is between four and eight and has never been on skates, start with <a href="/learn-to-play/">Learn to Play</a>. It teaches skating from scratch. If they can already skate unassisted, <a href="/mites/">Mites</a> is the next step. From there, kids move up by age: <a href="/squirts/">Squirts</a>, <a href="/peewee/">Peewee</a>, <a href="/bantams/">Bantams</a>, and <a href="/u15/">U15</a>.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Does my child need to know how to skate?</h4>
+        <p>It depends on the program. Learn to Play teaches skating from the first lesson. Every other division assumes your child can move on the ice without holding the wall. They don't have to be polished. They need to be on their feet.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>How young can kids start?</h4>
+        <p>Learn to Play accepts children as young as four. Most kids who start that early spend one or two seasons there before moving into Mites.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Are the programs coed?</h4>
+        <p>Yes. All LYHA programs are open to all kids regardless of gender.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Do we have to live in Lynchburg?</h4>
+        <p>No. We have families from surrounding counties. If you can get to <a href="https://libertyclubsports.com/facilities/lahaye-ice-center/5" target="_blank" rel="noopener">LaHaye Ice Center</a>, you're in range.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="div-section ink">
+  <div class="div-section-inner">
+    <div class="div-section-head reveal">
+      <div class="section-label">Section 02 &middot; Programs &amp; Placement</div>
+      <h2>Finding <em>the right program.</em></h2>
+    </div>
+
+    <div class="div-faq reveal">
+      <div class="div-faq-item">
+        <h4>How do I know which division is right for my child?</h4>
+        <p>Age at the start of the season is the primary factor. Learn to Play: 4 to 8. Mites: 6 to 8. Squirts: 9 to 10. Peewee: 11 to 12. Bantams: 13 to 14. U15: 14 to 15.</p>
+        <p>If your child is on a border year, email us and we'll help you decide.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>What's the difference between house hockey and travel hockey?</h4>
+        <p>House hockey stays local. Learn to Play, Mites, and Squirts practice at LaHaye and play jamborees at nearby rinks. The focus is development.</p>
+        <p>Travel hockey plays real games against other clubs across the region. Peewee, Bantams, and U15 have away weekends and occasional overnight trips. The schedule is heavier and the commitment is bigger.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>My child played for a different club last year. Can they join LYHA?</h4>
+        <p>Yes. We welcome transfers. Bring your USA Hockey registration number. For travel divisions, the standard tryout process applies.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Can my child play two divisions at once?</h4>
+        <p>No. Players are rostered on one team per season.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="div-section alt">
+  <div class="div-section-inner">
+    <div class="div-section-head reveal">
+      <div class="section-label">Section 03 &middot; Costs &amp; Financial Aid</div>
+      <h2>What does <em>it cost?</em></h2>
+    </div>
+
+    <div class="div-faq reveal">
+      <div class="div-faq-item">
+        <h4>How much does a season cost?</h4>
+        <p>Pricing varies by division. We publish current season fees with the registration link we send you. Email us and we'll tell you what this season looks like.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>What does tuition cover?</h4>
+        <p>Ice time, coaching, and USA Hockey and PVAHA registration. It does not cover personal gear or travel costs for away games and overnight trips.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Is financial aid available?</h4>
+        <p>Yes. Cost should not be the reason a Lynchburg kid can't play. Ask any board member. The conversation is confidential.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Are there additional fees during the season?</h4>
+        <p>House divisions pay jamboree fees as the schedule firms up. Travel divisions pay their own gas and hotel costs for away weekends. These are paid by families and vary by season.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="div-section ink">
+  <div class="div-section-inner">
+    <div class="div-section-head reveal">
+      <div class="section-label">Section 04 &middot; Gear &amp; Equipment</div>
+      <h2>Getting <em>the right gear.</em></h2>
+    </div>
+
+    <div class="div-faq reveal">
+      <div class="div-faq-item">
+        <h4>What gear does a child need?</h4>
+        <p>Helmet with cage, neck guard, shoulder pads, elbow pads, hockey pants, shin guards, skates, gloves, and a stick. The jersey is covered by registration. A full gear list comes with your welcome email.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Do we need gear before the first practice?</h4>
+        <p>Not if you use our loaner program. We have used equipment available to borrow, enough to get a child through a first season. Ask when you register. First come, first served.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Where do we buy gear near Lynchburg?</h4>
+        <p>For used gear, <a href="https://playitagainsports.com/locations/roanoke-va/" target="_blank" rel="noopener">Play It Again Sports</a> in Roanoke is about an hour away. For new gear, <a href="https://www.purehockey.com/storelocator.aspx?mkt_id=27" target="_blank" rel="noopener">Pure Hockey</a> in Morrisville, NC is about three hours, just outside Raleigh. Both are linked on each division page.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>What size gear does my child need?</h4>
+        <p>The staff at Pure Hockey can fit your child properly. For used gear, bring the child to Play It Again so they can try on skates in person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="div-section alt">
+  <div class="div-section-inner">
+    <div class="div-section-head reveal">
+      <div class="section-label">Section 05 &middot; Season &amp; Scheduling</div>
+      <h2>How the <em>season works.</em></h2>
+    </div>
+
+    <div class="div-faq reveal">
+      <div class="div-faq-item">
+        <h4>When does the season start and end?</h4>
+        <p>House divisions (Learn to Play, Mites, Squirts) run September through February. Travel divisions (Peewee, Bantams, U15) run September through March.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>Where do practices and home games happen?</h4>
+        <p><a href="https://libertyclubsports.com/facilities/lahaye-ice-center/5" target="_blank" rel="noopener">LaHaye Ice Center</a> on the campus of Liberty University, 1971 University Blvd, Lynchburg, VA. Directions and parking are on the LaHaye website.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>What is LaHaye Ice Center like?</h4>
+        <p>A full-size NHL rink with a heated lobby and locker rooms. Liberty University operates it through Club Sports. <a href="https://libertyclubsports.com/facilities/lahaye-ice-center/5" target="_blank" rel="noopener">More about the facility</a>.</p>
+      </div>
+      <div class="div-faq-item">
+        <h4>How do I get the season schedule?</h4>
+        <p>Schedules are sent to families once finalized each August. Travel schedules are published before the season begins. Once our <a href="/calendar/">calendar page</a> is live, all club events will be posted there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-cta-inner reveal">
+    <div class="section-label section-label-center" style="justify-content: center;">Still Have a Question?</div>
+    <h2>The fastest way to <em>get an answer</em> is to ask.</h2>
+    <p>If your question isn't covered above, send us a note. A board member will reply.</p>
+    <div class="hero-cta-row" style="justify-content: center;">
+      <a href="mailto:info@lynchburg.hockey" class="btn-primary">
+        Email Us
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#programs" class="btn-ghost">Browse Programs</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="/assets/coyote-mark.webp" alt="Lynchburg Coyotes" />
+      <p>
+        Lynchburg Youth Hockey Association &middot; Hill City Coyotes. A 501(c)(3) nonprofit committed to ice hockey, character, and community in Central Virginia.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h5>Programs</h5>
+      <ul>
+        <li><a href="/learn-to-play/">Learn to Play</a></li>
+        <li><a href="/mites/">Mites (U8)</a></li>
+        <li><a href="/squirts/">Squirts (U10)</a></li>
+        <li><a href="/peewee/">Peewee (U12)</a></li>
+        <li><a href="/bantams/">Bantams (U14)</a></li>
+        <li><a href="/u15/">U15</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="/#about">Our Story</a></li>
+        <li><a href="#">Our Board</a></li>
+        <li><a href="#">Bylaws</a></li>
+        <li><a href="/faq/">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Affiliations</h5>
+      <ul>
+        <li>USA Hockey</li>
+        <li>PVAHA</li>
+        <li>Home: <a href="https://libertyclubsports.com/facilities/lahaye-ice-center/5" target="_blank" rel="noopener">LaHaye Ice Center</a></li>
+        <li>501(c)(3) Nonprofit</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Lynchburg Youth Hockey Association. All Rights Reserved.</div>
+    <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  (function () {
+    const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.nav-toggle');
+    if (!nav || !toggle) return;
+    const setOpen = (open) => {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+    nav.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && nav.classList.contains('open')) setOpen(false);
+    });
+  })();
+</script>
+
+</body>
+</html>

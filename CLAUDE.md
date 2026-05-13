@@ -117,7 +117,7 @@ When designing a new page, prefer reusing these. New components should use exist
 8. **FAQs** (`/faq/`) — general/sitewide FAQ, distinct from the per-division FAQs that live on each division page.
 9. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
 
-**Registration link policy (decided 2026-05-12):** Do NOT link to SportsEngine directly on any page. Links change every season and old links have caused misdirected payments. Flow: parent contacts LYHA via email → board sends current link. All pages built after this date use this flow. The Mites sign-up copy still references SportsEngine (copy is locked); flag with Jeff before changing it.
+**Registration link policy (decided 2026-05-12):** Do NOT link to SportsEngine directly on any page. Links change every season and old links have caused misdirected payments. Flow: parent contacts LYHA via email → board sends current link. All pages use this flow. Mites sign-up section rewritten 2026-05-12 to contact-first, 3-step flow (CTA: mailto:info@lynchburg.hockey).
 
 **Phase 1 sitewide enhancements (List 2 priority-1 items folded in):**
 - USA Hockey + PVAHA affiliation badges in footer sitewide. Currently shown as text in the Mites page footer; expand to badge images sitewide once we have logos.
@@ -152,15 +152,13 @@ Target: 6 rows, each linking to a real division page. Also add a small "find you
 3. ~~**Add favicon + Open Graph meta.**~~ **DONE (2026-05-12).** `favicon.ico`, `apple-touch-icon.png`, and full OG + Twitter card meta are live on all pages.
 4. **Update brand-voice.md** if you discover additional AI-tells worth codifying as you write.
 
-**Known copy issue (do not fix without Jeff sign-off):** `index.html` uses "skater" 3 times in locked homepage copy (lines 56, 136, 289). Brand voice doc says use "child/kid" when speaking to parents. Flag this with Jeff before the next session that touches the homepage.
+**Homepage "skater" copy (resolved 2026-05-12):** Two uses of "skater" on the homepage are Jeff-approved and intentional: "builds skaters, teammates..." (hero lede, line ~56) and "Whether your skater is lacing up..." (Programs header, line ~136). The final CTA h2 was updated from "Your skater's first stride" to "Your child's first stride." No further changes needed.
 
 ## What to do next, in suggested order
 
 1. **Confirm program details with Jeff** before authoring division pages. See the open questions list below. Squirts is most similar to Mites and is a good next target, but it needs specifics (jamborees, cadence, travel scope) before authoring.
 2. **Author the next division page** using the Mites template + the shared `styles.css` + `/assets/coyote-mark.webp`. No refactor work needed first — the infrastructure is in place.
-3. **Discuss the Mites SportsEngine copy** with Jeff. The "How to sign up" section in `/mites/` still tells parents to register on SportsEngine directly. This contradicts the new contact-first registration policy. Needs explicit sign-off before changing locked copy.
-4. **Discuss the homepage "skater" copy** with Jeff when the timing is right.
-4. **Verify after every deploy**: hit the new URL, check HTTP 200, grep for em dashes and "skater" in the file. Read the new sections out loud.
+3. **Verify after every deploy**: hit the new URL, check HTTP 200, grep for em dashes and "skater" in the file. Read the new sections out loud.
 
 ## What NOT to do
 

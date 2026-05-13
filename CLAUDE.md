@@ -98,20 +98,26 @@ When designing a new page, prefer reusing these. New components should use exist
 **Done:**
 - Homepage (`/`)
 - Mites page (`/mites/`)
+- Learn to Play page (`/learn-to-play/`)
 - Brand voice doc
+- Shared `styles.css` (extracted from inline CSS — all new pages use this)
+- `/assets/coyote-mark.webp` — single logo file used everywhere (46 KB WebP; replaces 447 KB+ base64 per page)
+- `/assets/favicon.ico` + `/assets/apple-touch-icon.png`
+- OG + Twitter card meta on all pages
 
-**Remaining phase 1 pages (10):**
+**Remaining phase 1 pages (9):**
 
-1. **Learn to Play** (`/learn-to-play/`) — gateway page for first-time families, ages 4 to 8. Distinct visual treatment from the division pages (more welcoming, less competitive). This is the most important phase 1 onboarding page since it's the entry point for the largest audience funnel (parents new to hockey). The homepage's "New to Hockey? Start Here" CTA links here.
-2. **Squirts** (`/squirts/`) — house development team, ages 9 to 10. Use the Mites template as base but shift tone away from "team" framing. Confirm with Jeff: does Squirts have jamborees? Practice cadence? Travel scope?
-3. **Peewee** (`/peewee/`) — travel hockey, ages 11 to 12. Use Mites template adjusted for actual travel commitment (real games, longer travel). Confirm specifics with Jeff before designing.
-4. **Bantams** (`/bantams/`) — travel hockey, ages 13 to 14. Confirm specifics with Jeff.
-5. **U15** (`/u15/`) — travel hockey, ages 14 to 15. Confirm specifics with Jeff.
-6. **About** (`/about/`) — org mission, story, USA Hockey/PVAHA affiliations. Includes the mission statement (a List 2 priority-1 item to bring into phase 1).
-7. **Our Board** (`/board/`) — board member names, photos, roles.
-8. **Bylaws** (`/bylaws/`) — long-form governance doc with download link.
-9. **FAQs** (`/faq/`) — general/sitewide FAQ, distinct from the per-division FAQs that live on each division page.
-10. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
+1. **Squirts** (`/squirts/`) — house development team, ages 9 to 10. Use the Mites template as base but shift tone away from "team" framing. Confirm with Jeff: does Squirts have jamborees? Practice cadence? Travel scope?
+2. **Peewee** (`/peewee/`) — travel hockey, ages 11 to 12. Use Mites template adjusted for actual travel commitment (real games, longer travel). Confirm specifics with Jeff before designing.
+3. **Bantams** (`/bantams/`) — travel hockey, ages 13 to 14. Confirm specifics with Jeff.
+4. **U15** (`/u15/`) — travel hockey, ages 14 to 15. Confirm specifics with Jeff.
+5. **About** (`/about/`) — org mission, story, USA Hockey/PVAHA affiliations. Includes the mission statement (a List 2 priority-1 item to bring into phase 1).
+6. **Our Board** (`/board/`) — board member names, photos, roles.
+7. **Bylaws** (`/bylaws/`) — long-form governance doc with download link.
+8. **FAQs** (`/faq/`) — general/sitewide FAQ, distinct from the per-division FAQs that live on each division page.
+9. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
+
+**Registration link policy (decided 2026-05-12):** Do NOT link to SportsEngine directly on any page. Links change every season and old links have caused misdirected payments. Flow: parent contacts LYHA via email → board sends current link. All pages built after this date use this flow. The Mites sign-up copy still references SportsEngine (copy is locked); flag with Jeff before changing it.
 
 **Phase 1 sitewide enhancements (List 2 priority-1 items folded in):**
 - USA Hockey + PVAHA affiliation badges in footer sitewide. Currently shown as text in the Mites page footer; expand to badge images sitewide once we have logos.
@@ -139,20 +145,21 @@ Target: 6 rows, each linking to a real division page. Also add a small "find you
 - **Org structure / hierarchy page** — nice-to-have visual chart.
 - **Alumni page** — nice-to-have.
 
-## Refactor priorities (do these early, before more new pages)
+## Refactor priorities
 
-1. **Extract inline CSS to `/styles.css`.** Both `index.html` and `mites/index.html` inline ~28 KB of CSS each. Extract once to `styles.css`, reference from both pages with `<link rel="stylesheet" href="/styles.css">`. Drastically de-duplicates and makes future pages trivially small.
-2. **Extract base64 logos to image files in `/assets/`.** Three logos are embedded as base64 in each page (nav logo, hero mascot, footer logo). Extract to `/assets/coyote-logo.png`, `/assets/coyote-mark.png`, `/assets/coyote-logo-footer.png` and reference via `<img src="/assets/...">`. Cuts each page by ~1.8 MB. Massively improves load time, especially on mobile.
-3. **Add favicon + Open Graph meta** to head — missing currently.
+1. ~~**Extract inline CSS to `/styles.css`.**~~ **DONE (2026-05-12).** `styles.css` is live. All new pages link to it. The page-specific `<style>` block (division page components) lives in each division page.
+2. ~~**Extract base64 logos to image files in `/assets/`.**~~ **DONE (2026-05-12).** All images in all pages now use `/assets/coyote-mark.webp` (46 KB). Original source PNG is at `/assets/coyote-mark.png` (429 KB) for reference. It was one file all along — the same coyote mark resized via CSS.
+3. ~~**Add favicon + Open Graph meta.**~~ **DONE (2026-05-12).** `favicon.ico`, `apple-touch-icon.png`, and full OG + Twitter card meta are live on all pages.
 4. **Update brand-voice.md** if you discover additional AI-tells worth codifying as you write.
 
-These three refactors (CSS extraction, asset extraction, head meta) should land before the next batch of pages so each new page can be authored against the shared assets rather than copy-paste-extending the duplication.
+**Known copy issue (do not fix without Jeff sign-off):** `index.html` uses "skater" 3 times in locked homepage copy (lines 56, 136, 289). Brand voice doc says use "child/kid" when speaking to parents. Flag this with Jeff before the next session that touches the homepage.
 
 ## What to do next, in suggested order
 
-1. **Confirm the next page priority with Jeff.** Options: (a) Learn to Play first, since it's the highest-traffic onboarding page and locks in the second visual pattern, or (b) finish the division template by doing Peewee next (most similar to Mites — confirms the template scales), then Bantams/U15/Squirts. My recommendation is (a) Learn to Play first.
-2. **Do the CSS + asset refactor before authoring the next page** so the new page doesn't multiply the duplication.
-3. **Author the next page**, following the established design system and brand voice.
+1. **Confirm program details with Jeff** before authoring division pages. See the open questions list below. Squirts is most similar to Mites and is a good next target, but it needs specifics (jamborees, cadence, travel scope) before authoring.
+2. **Author the next division page** using the Mites template + the shared `styles.css` + `/assets/coyote-mark.webp`. No refactor work needed first — the infrastructure is in place.
+3. **Discuss the Mites SportsEngine copy** with Jeff. The "How to sign up" section in `/mites/` still tells parents to register on SportsEngine directly. This contradicts the new contact-first registration policy. Needs explicit sign-off before changing locked copy.
+4. **Discuss the homepage "skater" copy** with Jeff when the timing is right.
 4. **Verify after every deploy**: hit the new URL, check HTTP 200, grep for em dashes and "skater" in the file. Read the new sections out loud.
 
 ## What NOT to do

@@ -1,6 +1,6 @@
 # LYHA Website — Phase 1 Handoff
 
-_Last updated: 2026-05-12. Read CLAUDE.md for full project context before starting work._
+_Last updated: 2026-05-13. Read CLAUDE.md for full project context before starting work._
 
 ---
 
@@ -24,7 +24,7 @@ Shared infrastructure: `styles.css`, `/assets/coyote-mark.webp`, favicon, OG met
 
 ## Remaining phase 1 work
 
-Two buckets:
+Main buckets:
 
 **A. Content-gated pages (need Jeff input first, build shells now)**
 
@@ -33,9 +33,9 @@ Two buckets:
 3. `/bylaws/` — needs bylaws PDF (or text)
 4. `/calendar/` — needs SportsEngine embed code
 
-**B. Can build with placeholder content now**
+**B. CMS editor access (phase 1 launch requirement)**
 
-5. `/faq/` — common questions; can write solid placeholder FAQs based on what's already on the site
+Sveltia CMS must be added at `/admin/` during phase 1, with Cloudflare Worker auth via `sveltia-cms-auth`, so LYHA board members can make updates before the public site launch. This is no longer phase 2.
 
 **C. Homepage restructure (Jeff approval needed, then execute)**
 
@@ -55,6 +55,34 @@ Before writing a single line of copy, reread `brand-voice.md`. The short version
 - **Before every commit:** `grep -c "—" <file>` → 0. `grep -ci "\bskater\b" <file>` → 0.
 - **Commit each page separately. Push after each commit.** Vercel deploys incrementally.
 - **Update footer Program links** on all existing pages when each new page goes live.
+
+
+---
+
+## Phase 1 CMS requirement
+
+**Decision date:** 2026-05-13
+
+CMS is now part of phase 1. Board members need editor access before the site goes live so they can review and update launch-critical content themselves.
+
+**Target stack:**
+- Sveltia CMS served from `/admin/`
+- Git-backed editing into the repo
+- Cloudflare Worker auth using `sveltia-cms-auth`
+- No paid editor-seat dependency
+
+**Implementation notes:**
+1. Add `/admin/index.html` that loads Sveltia CMS.
+2. Add `/admin/config.yml` with the initial editable collections.
+3. Start with launch-critical content only. Recommended first collections: homepage/global settings, programs/division pages, FAQ items, board members, bylaws/calendar metadata.
+4. Keep the public site static. The CMS should generate/edit repository content, not introduce a runtime app server.
+5. Configure Cloudflare Worker auth before inviting board members.
+6. Verify board-editor flow before launch: login, edit draft/content, commit through CMS, Vercel deploys, public page updates.
+
+**Open questions for Jeff before implementation:**
+- Which board members need access first, and what email addresses should be authorized?
+- Should board edits commit directly to `staging`, or open PRs for review before launch?
+- Which content must be editable on day one versus safe to leave in HTML until after launch?
 
 ---
 
@@ -627,7 +655,7 @@ Read CLAUDE.md and brand-voice.md first. Then read HANDOFF.md for the detailed d
 Repo: /Users/jeff/AI Projects/NXTLVL-Digital/Clients/LYHA/lyha-website
 Live: https://lyha-website.vercel.app
 
-Build the FAQ page (/faq/) first — it has no content dependencies and the placeholder content is specified in HANDOFF.md. Use mites/index.html as the template.
+Current priority: CMS is now phase 1. Add Sveltia CMS at /admin with Cloudflare Worker auth so board members can edit before public launch. If working on pages first, use HANDOFF.md specs and keep content CMS-ready.
 
 Rules: no em dashes, no "skater" in parent-facing copy, no SportsEngine links, contact-first registration flow, one commit per page, push after each commit.
 ```
@@ -659,6 +687,14 @@ Before the remaining 4 content-gated pages can be finalized, Jeff needs to provi
 - [ ] Confirm game counts: Peewee 10-15, Bantams 15-20, U15 20+
 - [ ] Confirm overnight trip frequency per division
 - [ ] Coaching staff (placeholder on all pages — confirm in July)
+
+**CMS editor access (phase 1 launch requirement):**
+- [ ] Confirm board member emails for CMS auth
+- [ ] Confirm whether CMS edits should commit to staging directly or open PRs
+- [ ] Confirm day-one editable content scope
+- [ ] Add Sveltia CMS at `/admin/`
+- [ ] Configure Cloudflare Worker auth with `sveltia-cms-auth`
+- [ ] Verify board login/edit/deploy flow before launch
 
 **Homepage Programs restructure (needs Jeff sign-off before executing):**
 - [ ] Jeff approves the 6-row restructure + age finder table design

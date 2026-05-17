@@ -1,12 +1,47 @@
 {
-  "intro": "The LYHA board is made up of parent volunteers. Board roster details will be finalized before launch.",
+  "intro": "The LYHA board is made up of parent volunteers who help support the season, answer family questions, and keep the Coyotes moving.",
   "members": [
     {
-      "name": "Board roster pending",
-      "role": "2026-27 Board",
+      "name": "Brandon Brown",
+      "role": "President",
       "email": "",
       "photo": "",
-      "bio": "Board member names, roles, photos, and short bios will be added here when provided by LYHA."
+      "bio": "Board member details will be finalized before launch."
+    },
+    {
+      "name": "Brent Whorley",
+      "role": "Vice President",
+      "email": "",
+      "photo": "",
+      "bio": "Bio coming soon."
+    },
+    {
+      "name": "Jeff Boetger",
+      "role": "Head of Coaches",
+      "email": "",
+      "photo": "",
+      "bio": "Bio coming soon."
+    },
+    {
+      "name": "Amanda Boyer",
+      "role": "Treasurer",
+      "email": "",
+      "photo": "",
+      "bio": "Board member details will be finalized before launch."
+    },
+    {
+      "name": "Rebecca Todd",
+      "role": "Secretary",
+      "email": "",
+      "photo": "",
+      "bio": "Board member details will be finalized before launch."
+    },
+    {
+      "name": "Jeff Walker",
+      "role": "Marketing/IT",
+      "email": "",
+      "photo": "",
+      "bio": "Bio coming soon."
     }
   ]
 }

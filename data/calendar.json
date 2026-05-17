@@ -1,5 +1,5 @@
 {
   "status_message": "The 2026-27 schedule will be published here in August. Reach out to be added to the list.",
-  "sportsengine_embed_url": "",
-  "notes": "Add the SportsEngine iframe URL here once LYHA provides the organization calendar embed code."
+  "sportsengine_embed_url": "https://calendar.google.com/calendar/embed?src=78b640fee160c02a9a71b06b7ff6204ca81f8422735d4bb149a83e62a3d87f30%40group.calendar.google.com&ctz=America%2FNew_York",
+  "notes": "Public LYHA Google Calendar embed reused from the existing site. Calendar source currently has no future events as of 2026-05-17."
 }

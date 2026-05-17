@@ -1,0 +1,84 @@
+name: CMS Backup Snapshot
+
+on:
+  schedule:
+    # Daily at 6:15 AM UTC. Keeps at least a 30-day restore trail for CMS edits.
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: Branch or ref to snapshot
+        required: false
+        default: staging
+      retention_days:
+        description: Backup tag retention window
+        required: false
+        default: '30'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cms-backup-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    name: Create CMS restore snapshot
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_REF: ${{ github.event.inputs.source_ref || 'staging' }}
+      RETENTION_DAYS: ${{ github.event.inputs.retention_days || '30' }}
+
+    steps:
+      - name: Check out source branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_REF }}
+          fetch-depth: 0
+
+      - name: Create timestamped backup tag
+        id: backup
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          timestamp="$(date -u +'%Y-%m-%d-%H%M%S')"
+          tag="cms-backups/${timestamp}"
+          commit="$(git rev-parse HEAD)"
+
+          git tag -a "$tag" "$commit" -m "LYHA CMS backup snapshot for ${SOURCE_REF} at ${timestamp} UTC"
+          git push origin "refs/tags/${tag}"
+
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+          echo "commit=${commit}" >> "$GITHUB_OUTPUT"
+
+      - name: Prune backup tags older than retention window
+        run: |
+          set -euo pipefail
+
+          case "$RETENTION_DAYS" in
+            ''|*[!0-9]*)
+              echo "Invalid RETENTION_DAYS '$RETENTION_DAYS'; using 30."
+              RETENTION_DAYS=30
+              ;;
+          esac
+
+          cutoff="$(date -u -d "${RETENTION_DAYS} days ago" +%s)"
+
+          git fetch --tags --force
+          git for-each-ref refs/tags/cms-backups --format='%(refname:short) %(creatordate:unix)' |
+          while read -r tag created_at; do
+            if [ -n "$created_at" ] && [ "$created_at" -lt "$cutoff" ]; then
+              echo "Pruning expired backup tag: $tag"
+              git push origin ":refs/tags/$tag"
+            fi
+          done
+
+      - name: Summary
+        run: |
+          echo "Created backup tag: ${{ steps.backup.outputs.tag }}"
+          echo "Snapshot commit: ${{ steps.backup.outputs.commit }}"
+          echo "Retention window: ${RETENTION_DAYS} days"

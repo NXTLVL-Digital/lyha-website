@@ -16,7 +16,7 @@ Two journey scales the site has to serve:
 - *Immediate / this-season*: how to sign up, when does it start, where to skate, what gear, who to ask.
 - *Long-arc / 6 to 16*: what's the path forward, what does each year look like, is hockey a real future for our kid.
 
-Phase 1 delivers the immediate journey fully and plants seeds for the long-arc journey, which phase 2 fulfills.
+Phase 1 delivers the immediate journey fully, includes board-editable CMS access before public launch, and plants seeds for the long-arc journey, which phase 2 fulfills.
 
 ## Stack and architecture
 
@@ -24,7 +24,7 @@ Phase 1 delivers the immediate journey fully and plants seeds for the long-arc j
 - **Hosting**: Vercel. Project name `lyha-website`. Auto-deploys on every push to `main`. Live at `https://lyha-website.vercel.app`.
 - **Domain**: `lynchburg.hockey` is registered at GoDaddy. DNS will repoint to Vercel when phase 1 launches. The old GoDaddy hosting will be cancelled at the same time.
 - **Build**: no build step. Plain HTML, CSS, vanilla JS. Vercel serves the repo root as static.
-- **Phase 2 CMS**: Sveltia CMS at `/admin`, git-backed (free, no editor cap). Editor auth via a Cloudflare Worker running `sveltia-cms-auth` (free tier).
+- **Phase 1 CMS**: Sveltia CMS at `/admin`, git-backed (free, no editor cap). Editor auth via a Cloudflare Worker running `sveltia-cms-auth` (free tier). This must be available to board members before the public site launch so they can make updates during review. Repo-side CMS files now live in `/admin/`, with first editable content data in `/data/*.json`; Cloudflare Worker auth still needs deployment and `base_url` wiring.
 - **Phase 2 shop**: Fourthwall print-on-demand, embedded at `/shop`.
 
 ## Files in this repo
@@ -103,19 +103,21 @@ When designing a new page, prefer reusing these. New components should use exist
 - Peewee page (`/peewee/`) — travel hockey, ages 11-12, tryout flow, 10-15 games, overnight possible. Done 2026-05-12.
 - Bantams page (`/bantams/`) — travel hockey, ages 13-14, tryout flow, 15-20 games, overnight expected. Done 2026-05-12.
 - U15 page (`/u15/`) — travel hockey, ages 14-15, tryout flow, 20+ games, overnight expected. Done 2026-05-12.
+- FAQ page (`/faq/`) — general/sitewide FAQ. Done 2026-05-13.
 - Brand voice doc
 - Shared `styles.css` (extracted from inline CSS — all new pages use this)
 - `/assets/coyote-mark.webp` — single logo file used everywhere (46 KB WebP; replaces 447 KB+ base64 per page)
 - `/assets/favicon.ico` + `/assets/apple-touch-icon.png`
 - OG + Twitter card meta on all pages
 
-**Remaining phase 1 pages (5):**
+**Remaining phase 1 work:**
 
 1. **About** (`/about/`) — org mission, story, USA Hockey/PVAHA affiliations. Includes the mission statement (a List 2 priority-1 item to bring into phase 1).
 2. **Our Board** (`/board/`) — board member names, photos, roles.
 3. **Bylaws** (`/bylaws/`) — long-form governance doc with download link.
-4. **FAQs** (`/faq/`) — general/sitewide FAQ, distinct from the per-division FAQs that live on each division page.
-5. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
+4. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
+5. **CMS editor access** (`/admin/`) — Sveltia CMS plus Cloudflare auth so LYHA board members can update content before the site goes live. This is now a phase 1 launch requirement, not phase 2.
+6. **Homepage Programs restructure** — 6 individual program rows plus age finder, after Jeff approval.
 
 **Registration link policy (decided 2026-05-12):** Do NOT link to SportsEngine directly on any page. Links change every season and old links have caused misdirected payments. Flow: parent contacts LYHA via email → board sends current link. All pages use this flow. Mites sign-up section rewritten 2026-05-12 to contact-first, 3-step flow (CTA: mailto:info@lynchburg.hockey).
 
@@ -141,7 +143,7 @@ Target: 6 rows, each linking to a real division page. Also add a small "find you
 - **Season Info / tuition transparency** — phase 1 cost slot on division pages has placeholder copy; phase 2 drops the real tuition table into the same slot.
 - **Staff Directory** — expansion of Our Board page with full bios, coaching backgrounds, photos.
 - **Shop** — Fourthwall embedded at `/shop`.
-- **Sveltia CMS** at `/admin` — full editor flow for board members. Auth via Cloudflare Worker (`sveltia-cms-auth`).
+- **Additional CMS content models** after the phase 1 editor launch. Phase 1 must provide board-editable content for launch-critical updates; phase 2 can expand the editor surface.
 - **Org structure / hierarchy page** — nice-to-have visual chart.
 - **Alumni page** — nice-to-have.
 
@@ -158,8 +160,9 @@ Target: 6 rows, each linking to a real division page. Also add a small "find you
 
 1. **Jeff reviews all four division pages** (Squirts, Peewee, Bantams, U15) for accuracy. Content is best-guess placeholder. Corrections go into the HTML directly.
 2. **Homepage Programs section restructure** — all 5 division pages now exist. The Programs section should be restructured from 4 rows to 6: Learn to Play, Mites, Squirts, Peewee, Bantams, U15. Add a mini "find your division by age" table. This is the largest information-architecture improvement remaining in phase 1. Confirm with Jeff before executing.
-3. **Author the remaining 5 phase 1 pages**: About, Our Board, Bylaws, FAQs, Calendar. Each needs content from Jeff first.
-4. **Verify after every deploy**: hit the new URL, check HTTP 200, grep for em dashes and "skater" in the file.
+3. **Author the remaining phase 1 pages**: About, Our Board, Bylaws, Calendar. Each needs content from Jeff first.
+4. **Add phase 1 CMS editor access**: create `/admin/` with Sveltia CMS, define the first editable content collections, and deploy Cloudflare Worker auth so board members can log in before launch.
+5. **Verify after every deploy**: hit the new URL, check HTTP 200, grep for em dashes and "skater" in the file.
 
 ## What NOT to do
 
@@ -237,4 +240,4 @@ curl -s https://lyha-website.vercel.app/<path>/ | grep -o "<title>[^<]*</title>"
 
 ---
 
-*This file was authored in a Cowork (Claude desktop) session on 2026-05-12 covering the initial homepage approval, Mites page rewrite, and migration off Surge to Vercel + GitHub. Update this file when major decisions change.*
+*This file was authored in a Cowork (Claude desktop) session on 2026-05-12 covering the initial homepage approval, Mites page rewrite, and migration off Surge to Vercel + GitHub. Updated 2026-05-13: CMS moved into phase 1 because board members need editor access before launch. Update this file when major decisions change.*

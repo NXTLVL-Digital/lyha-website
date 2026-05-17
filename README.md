@@ -6,6 +6,8 @@ Static HTML site for the Lynchburg Youth Hockey Association (Hill City Coyotes).
 
 - `/` — Homepage
 - `/mites/` — Mites (U8) division page
+- `/faq/` — Sitewide FAQ
+- `/admin/` — Sveltia CMS editor for Phase 1 board updates
 
 ## Hosting
 
@@ -13,4 +15,4 @@ Auto-deployed via Vercel on every push to `main`.
 
 ## Stack
 
-Plain HTML/CSS/JS. No build step. Phase 2 will introduce Sveltia CMS at `/admin` for content editing.
+Plain HTML/CSS/JS. No build step. Phase 1 now includes Sveltia CMS at `/admin` for board-member content editing before public launch.

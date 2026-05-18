@@ -60,10 +60,10 @@
   .nav-brand span:last-child { color: var(--bone-dim); font-weight: 500; }
   .nav-links {
     display: flex;
-    gap: 36px;
+    gap: 34px;
     font-family: var(--athletic);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
@@ -83,6 +83,51 @@
   }
   .nav-links a:hover { color: var(--green-bright); }
   .nav-links a:hover::after { width: 100%; }
+  .nav-item { position: relative; }
+  .nav-link-main { display: inline-flex; align-items: center; gap: 7px; }
+  .nav-link-main::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--bone-mute);
+    order: 2;
+    transform: translateY(1px);
+  }
+  .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    transform: translate(-50%, 8px);
+    min-width: 190px;
+    padding: 14px;
+    display: grid;
+    gap: 10px;
+    background: rgba(10, 22, 16, 0.96);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  }
+  .nav-dropdown a {
+    display: block;
+    padding: 7px 8px;
+    color: var(--bone);
+    white-space: nowrap;
+  }
+  .nav-dropdown a::after { display: none; }
+  .nav-dropdown a:hover { color: var(--green-bright); }
+  .nav-has-dropdown:hover .nav-dropdown,
+  .nav-has-dropdown:focus-within .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
   .nav-cta {
     font-family: var(--athletic);
     font-weight: 700;
@@ -1010,7 +1055,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: 22px;
       background: rgba(10, 22, 16, 0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -1020,6 +1065,24 @@
       padding: 96px 24px 32px;
     }
     .nav.open .nav-links a { padding: 6px 0; }
+    .nav.open .nav-item { text-align: center; }
+    .nav.open .nav-dropdown {
+      position: static;
+      transform: none;
+      min-width: 0;
+      padding: 6px 0 0;
+      display: grid;
+      gap: 4px;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+    }
+    .nav.open .nav-dropdown a { color: var(--bone-mute); }
 
     /* Hero — tighten typography for narrow screens */
     .hero h1 { font-size: clamp(40px, 11vw, 64px); margin-bottom: 24px; }

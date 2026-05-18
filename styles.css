@@ -1,7 +1,6 @@
 /* Lynchburg Youth Hockey Association — Shared Stylesheet */
 
-<style>
-  :root {
+:root {
     --ink: #0a1610;        /* deeper than #132D1C, used for the page bg */
     --forest: #132D1C;     /* primary brand dark */
     --forest-2: #1a3825;

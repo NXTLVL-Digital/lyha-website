@@ -1080,32 +1080,39 @@
     .nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
     .nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Mobile menu drawer. Keep the fixed nav itself full-screen so iOS Safari
-       does not place a fixed child behind the page content. */
+    /* Mobile menu drawer. Use a real opaque overlay above the page so iOS
+       Safari never shows the hero/coyote artwork through the open menu. */
     .nav.open {
       bottom: 0;
       min-height: 100vh;
       min-height: 100dvh;
       align-items: flex-start;
-      background: rgba(10, 22, 16, 0.98);
+      background: var(--ink);
       overflow-y: auto;
     }
+    .nav.open::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      z-index: 104;
+    }
+    .nav.open .nav-brand,
+    .nav.open .nav-toggle { position: relative; z-index: 112; }
     .nav.open .nav-cta { display: none; }
     .nav.open .nav-links {
       display: flex;
-      position: absolute;
-      top: 76px; left: 0; right: 0;
-      min-height: calc(100vh - 76px);
-      min-height: calc(100dvh - 76px);
+      position: fixed;
+      inset: 0;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       gap: 22px;
-      background: transparent;
-      z-index: 105;
+      background: var(--ink);
+      z-index: 111;
       font-size: 22px;
       letter-spacing: 0.16em;
-      padding: 36px 24px 48px;
+      padding: 118px 24px 48px;
       overflow-y: auto;
     }
     .nav.open .nav-links a { padding: 6px 0; }

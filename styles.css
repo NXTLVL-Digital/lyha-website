@@ -915,6 +915,31 @@
     line-height: 1.6;
   }
 
+  .contact-form-embed {
+    width: min(100%, 620px);
+    margin: 52px auto 0;
+    padding: 10px;
+    background: rgba(244, 241, 234, 0.04);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  }
+  .contact-form-embed iframe {
+    display: block;
+    width: 100%;
+    min-height: 600px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffffff;
+  }
+  @media (max-width: 600px) {
+    .contact-form-embed {
+      margin-top: 36px;
+      padding: 6px;
+    }
+    .contact-form-embed iframe { min-height: 640px; }
+  }
+
   /* ============ FOOTER ============ */
   footer {
     background: var(--black);

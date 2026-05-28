@@ -23,8 +23,11 @@ jobs:
 
       - name: Deploy static site to Vercel production
         env:
+          CI: "1"
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_O9XGb6qxSl1cP1v5J6zMV8cd
+          VERCEL_PROJECT_ID: prj_xIcZBHKsJpqjCBeo9Tk0N2FWDLFD
         run: |
           set -euo pipefail
           test -n "$VERCEL_TOKEN"
-          npx --yes vercel@latest deploy --prod --yes --force --token "$VERCEL_TOKEN"
+          timeout 180s npx --yes vercel@latest deploy . --prod --yes --force --token "$VERCEL_TOKEN"

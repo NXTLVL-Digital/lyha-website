@@ -1,0 +1,30 @@
+name: Deploy CMS Production
+
+on:
+  push:
+    branches: [cms-production]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-cms-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy cms-production to Vercel
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out cms-production
+        uses: actions/checkout@v4
+
+      - name: Deploy static site to Vercel production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "$VERCEL_TOKEN"
+          npx --yes vercel@latest deploy --prod --yes --force --token "$VERCEL_TOKEN"

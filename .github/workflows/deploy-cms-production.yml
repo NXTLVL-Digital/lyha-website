@@ -21,13 +21,22 @@ jobs:
       - name: Check out cms-production
         uses: actions/checkout@v4
 
-      - name: Deploy static site to Vercel production
+      - name: Prepare clean static deploy folder
         env:
-          CI: "1"
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: team_O9XGb6qxSl1cP1v5J6zMV8cd
           VERCEL_PROJECT_ID: prj_xIcZBHKsJpqjCBeo9Tk0N2FWDLFD
         run: |
           set -euo pipefail
+          mkdir -p /tmp/lyha-vercel-deploy/.vercel
+          rsync -a --exclude='.git' --exclude='.github' --exclude='.vercel' ./ /tmp/lyha-vercel-deploy/
+          printf '{"projectId":"%s","orgId":"%s","projectName":"lyha-website"}' "$VERCEL_PROJECT_ID" "$VERCEL_ORG_ID" > /tmp/lyha-vercel-deploy/.vercel/project.json
+
+      - name: Deploy static site to Vercel production
+        working-directory: /tmp/lyha-vercel-deploy
+        env:
+          CI: "1"
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
           test -n "$VERCEL_TOKEN"
-          timeout 180s npx --yes vercel@latest deploy . --prod --yes --force --token "$VERCEL_TOKEN"
+          npx --yes vercel@latest deploy --prod --yes --force --token "$VERCEL_TOKEN"

@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: NXTLVL-Digital/lyha-website
-  branch: staging
+  branch: cms-edits
   base_url: https://lyha-cms-auth.pro-62c.workers.dev
 
 media_folder: assets/uploads

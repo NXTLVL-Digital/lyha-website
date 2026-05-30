@@ -1050,7 +1050,11 @@
     .btn-primary, .btn-ghost { justify-content: center; width: 100%; }
 
     /* Nav: bring brand text closer, compact CTA, add hamburger */
-    .nav { padding: 14px 20px; gap: 10px; }
+    .nav {
+      padding: 14px 20px;
+      gap: 10px;
+      background: rgba(10, 22, 16, 0.94);
+    }
     .nav-brand { font-size: 16px; gap: 10px; letter-spacing: 0.10em; }
     .nav-brand img { height: 32px; }
     .nav-cta { padding: 9px 14px; font-size: 12px; letter-spacing: 0.14em; }
@@ -1067,7 +1071,7 @@
       border: none;
       cursor: pointer;
       gap: 5px;
-      z-index: 110;
+      z-index: 120;
     }
     .nav-toggle span {
       display: block;
@@ -1076,12 +1080,6 @@
       background: var(--bone);
       transition: transform 0.25s ease, opacity 0.2s ease;
     }
-    .nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
-    .nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile menu drawer. Use a real opaque overlay above the page so iOS
-       Safari never shows the hero/coyote artwork through the open menu. */
     .nav.open {
       bottom: 0;
       min-height: 100vh;
@@ -1090,29 +1088,34 @@
       background: var(--ink);
       overflow-y: auto;
     }
-    .nav.open::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: var(--ink);
-      z-index: 104;
-    }
     .nav.open .nav-brand,
-    .nav.open .nav-toggle { position: relative; z-index: 112; }
+    .nav.open .nav-toggle {
+      position: relative;
+      z-index: 120;
+    }
     .nav.open .nav-cta { display: none; }
+    .nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu drawer sits inside the full-screen nav for Safari-safe coverage. */
     .nav.open .nav-links {
       display: flex;
-      position: fixed;
-      inset: 0;
+      position: absolute;
+      top: 76px;
+      left: 0;
+      right: 0;
+      min-height: calc(100vh - 76px);
+      min-height: calc(100dvh - 76px);
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       gap: 22px;
-      background: var(--ink);
-      z-index: 111;
+      background: transparent;
+      z-index: 110;
       font-size: 22px;
       letter-spacing: 0.16em;
-      padding: 118px 24px 48px;
+      padding: 28px 24px 32px;
       overflow-y: auto;
     }
     .nav.open .nav-links a { padding: 6px 0; }

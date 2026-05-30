@@ -27,7 +27,7 @@ Set these in Cloudflare Worker settings, not in git:
 ```text
 GITHUB_CLIENT_ID=<from GitHub OAuth app>
 GITHUB_CLIENT_SECRET=<from GitHub OAuth app, encrypted>
-ALLOWED_DOMAINS=lyha-website.vercel.app, lynchburg.hockey, www.lynchburg.hockey
+ALLOWED_DOMAINS=lyha-website.vercel.app, lynchburgyouthhockey.com, www.lynchburgyouthhockey.com
 ```
 
 ## Repo config update after deployment

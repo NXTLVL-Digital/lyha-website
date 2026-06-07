@@ -6,6 +6,12 @@ Keep Wayne G. inside the LYHA website repo for the first implementation, but dra
 
 This avoids slowing down LYHA while still preventing us from hard-coding Wayne G. so tightly that he cannot be reused for future clients.
 
+## Product goal
+
+Wayne G. should eventually be cloneable as a complete admin chat experience for future clients: auth, chat UI, preview pane, approval flow, Git-backed publishing, and restore support.
+
+Each cloned/client installation must be isolated by configuration and permissions. A client-specific Wayne G. instance may only read and edit that client’s approved content paths, follow that client’s rules and brand voice, and use that client’s allowed editor list. LYHA data, prompts, board users, and rules must never leak into another client installation.
+
 ## Why not create a separate repo today?
 
 A standalone repo is the right long-term destination, but not the best first move today because:
@@ -17,7 +23,7 @@ A standalone repo is the right long-term destination, but not the best first mov
 
 ## Extraction-ready shape
 
-Build Wayne G. as three layers:
+Build Wayne G. as four layers:
 
 1. **Reusable core**
    - Auth/session utilities
@@ -27,15 +33,24 @@ Build Wayne G. as three layers:
    - Backup/restore helpers
    - GitHub commit helpers
 
-2. **Client adapter**
+2. **Reusable admin chat page**
+   - Split-screen chat + preview UI
+   - Mode toggle
+   - Approval controls
+   - Usage meter
+   - Standard onboarding/help copy slots
+   - Client theme hooks, without client-specific content baked in
+
+3. **Client adapter**
    - Client name and site URL
    - Allowed emails/domains
    - Brand voice file paths
    - Editable content paths
    - Preview branch and publish branch
    - Budget caps
+   - Explicit denied paths and files
 
-3. **Client UI skin**
+4. **Client UI skin**
    - Logo/name/colors
    - Admin welcome copy
    - Preview iframe target
@@ -102,8 +117,11 @@ Each future client should provide a small config like:
 
 ## Guardrails
 
+- Finish the LYHA implementation first. Do not split Wayne G. into a separate repo until the LYHA flow works end to end.
 - Keep LYHA public site staging/preview-first.
 - Do not let Wayne G. directly publish to production without explicit approval.
-- Keep client brand voice and allowed editors out of shared core code.
+- Keep client brand voice, editable paths, allowed editors, budget caps, and client rules out of shared core code.
+- Enforce data isolation at the adapter level: one client instance must not read another client’s repo, prompts, files, KV namespace, logs, or editor sessions.
+- Prefer per-client Cloudflare Worker/KV bindings and per-client GitHub permissions over one shared worker with broad access.
 - Keep secrets in Cloudflare/GitHub settings, never in git.
 - Treat Git commits as the audit/restore source of truth.

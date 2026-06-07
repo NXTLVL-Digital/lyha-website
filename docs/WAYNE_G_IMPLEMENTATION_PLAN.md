@@ -3,7 +3,7 @@
 **Project:** LYHA Admin Chat Assistant  
 **Agent Name:** Wayne G.  
 **Powered by:** NXTLVL-Digital AI  
-**Current decision:** Keep Wayne G. inside the LYHA repo for the first client implementation, but design clean boundaries so the reusable core can be extracted into a future private `NXTLVL-Digital/wayne-g` repo.
+**Current decision:** Finish LYHA first. Keep Wayne G. inside the LYHA repo for the first client implementation, but design the complete admin chat page and backend with clean boundaries so they can later be cloned or extracted into a future private `NXTLVL-Digital/wayne-g` repo for other clients.
 
 ## Goal
 
@@ -19,6 +19,8 @@ Replace the traditional CMS requirement with a friendly, gated AI chat interface
 - Staging/preview-first before production.
 - No secrets committed to git.
 - Build as extractable client-product code, not LYHA-only spaghetti.
+- Future client clones must include the full admin chat page, preview pane, approval flow, and backend, while using only that client’s configured repo/files/rules/brand voice.
+- Prefer per-client credentials, storage, workers, and GitHub permissions so one client instance cannot access another client’s data.
 
 ---
 

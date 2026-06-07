@@ -1,0 +1,18 @@
+name = "wayne-g-auth"
+main = "src/index.js"
+compatibility_date = "2024-10-01"
+
+[vars]
+CLIENT_ID = "lyha"
+CLIENT_NAME = "Lynchburg Youth Hockey Association"
+ADMIN_REDIRECT_PATH = "/admin/"
+SESSION_COOKIE_NAME = "wayne_g_lyha_session"
+ALLOWED_EMAILS = "president@lynchburgyouthhockey.com,vicepresident@lynchburgyouthhockey.com,secretary@lynchburgyouthhockey.com,treasurer@lynchburgyouthhockey.com,headofcoaches@lynchburgyouthhockey.com,marketing@lynchburgyouthhockey.com"
+ALLOWED_DOMAINS = "liberty.edu"
+
+[[kv_namespaces]]
+binding = "AUTH_KV"
+id = "f22596ecdc7945a68a607c36765eea51"
+
+[triggers]
+crons = []

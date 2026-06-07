@@ -116,7 +116,7 @@ When designing a new page, prefer reusing these. New components should use exist
 2. **Our Board** (`/board/`) — board member names, photos, roles.
 3. **Bylaws** (`/bylaws/`) — long-form governance doc with download link.
 4. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
-5. **CMS editor access** (`/admin/`) — Sveltia CMS plus Cloudflare auth so LYHA board members can update content before the site goes live. This is now a phase 1 launch requirement, not phase 2.
+5. **CMS editor access** (`/admin/`) — Replaced with Wayne G., an NXTLVL-Digital AI chat assistant. Board members describe copy changes in natural language. Wayne G. must show a preview, require explicit approval before GitHub commits, keep 30-day restore support, enforce usage caps, and be built as a cloneable future client admin chat page with strict per-client data, rules, and brand-voice isolation. See `docs/WAYNE_G_IMPLEMENTATION_PLAN.md` and `docs/WAYNE_G_REUSABLE_ARCHITECTURE.md`.
 6. **Homepage Programs restructure** — 6 individual program rows plus age finder, after Jeff approval.
 
 **Registration link policy (decided 2026-05-12):** Do NOT link to SportsEngine directly on any page. Links change every season and old links have caused misdirected payments. Flow: parent contacts LYHA via email → board sends current link. All pages use this flow. Mites sign-up section rewritten 2026-05-12 to contact-first, 3-step flow (CTA: mailto:info@lynchburg.hockey).

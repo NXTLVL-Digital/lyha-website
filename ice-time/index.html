@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ice Time · Lynchburg Youth Hockey Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============ ICE TIME PAGE ============ */
+  .div-hero {
+    position: relative;
+    padding: 160px 48px 100px;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(6, 123, 63, 0.22), transparent 55%),
+      radial-gradient(ellipse at 15% 90%, rgba(19, 45, 28, 0.55), transparent 60%),
+      var(--ink);
+    overflow: hidden;
+  }
+  .div-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(115deg,
+        transparent 0, transparent 40px,
+        rgba(244, 241, 234, 0.015) 40px,
+        rgba(244, 241, 234, 0.015) 41px);
+    pointer-events: none;
+  }
+  .div-hero-inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  .div-hero-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 36px;
+    transition: color 0.2s ease;
+  }
+  .div-hero-back:hover { color: var(--green-bright); }
+  .div-hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 100px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 16px 0 28px;
+    font-variation-settings: "opsz" 144;
+  }
+  .div-hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--green-bright);
+  }
+  .div-hero-lede {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(18px, 2.2vw, 26px);
+    line-height: 1.35;
+    color: var(--bone-dim);
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+
+  .section {
+    padding: 64px 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+  .section h2 {
+    font-family: var(--display);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    margin: 0 0 24px;
+    color: var(--bone);
+  }
+  .section h3 {
+    font-family: var(--athletic);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0 0 16px;
+  }
+  .section p, .section li {
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--bone-dim);
+  }
+  .section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .section ul li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+  .divider {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+  .info-card {
+    background: rgba(6, 123, 63, 0.08);
+    border: 1px solid rgba(6, 123, 63, 0.2);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+  }
+  .info-card h3 {
+    margin-top: 0;
+  }
+  .info-card p { margin-bottom: 12px; }
+  .info-card p:last-child { margin-bottom: 0; }
+
+  .gear-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .gear-item {
+    background: rgba(244, 241, 234, 0.04);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .gear-item strong {
+    display: block;
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--bone);
+    margin-bottom: 6px;
+  }
+  .gear-item span {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--bone-dim);
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 24px;
+  }
+  .comparison-col h3 {
+    margin-bottom: 12px;
+  }
+  .comparison-col ul {
+    margin-bottom: 20px;
+  }
+
+  .next-card {
+    background: linear-gradient(135deg, var(--green), var(--green-bright));
+    border-radius: 8px;
+    padding: 40px 48px;
+    margin-top: 64px;
+    text-align: center;
+  }
+  .next-card h3 {
+    color: var(--bone);
+    margin: 0 0 16px;
+  }
+  .next-card p {
+    color: var(--bone);
+    max-width: 560px;
+    margin: 0 auto 24px;
+  }
+  .next-card a {
+    color: var(--ink);
+  }
+
+  .final-cta {
+    text-align: center;
+    padding: 48px 24px 64px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .final-cta p {
+    font-family: var(--display);
+    font-size: 22px;
+    color: var(--bone-dim);
+    margin-bottom: 24px;
+  }
+  .final-cta .btn-row {
+    display: inline-flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .div-hero { padding: 120px 24px 64px; }
+    .section, .section-inner { padding: 48px 24px; }
+    .comparison-grid { grid-template-columns: 1fr; gap: 24px; }
+    .gear-list { grid-template-columns: 1fr 1fr; }
+    .info-card { padding: 24px; }
+    .next-card { padding: 32px 24px; }
+  }
+  @media (max-width: 480px) {
+    .gear-list { grid-template-columns: 1fr; }
+  }
+</style>
+<link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
+<meta property="og:title" content="Ice Time · Lynchburg Youth Hockey" />
+<meta property="og:description" content="Public skating, open hockey, and drop-in sessions at local rinks. Get your child on the ice before joining a full program." />
+<meta property="og:url" content="https://lynchburg.hockey/ice-time/" />
+<meta property="og:image" content="https://lynchburg.hockey/assets/coyote-mark.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <img src="/assets/coyote-mark.webp" alt="Lynchburg Coyotes" />
+    <span>Lynchburg</span>
+    <span>Coyotes</span>
+  </a>
+  <div class="nav-links" id="primary-nav">
+    <div class="nav-item nav-has-dropdown">
+      <a href="/#programs" class="nav-link-main">Programs</a>
+      <div class="nav-dropdown" aria-label="Programs submenu">
+      <a href="/ice-time/">Ice Time</a>
+      <a href="/learn-to-play/">Learn to Play</a>
+      <a href="/mites/">Mites (U8)</a>
+      <a href="/squirts/">Squirts (U10)</a>
+      <a href="/peewee/">Peewee (U12)</a>
+      <a href="/bantams/">Bantams (U14)</a>
+      <a href="/u16/">U16</a>
+      </div>
+    </div>
+    <div class="nav-item nav-has-dropdown">
+      <a href="/about/" class="nav-link-main">About</a>
+      <div class="nav-dropdown" aria-label="About submenu">
+      <a href="/board/">Board</a>
+      <a href="/bylaws/">Bylaws</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
+      <a href="/about/">Our Story</a>
+      </div>
+    </div>
+    <a href="/calendar/">Calendar</a>
+    <a href="https://shop.lynchburgyouthhockey.com/">Shop</a>
+  </div>
+  <a href="/#sign-up" class="nav-cta">Register</a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="div-hero">
+  <div class="div-hero-inner">
+    <a href="/#programs" class="div-hero-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Programs
+    </a>
+    <div class="section-label">Where to Start · No Program Needed</div>
+    <h1>Get on the<br/><em>ice first.</em></h1>
+    <p class="div-hero-lede">
+      Before joining a team or signing up for a full program, most kids skate the public sessions at the rink. This page explains where to go, what to expect, and how to get your child on the ice for the first time.
+    </p>
+    <div class="hero-cta-row" style="margin-bottom: 64px;">
+      <a href="#lahey" class="btn-primary">
+        Start in Lynchburg
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#comparison" class="btn-ghost">Compare Options</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: LAHAYE ICE CENTER -->
+<section class="section-inner" id="lahey">
+  <div class="info-card">
+    <h3>First choice: LaHaye Ice Center</h3>
+    <p>
+      <a href="https://libertyclubsports.com/sports/2023/11/14/lahaye-ice-center/" target="_blank" rel="noopener">LaHaye Ice Center</a> is in Lynchburg, right on the campus of <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a>. It is the home rink for LYHA, the Hill City Coyotes, and many Liberty hockey programs.
+    </p>
+    <h3>Public Skate</h3>
+    <p>
+      Any kid can walk in and skate during public sessions. You buy a skate ticket at the door. Full ice gear is recommended, but the minimum is gloves, helmet, and a stick. Most kids show up in their own gear, though a lot of rinks also offer skate rentals.
+    </p>
+    <h3>Open Youth Hockey</h3>
+    <p>
+      Open Youth Hockey is the public drop-in hockey session. Bring your stick, gloves, and helmet, skate out to a line on the glass, and throw your puck in. Any kid on the ice gets a turn. It is typically around <strong>$10 per player</strong>, though prices shift with the rink schedule. Open sessions are a great way for a kid to get used to skating in a hockey setting before any formal practice.
+    </p>
+    <p>
+      <strong>Address:</strong> 1971 University Blvd, Lynchburg, VA 24515
+    </p>
+    <p>
+      <strong>Phone:</strong> <a href="tel:4345923953">(434) 592-3953</a>
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SECTION 2: WHY LIMITED -->
+<section class="section-inner">
+  <h3>Why ice time can be limited at LaHaye</h3>
+  <p>
+    LaHaye is the only rink in the area, and it supports more programs than there are ice hours in a day. During any given week you will find Liberty University men's and women's ACHA hockey, figure skating, Learn to Skate, adult hockey, youth hockey, and independent programs like FCA Hockey and Rusty Blades Ice Hockey Club all sharing the same sheet. That means public sessions can sell out, and the schedule shifts with the season.
+  </p>
+  <p>
+    <strong>Check the rink calendar before you go.</strong> The schedule changes by season and holidays often cancel sessions. If you are planning around a specific day, call the rink or check their posted schedule to confirm.
+  </p>
+</section>
+
+<hr class="divider" />
+
+<!-- SECTION 3: LANCERLOT -->
+<section class="section-inner" id="lanc">
+  <h3>Second option: Lancerlot Sports Complex</h3>
+  <div class="info-card">
+    <p>
+      If LaHaye is full or you want more weekly chances, <a href="https://lancerlotsportscomplex.com/" target="_blank" rel="noopener">Lancerlot Sports Complex</a> in Vinton, VA (about 20 minutes from Lynchburg) is the next stop. Their facility includes a full-size rink and they list Public Skate, Stick &amp; Puck, and Drop-In Hockey sessions on a weekly basis year-round.
+    </p>
+    <h3>Stick &amp; Puck</h3>
+    <p>
+      Stick and Puck is a casual drop-in session. You buy in, grab a puck, and skate. It is a relaxed environment and a good fit for younger kids who want to get reps without organized drills.
+    </p>
+    <h3>Drop-In Hockey</h3>
+    <p>
+      Drop-In Hockey is the closest thing to a full shift. Players line up, the horn sounds, and you play. It is a step up from Stick and Puck in intensity but still open to anyone who shows up.
+    </p>
+    <p>
+      <strong>Address:</strong> 1110 Vinyard Road, Vinton, VA 24179
+    </p>
+    <p>
+      <strong>Schedule:</strong> Monday&ndash;Saturday 5am&ndash;10pm, Sunday 8am&ndash;10pm. Check <a href="https://lancerlotsportscomplex.com/ice-rink-schedule/" target="_blank" rel="noopener">their schedule page</a> for session times.
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SECTION 4: COMPARISON -->
+<section class="section-inner" id="comparison">
+  <h3>Which option fits your family?</h3>
+  <div class="comparison-grid">
+    <div class="comparison-col">
+      <h3>LaHaye Ice Center</h3>
+      <ul>
+        <li>Home of LYHA &middot; right in Lynchburg</li>
+        <li>Public Skate + Open Youth Hockey</li>
+        <li>Typically around $10 per player</li>
+        <li>Short, busy sessions. Book ahead.</li>
+        <li>Best for first-time ice experiences</li>
+      </ul>
+    </div>
+    <div class="comparison-col">
+      <h3>Lancerlot Sports Complex</h3>
+      <ul>
+        <li>Vinton, VA &middot; ~20 min drive</li>
+        <li>Public Skate + Stick &amp; Puck + Drop-In</li>
+        <li>More schedule options year-round</li>
+        <li>Longer, more relaxed sessions</li>
+        <li>Good backup when LaHaye is full</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SECTION 5: WHAT TO BRING -->
+<section class="section-inner">
+  <h3>What to bring</h3>
+  <p>Most kids show up with their own gear. If you are just getting started, here is what you need:</p>
+  <div class="gear-list">
+    <div class="gear-item">
+      <strong>Helmet</strong>
+      <span>A certified hockey helmet (with full face cage) is the only must-have.</span>
+    </div>
+    <div class="gear-item">
+      <strong>Gloves</strong>
+      <span>Any ice hockey gloves are fine. Even thick snow gloves work for the first time on ice.</span>
+    </div>
+    <div class="gear-item">
+      <strong>Stick</strong>
+      <span>A lightweight stick is recommended. Rinks usually sell sticks at the door if you forget one.</span>
+    </div>
+    <div class="gear-item">
+      <strong>Skates</strong>
+      <span>Ice hockey skates. Rental boots are available at both rinks if needed.</span>
+    </div>
+    <div class="gear-item">
+      <strong>Optional</strong>
+      <span>Shin pads, shoulder pads, helmet cage, a puck or two. Start with the basics and add more as you go.</span>
+    </div>
+    <div class="gear-item">
+      <strong>Skate rental</strong>
+      <span>Both rinks offer skate rentals for $3–$5. Call ahead if you want to be sure they have your size.</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- COMPARISON TABLE -->
+<section class="section-inner">
+  <h3>Quick comparison</h3>
+  <table style="width:100%; border-collapse:collapse; margin-top:16px;">
+    <thead>
+      <tr style="border-bottom:2px solid var(--rule); text-align:left;">
+        <th style="padding:12px 16px; font-family:var(--athletic); font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--bone-mute);">Feature</th>
+        <th style="padding:12px 16px; font-family:var(--athletic); font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--green);">LaHaye Ice Center</th>
+        <th style="padding:12px 16px; font-family:var(--athletic); font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--green);">Lancerlot Sports Complex</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--rule);">
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Location</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Lynchburg, VA</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Vinton, VA</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule);">
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Skate sessions</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Public Skate</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Public Skate</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule);">
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Hockey sessions</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Open Youth Hockey</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Stick &amp; Puck, Drop-In</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule);">
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Typical cost</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">~$10/player</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Check rink calendar</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Year-round</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Yes</td>
+        <td style="padding:12px 16px; font-family:var(--body); font-size:15px; color:var(--bone-dim);">Yes</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- CTA -->
+<section class="final-cta">
+  <p>Ready to take the next step?</p>
+  <div class="btn-row">
+    <a href="/learn-to-play/" class="btn-primary">
+      Learn to Play Program
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <a href="mailto:info@lynchburg.hockey" class="btn-ghost">Email Us</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="/assets/coyote-mark.webp" alt="Lynchburg Coyotes" />
+      <p>
+        Lynchburg Youth Hockey Association &middot; Hill City Coyotes. A 501(c)(3) nonprofit committed to ice hockey, character, and community in Central Virginia.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h5>Programs</h5>
+      <ul>
+        <li><a href="/ice-time/">Ice Time</a></li>
+        <li><a href="/learn-to-play/">Learn to Play</a></li>
+        <li><a href="/mites/">Mites (U8)</a></li>
+        <li><a href="/squirts/">Squirts (U10)</a></li>
+        <li><a href="/peewee/">Peewee (U12)</a></li>
+        <li><a href="/bantams/">Bantams (U14)</a></li>
+        <li><a href="/u16/">U16</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Travel Teams</h5>
+      <ul>
+        <li><a href="/mites/">Mites (U8)</a></li>
+        <li><a href="/squirts/">Squirts (U10)</a></li>
+        <li><a href="/peewee/">Peewee (U12)</a></li>
+        <li><a href="/bantams/">Bantams (U14)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="/board/">Our Board</a></li>
+        <li><a href="/faq/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/bylaws/">Bylaws</a></li>
+        <li><a href="/calendar/">Calendar</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Lynchburg Youth Hockey. All Rights Reserved.</div>
+    <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  (function () {
+    const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.nav-toggle');
+    if (!nav || !toggle) return;
+    const setOpen = (open) => {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+    nav.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && nav.classList.contains('open')) setOpen(false);
+    });
+  })();
+</script>
+
+</body>
+</html>

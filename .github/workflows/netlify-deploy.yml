@@ -14,19 +14,23 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build site
-        run: npm run build
+      - name: Prepare static site files
+        run: |
+          mkdir -p netlify-publish
+          rsync -av --delete ./ netlify-publish/ \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='docs' \
+            --exclude='cloudflare' \
+            --exclude='CLAUDE.md' \
+            --exclude='HANDOFF.md' \
+            --exclude='README.md' \
+            --exclude='brand-voice.md' \
+            --exclude='.gitignore' \
+            --exclude='netlify-publish'
 
       - name: Deploy to Netlify
-        run: npx netlify-cli deploy --prod --dir=dist --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
+        run: npx --yes netlify-cli@latest deploy --prod --dir=netlify-publish --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

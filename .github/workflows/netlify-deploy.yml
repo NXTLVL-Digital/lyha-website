@@ -30,7 +30,7 @@ jobs:
             --exclude='netlify-publish'
 
       - name: Deploy to Netlify
-        run: npx --yes netlify-cli@latest deploy --prod --dir=netlify-publish --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
+        run: npx --yes netlify-cli@latest deploy --prod --no-build --dir=netlify-publish --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.LYHA_WEBSITE_NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.LYHA_WEBSITE_NETLIFY_AUTH_TOKEN }}

@@ -649,23 +649,28 @@
   .sponsors-grid {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 24px;
   }
   .sponsor-card {
     background: var(--bone);
     color: var(--forest);
+    min-height: 178px;
     padding: 40px 32px;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1 1 280px;
-    max-width: 384px;
+    grid-column: span 2;
     transition: all 0.25s ease;
     border: 1px solid var(--rule);
+  }
+  .sponsor-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  .sponsor-card:nth-child(5) {
+    grid-column: 4 / span 2;
   }
   .sponsor-card:hover {
     background: var(--green);
@@ -698,9 +703,27 @@
 
   @media (max-width: 900px) {
     .sponsors { padding: 80px 24px; }
-    .sponsor-card {
-      flex-basis: 100%;
-      max-width: none;
+    .sponsors-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .sponsor-card,
+    .sponsor-card:nth-child(4) {
+      grid-column: span 2;
+    }
+    .sponsor-card:nth-child(5) {
+      grid-column: 2 / span 2;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sponsors-grid {
+      grid-template-columns: 1fr;
+    }
+    .sponsor-card,
+    .sponsor-card:nth-child(4),
+    .sponsor-card:nth-child(5) {
+      grid-column: 1;
+      min-height: 150px;
       padding: 32px 24px;
     }
   }

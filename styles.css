@@ -649,8 +649,9 @@
   .sponsors-grid {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 24px;
   }
   .sponsor-card {
@@ -661,6 +662,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1 1 280px;
+    max-width: 384px;
     transition: all 0.25s ease;
     border: 1px solid var(--rule);
   }
@@ -681,11 +684,25 @@
     text-align: center;
     transition: color 0.25s ease;
   }
+  .sponsor-logo {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    max-height: 96px;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+  }
+  .sponsor-card:hover .sponsor-logo {
+    transform: scale(1.03);
+  }
 
   @media (max-width: 900px) {
     .sponsors { padding: 80px 24px; }
-    .sponsors-grid { grid-template-columns: 1fr; }
-    .sponsor-card { padding: 32px 24px; }
+    .sponsor-card {
+      flex-basis: 100%;
+      max-width: none;
+      padding: 32px 24px;
+    }
   }
 
   /* ============ CONVICTION (Who We Are) ============ */

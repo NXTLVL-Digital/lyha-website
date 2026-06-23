@@ -151,7 +151,7 @@
     padding: 48px 36px;
     border-right: 1px solid var(--rule);
   }
-  .criteria-item:last-child { border-right: none; }
+  .criteria-item:last-child { border-right: none; border-bottom: none; }
   .criteria-eyebrow {
     font-family: var(--athletic);
     font-size: 12px;
@@ -180,15 +180,6 @@
     transition: opacity 0.2s ease;
   }
   .criteria-item p a:hover { opacity: 0.75; }
-  .criteria-item .gear-meta {
-    margin-top: 14px;
-    font-family: var(--athletic);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--bone-mute);
-  }
 
   .steps {
     display: grid;
@@ -343,6 +334,159 @@
     border-color: var(--bone);
   }
 
+  /* ============ BYLAWS PDF VIEWER ============ */
+  .bylaws-viewer {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .bylaws-viewer-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--forest);
+    border: 1px solid var(--rule);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  .bylaws-viewer-bar-title {
+    font-family: var(--athletic);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone);
+  }
+  .bylaws-viewer-bar-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone);
+    border: 1px solid var(--rule);
+    background: transparent;
+    padding: 6px 14px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+  }
+  .btn-pdf:hover {
+    background: rgba(244, 241, 234, 0.06);
+    border-color: var(--bone);
+  }
+  .btn-pdf svg { flex-shrink: 0; }
+  .bylaws-viewer-frame {
+    width: 100%;
+    height: 800px;
+    border: 1px solid var(--rule);
+    border-radius: 0 0 4px 4px;
+    background: #fff;
+  }
+  .bylaws-fallback {
+    display: block;
+    padding: 20px 24px;
+    background: var(--forest);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--bone-dim);
+  }
+  .bylaws-fallback a {
+    color: var(--green-bright);
+    border-bottom: 1px solid var(--green-bright);
+  }
+  .bylaws-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+  }
+  .bylaws-meta > div {
+    padding: 20px 24px;
+    border-right: 1px solid var(--rule);
+  }
+  .bylaws-meta > div:last-child { border-right: none; }
+  .bylaws-meta-label {
+    font-family: var(--athletic);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 8px;
+  }
+  .bylaws-meta-value {
+    font-family: var(--display);
+    font-size: 17px;
+    color: var(--bone);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--athletic);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bone);
+    border: 1px solid rgba(244, 241, 234, 0.4);
+    background: rgba(244, 241, 234, 0.04);
+    padding: 12px 24px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-ghost:hover {
+    background: rgba(244, 241, 234, 0.12);
+    border-color: var(--bone);
+  }
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .final-cta {
+    padding: 100px 48px;
+    background: var(--ink);
+  }
+  .final-cta-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .section-label-center { justify-content: center; }
+  .section-label {
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .contact-form-embed iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+  }
+
   @media (max-width: 900px) {
     .div-hero { padding: 110px 24px 70px; }
     .div-hero h1 { font-size: clamp(48px, 12vw, 80px); }
@@ -361,6 +505,13 @@
     .step-body h4 { font-size: 21px; }
     .cost-card { padding: 40px 26px; }
     .next-card { padding: 48px 24px; }
+    .final-cta { padding: 70px 24px; }
+    .bylaws-viewer-bar { flex-direction: column; align-items: flex-start; }
+    .bylaws-viewer-bar-actions { width: 100%; justify-content: flex-start; }
+    .bylaws-viewer-frame { height: 600px; }
+    .bylaws-meta { grid-template-columns: 1fr; }
+    .bylaws-meta > div { border-right: none; border-bottom: 1px solid var(--rule); padding: 16px 24px; }
+    .bylaws-meta > div:last-child { border-bottom: none; }
   }
   @media (max-width: 480px) {
     .div-hero { padding: 96px 18px 56px; }
@@ -370,6 +521,9 @@
     .stat-strip > div { border-right: none; border-bottom: 1px solid var(--rule); }
     .stat-strip > div:last-child { border-bottom: none; }
     .div-section { padding: 56px 18px; }
+    .bylaws-viewer-frame { height: 500px; }
+    .hero-cta-row { flex-direction: column; align-items: center; }
+    .btn-ghost { width: 100%; justify-content: center; }
   }
 </style>
 <link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
@@ -378,7 +532,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
 <meta property="og:title" content="Bylaws &middot; Lynchburg Youth Hockey" />
-<meta property="og:description" content="Find LYHA bylaws and governance document status." />
+<meta property="og:description" content="LYHA bylaws and governance documents." />
 <meta property="og:url" content="https://lynchburgyouthhockey.com/bylaws/" />
 <meta property="og:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
 <meta property="og:image:width" content="1200" />
@@ -434,35 +588,92 @@
     </a>
     <div class="section-label">Bylaws</div>
     <h1>Governance.<br/><em>Clear and accessible.</em></h1>
-    <p class="div-hero-lede">LYHA bylaws and governance notes will live here so families and board members can find the current documents quickly.</p>
+    <p class="div-hero-lede">The current LYHA bylaws are available below. Parents and board members can read the full document or download a copy.</p>
   </div>
 </section>
+
+<!-- PDF Viewer -->
 <section class="div-section alt">
   <div class="div-section-inner">
-    <div class="cost-card reveal"><div class="cost-card-inner">
-      <div class="section-label">Document Status</div>
-      <h3>Bylaws document <em>pending from LYHA.</em></h3>
-      <p>The bylaws page is ready for the final PDF or document link. Once LYHA provides the file, it can be uploaded through the CMS and linked here.</p>
-      <div class="coaches-pending">Bylaws PDF pending</div>
-    </div></div>
+
+    <!-- Bylaws metadata strip -->
+    <div class="bylaws-meta" id="bylaws-meta">
+      <div>
+        <div class="bylaws-meta-label">Document</div>
+        <div class="bylaws-meta-value">Lynchburg Youth Hockey Association Bylaws</div>
+      </div>
+      <div>
+        <div class="bylaws-meta-label">Adopted</div>
+        <div class="bylaws-meta-value" id="bylaws-adopted">7-30-18</div>
+      </div>
+      <div>
+        <div class="bylaws-meta-label">Last amended</div>
+        <div class="bylaws-meta-value" id="bylaws-amended">Not listed in PDF</div>
+      </div>
+    </div>
+
+    <!-- PDF iframe viewer -->
+    <div class="bylaws-viewer">
+      <div class="bylaws-viewer-bar">
+        <span class="bylaws-viewer-bar-title">Lynchburg Youth Hockey Association &middot; Bylaws</span>
+        <div class="bylaws-viewer-bar-actions">
+          <a class="btn-pdf" href="/assets/uploads/lyha-bylaws.pdf" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open in new tab
+          </a>
+          <a class="btn-pdf" href="/assets/uploads/lyha-bylaws.pdf" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+      <iframe
+        class="bylaws-viewer-frame"
+        src="/assets/uploads/lyha-bylaws.pdf"
+        title="LYHA Bylaws PDF viewer"
+        loading="lazy"
+        aria-label="LYHA Bylaws document viewer"
+      ></iframe>
+    </div>
+
+    <!-- Visible fallback for all users -->
+    <div class="bylaws-fallback">
+      If the viewer does not load on your device, open the PDF in a new tab or download the file.
+      <a href="/assets/uploads/lyha-bylaws.pdf" target="_blank" rel="noopener">Open PDF in new tab</a> ·
+      <a href="/assets/uploads/lyha-bylaws.pdf" download>Download PDF</a>
+    </div>
+
+    <!-- Accessible fallback for browsers that cannot render embedded PDFs -->
+    <noscript>
+      <div class="bylaws-fallback" style="display: block;">
+        Your browser needs JavaScript enabled to view the embedded PDF.
+        <a href="/assets/uploads/lyha-bylaws.pdf">Download the full LYHA Bylaws PDF</a> or
+        <a href="/assets/uploads/lyha-bylaws.pdf" target="_blank" rel="noopener">open it in a new tab</a>.
+      </div>
+    </noscript>
   </div>
 </section>
+
+<!-- Practical bylaws info -->
 <section class="div-section ink">
   <div class="div-section-inner">
-    <div class="div-section-head reveal"><div class="section-label">Section 02 &middot; Restore Notes</div><h2>Current information. <em>Simple updates.</em></h2></div>
+    <div class="div-section-head reveal"><div class="section-label">About this document</div><h2>What to know. <em>No guesswork.</em></h2></div>
     <div class="div-faq reveal">
-      <div class="div-faq-item"><h4>Where will the PDF be stored?</h4><p>The final document can be uploaded into the site assets and referenced by the CMS metadata.</p></div>
-      <div class="div-faq-item"><h4>Who should update it?</h4><p>Board-approved document updates should go through the preview workflow before being published live.</p></div>
+      <div class="div-faq-item"><h4>How do I read the bylaws?</h4><p>Scroll through the PDF above. If you prefer a printed copy, tap <strong>Download PDF</strong> and open the file on any device.</p></div>
+      <div class="div-faq-item"><h4>Can I print the bylaws?</h4><p>Yes. Download the PDF and print it from your browser or any PDF reader. The file is about 130 KB.</p></div>
+      <div class="div-faq-item"><h4>Where can I ask questions?</h4><p>Email the board at <a href="mailto:info@lynchburgyouthhockey.com">info@lynchburgyouthhockey.com</a> with any questions about governance or bylaw updates.</p></div>
     </div>
   </div>
 </section>
+
 <section class="final-cta">
   <div class="final-cta-inner reveal">
-    <div class="section-label section-label-center" style="justify-content: center;">Need a document?</div>
-    <h2>Send the current file and <em>we will place it here.</em></h2>
+    <div class="section-label section-label-center" style="justify-content: center;">Questions about the bylaws?</div>
+    <h2>Reach out to the board. <em>We will point you in the right direction.</em></h2>
     <p>Email LYHA with questions about bylaws or governance documents.</p>
     <div class="hero-cta-row" style="justify-content: center;">
       <a href="/faq/" class="btn-ghost">Read FAQs</a>
+      <a href="mailto:info@lynchburgyouthhockey.com" class="btn-ghost">Email the board</a>
     </div>
     <div class="contact-form-embed" id="contact-form">
       <iframe

@@ -1,7 +1,7 @@
 {
   "title": "LYHA Bylaws",
-  "pdf": "",
-  "adopted_date": "",
+  "pdf": "/assets/uploads/lyha-bylaws.pdf",
+  "adopted_date": "2018-07-30",
   "amended_date": "",
-  "notes": "Add the bylaws PDF to assets/uploads or assets/ once LYHA provides the file."
+  "notes": "Self-hosted PDF viewer embedded on the bylaws page. The file lives in assets/uploads and is served directly by the static host. The PDF text lists the adoption date as 7-30-18."
 }

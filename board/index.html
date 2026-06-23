@@ -141,6 +141,77 @@
     margin-top: 22px;
   }
 
+  /* ============ BOARD CARDS (page-local) ============ */
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 28px;
+  }
+  .board-card {
+    background: rgba(244, 241, 234, 0.03);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .board-card:hover { border-color: rgba(244, 241, 234, 0.25); }
+  .board-card-photo {
+    width: 100%;
+    aspect-ratio: 388 / 388;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .board-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .board-card-photo .placeholder-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(244, 241, 234, 0.02);
+  }
+  .board-card-body {
+    padding: 20px 22px 24px;
+  }
+  .board-card-eyebrow {
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: 10px;
+  }
+  .board-card-name {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .board-card-bio {
+    color: var(--bone-dim);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .board-card-bio .missing {
+    color: var(--bone-mute);
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .board-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 540px) {
+    .board-grid { grid-template-columns: 1fr; }
+  }
+
   .criteria-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -395,7 +466,6 @@
       <a href="/#programs" class="nav-link-main">Programs</a>
       <div class="nav-dropdown" aria-label="Programs submenu">
       <a href="/learn-to-play/">Learn to Play</a>
-      <a href="/ice-time/">Ice Time</a>
       <a href="/mites/">Mites (U8)</a>
       <a href="/squirts/">Squirts (U10)</a>
       <a href="/peewee/">Peewee (U12)</a>
@@ -434,19 +504,76 @@
 </section>
 <section class="div-section alt">
   <div class="div-section-inner">
-    <div class="div-section-head reveal"><div class="section-label">Section 01 &middot; 2026-27 Board</div><h2>The people helping <em>move the season forward.</em></h2><p>The board roster below uses placeholder photos for now. Final bios can be added through the CMS before launch.</p></div>
-    <div class="criteria-grid reveal">
-      <div class="criteria-item"><div class="criteria-eyebrow">President</div><h3>Brandon Brown</h3><p>Board member details will be finalized before launch.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Vice President</div><h3>Brent Whorley</h3><p>Bio coming soon.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Head of Coaches</div><h3>Jeff Boetger</h3><p>Bio coming soon.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Treasurer</div><h3>Amanda Boyer</h3><p>Board member details will be finalized before launch.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Secretary</div><h3>Rebecca Todd</h3><p>Board member details will be finalized before launch.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Marketing/IT</div><h3>Jeff Walker</h3><p>Bio coming soon.</p><div class="gear-meta">Placeholder photo</div></div>
+    <div class="div-section-head reveal"><div class="section-label">Section 01 &middot; Our Board</div><h2>The people helping <em>move the season forward.</em></h2><p>Meet the six board volunteers who guide the LYHA season.</p></div>
+    <div class="board-grid reveal">
+      <!-- Board card: Brandon Brown - President (imported photo + source bio) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/board/brandon-brown.jpg" alt="Brandon Brown" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">President</div>
+          <div class="board-card-name">Brandon Brown</div>
+          <p class="board-card-bio">Brandon is married to Dara Brown and has two boys; Parker and Dawson. He is the owner of the local company Brown's heating, air and plumbing. Brandon has always enjoyed helping his boys in any sport they play. He has served as the president of LYHA since 2022 and is looking forward to growing the program in Lynchburg.</p>
+        </div>
+      </div>
+      <!-- Board card: Brent Whorley - Vice President (placeholder, no imported photo) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/coyote-mark.webp" alt="Board member photo" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Vice President</div>
+          <div class="board-card-name">Brent Whorley</div>
+          <p class="board-card-bio"><span class="missing">Bio coming soon.</span></p>
+        </div>
+      </div>
+      <!-- Board card: Jeff Boetger - Head of Coaches (placeholder, no imported photo) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/coyote-mark.webp" alt="Board member photo" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Head of Coaches</div>
+          <div class="board-card-name">Jeff Boetger</div>
+          <p class="board-card-bio"><span class="missing">Bio coming soon.</span></p>
+        </div>
+      </div>
+      <!-- Board card: Amanda Boyer - Treasurer (placeholder, no imported photo) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/coyote-mark.webp" alt="Board member photo" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Treasurer</div>
+          <div class="board-card-name">Amanda Boyer</div>
+          <p class="board-card-bio"><span class="missing">Bio coming soon.</span></p>
+        </div>
+      </div>
+      <!-- Board card: Rebecca Todd - Secretary (imported becca-todd.jpg photo + source bio, name display updated) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/board/becca-todd.jpg" alt="Rebecca Todd" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Secretary</div>
+          <div class="board-card-name">Rebecca Todd</div>
+          <p class="board-card-bio">Rebecca Todd is the wife of Coach Jason Todd and mom to two kids, 8 Eli and 3yo Nora. Jason and Eli are the hockey players in their family and she enjoys watching them both play the game as well as watch Jason coach their son's team. She graduated from LU in 2007 with her bachelors. She is an accountant by trade for a local business for the last several years.</p>
+        </div>
+      </div>
+      <!-- Board card: Jeff Walker - Marketing/IT (placeholder, no imported photo) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/coyote-mark.webp" alt="Board member photo" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Marketing/IT</div>
+          <div class="board-card-name">Jeff Walker</div>
+          <p class="board-card-bio"><span class="missing">Bio coming soon.</span></p>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-<section class="div-section ink">
-  <div class="div-section-inner"><div class="coaches-pending reveal">Board photos are placeholders until LYHA provides final images.</div></div>
 </section>
 <section class="final-cta">
   <div class="final-cta-inner reveal">
@@ -482,7 +609,6 @@
       <h5>Programs</h5>
       <ul>
         <li><a href="/learn-to-play/">Learn to Play</a></li>
-        <li><a href="/ice-time/">Ice Time</a></li>
         <li><a href="/mites/">Mites (U8)</a></li>
         <li><a href="/squirts/">Squirts (U10)</a></li>
         <li><a href="/peewee/">Peewee (U12)</a></li>

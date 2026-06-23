@@ -209,6 +209,17 @@
     max-width: 960px;
     margin: 0 auto;
   }
+  .final-cta-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .contact-form-embed {
+    margin-top: 32px;
+    background: rgba(244,241,234,0.04);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 10px;
+  }
   .final-cta p {
     font-family: var(--display);
     font-size: 22px;
@@ -453,17 +464,30 @@
 <hr class="divider" />
 
 <!-- CTA -->
-<section class="final-cta">
-  <p>Ready to take the next step?</p>
-  <div class="btn-row">
-    <a href="https://lynchburgyouthhockey.com/learn-to-play/" class="btn-primary">
-      Learn to Play Program
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </a>
-    <a href="https://lynchburgyouthhockey.com/contact/" class="btn-ghost">Email Us</a>
+<section class="final-cta" id="contact-form">
+  <div class="final-cta-inner">
+    <p>Get in touch and we will help you get on the ice.</p>
+    <div class="contact-form-embed">
+      <div class="section-label" style="justify-content: center; margin: 0 0 18px;">Drop a Note</div>
+      <iframe
+        src="https://lyha-contact.netlify.app"
+        width="100%"
+        height="600"
+        frameborder="0"
+        loading="lazy"
+        title="Contact Lynchburg Youth Hockey"
+      >
+        <a href="https://lyha-contact.netlify.app">Contact Lynchburg Youth Hockey</a>
+      </iframe>
+    </div>
+    <div class="btn-row" style="margin-top: 32px;">
+      <a href="/learn-to-play/" class="btn-primary">
+        Learn to Play Program
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
 </section>
-
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
@@ -506,6 +530,7 @@
   <div class="footer-bottom">
     <div>&copy; 2026 Lynchburg Youth Hockey. All Rights Reserved.</div>
     <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+    <div class="footer-credit">Website by <a href="https://www.nxtlvl-digital.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">NXTLVL-Digital</a></div>
   </div>
 </footer>
 

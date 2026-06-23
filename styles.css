@@ -1082,6 +1082,12 @@
   }
   .footer-col li a { transition: color 0.2s ease; }
   .footer-col li a:hover { color: var(--green-bright); }
+  .footer-credit-link {
+    color: var(--green-bright);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .footer-credit-link:hover { color: var(--bone); }
 
   .footer-bottom {
     max-width: 1280px;

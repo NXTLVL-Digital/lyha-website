@@ -115,7 +115,7 @@ When designing a new page, prefer reusing these. New components should use exist
 1. **About** (`/about/`) — org mission, story, USA Hockey/PVAHA affiliations. Includes the mission statement (a List 2 priority-1 item to bring into phase 1).
 2. **Our Board** (`/board/`) — board member names, photos, roles.
 3. **Bylaws** (`/bylaws/`) — long-form governance doc with download link.
-4. **Calendar** (`/calendar/`) — season events. Probably embeds a SportsEngine calendar; confirm with Jeff.
+4. **Calendar** (`/calendar/`) — deferred and hidden from public navigation/footer as of 2026-06-23. The page may not be needed, so do not restore public links unless Jeff confirms.
 5. **CMS editor access** (`/admin/`) — Sveltia CMS plus Cloudflare auth so LYHA board members can update content before the site goes live. This is now a phase 1 launch requirement, not phase 2.
 6. **Homepage Programs restructure** — 6 individual program rows plus age finder, after Jeff approval.
 
@@ -160,7 +160,7 @@ Target: 6 rows, each linking to a real division page. Also add a small "find you
 
 1. **Jeff reviews all four division pages** (Squirts, Peewee, Bantams, U15) for accuracy. Content is best-guess placeholder. Corrections go into the HTML directly.
 2. **Homepage Programs section restructure** — all 5 division pages now exist. The Programs section should be restructured from 4 rows to 6: Learn to Play, Mites, Squirts, Peewee, Bantams, U15. Add a mini "find your division by age" table. This is the largest information-architecture improvement remaining in phase 1. Confirm with Jeff before executing.
-3. **Author the remaining phase 1 pages**: About, Our Board, Bylaws, Calendar. Each needs content from Jeff first.
+3. **Author the remaining phase 1 pages**: About, Our Board, Bylaws. Calendar is deferred and hidden unless Jeff revives it.
 4. **Add phase 1 CMS editor access**: create `/admin/` with Sveltia CMS, define the first editable content collections, and deploy Cloudflare Worker auth so board members can log in before launch.
 5. **Verify after every deploy**: hit the new URL, check HTTP 200, grep for em dashes and "skater" in the file.
 
@@ -222,7 +222,7 @@ For FAQs:
 - The 8 to 15 most-asked questions (separate from division-specific FAQs already on division pages)
 
 For Calendar:
-- SportsEngine calendar URL or embed code
+- Deferred and hidden from public navigation/footer as of 2026-06-23. Only revive if Jeff confirms the page is needed and provides the SportsEngine calendar URL or embed code.
 
 ## How to verify after a deploy
 

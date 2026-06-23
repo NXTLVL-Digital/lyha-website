@@ -222,6 +222,57 @@
     justify-content: center;
   }
 
+  /* CTA button styles */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--green);
+    color: var(--bone);
+    font-family: var(--athletic);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--green);
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .btn-primary:hover {
+    background: var(--green-bright);
+    border-color: var(--green-bright);
+    color: var(--ink);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--bone);
+    font-family: var(--athletic);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--bone-dim);
+    border-radius: 6px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost:hover {
+    border-color: var(--green-bright);
+    color: var(--green-bright);
+  }
+  .btn-row {
+    display: inline-flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   @media (max-width: 768px) {
     .div-hero { padding: 120px 24px 64px; }
     .section, .section-inner { padding: 48px 24px; }
@@ -262,7 +313,6 @@
     <div class="nav-item nav-has-dropdown">
       <a href="/#programs" class="nav-link-main">Programs</a>
       <div class="nav-dropdown" aria-label="Programs submenu">
-      <a href="/ice-time/">Ice Time</a>
       <a href="/learn-to-play/">Learn to Play</a>
       <a href="/mites/">Mites (U8)</a>
       <a href="/squirts/">Squirts (U10)</a>
@@ -303,11 +353,11 @@
       Before joining a team or signing up for a full program, most kids skate the public sessions at the rink. This page explains where to go, what to expect, and how to get your child on the ice for the first time.
     </p>
     <div class="hero-cta-row" style="margin-bottom: 64px;">
-      <a href="#lahey" class="btn-primary">
-        Start in Lynchburg
+      <a href="https://libertyclubsports.com/calendar" target="_blank" rel="noopener" class="btn-primary">
+        View LaHaye Calendar
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <a href="/learn-to-play/" class="btn-ghost">Learn to Play</a>
+      <a href="https://lancerlotsportscomplex.com/ice-rink-schedule/" target="_blank" rel="noopener" class="btn-ghost">View Lancerlot Schedule</a>
     </div>
   </div>
 </section>
@@ -323,6 +373,12 @@
     <h3>Check the LaHaye calendar first</h3>
     <p>
       Before heading to the rink, check the <a href="https://libertyclubsports.com/calendar" target="_blank" rel="noopener">Liberty Club Sports calendar</a> to see what sessions are scheduled. This is the quickest way to find out what is available <strong>right now</strong>. The calendar lists Public Skates, Stick and Pucks, and Youth Open Hockey with dates and times. If something is on the calendar, show up and you are good to go.
+    </p>
+    <p>
+      <a href="https://libertyclubsports.com/calendar" target="_blank" rel="noopener" class="btn-primary">
+        View LaHaye Calendar
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
     </p>
     <h3>Public Skate</h3>
     <p>
@@ -359,6 +415,12 @@
     <h3>Lancerlot Sportsplex Schedule</h3>
     <p>
       Check the <a href="https://lancerlotsportscomplex.com/ice-rink-schedule/" target="_blank" rel="noopener">Lancerlot ice rink schedule</a> for available sessions. Public Skates, Stick and Puck, and drop-in hockey are typically offered.
+    </p>
+    <p>
+      <a href="https://lancerlotsportscomplex.com/ice-rink-schedule/" target="_blank" rel="noopener" class="btn-primary">
+        View Lancerlot Schedule
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
     </p>
     <p>
       <strong>Address:</strong> 1110 Vinyard Road, Vinton, VA 24179

@@ -692,13 +692,13 @@
   .sponsor-logo {
     display: block;
     width: 100%;
-    max-width: 220px;
-    max-height: 96px;
+    max-width: 280px;
+    max-height: 140px;
     object-fit: contain;
     transition: transform 0.25s ease;
   }
   .sponsor-card:hover .sponsor-logo {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 
   @media (max-width: 900px) {

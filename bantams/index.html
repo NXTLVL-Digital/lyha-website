@@ -371,6 +371,38 @@
     .stat-strip > div:last-child { border-bottom: none; }
     .div-section { padding: 56px 18px; }
   }
+
+  /* Coach grid */
+  .coach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .coach-team-col {
+    background: var(--bone);
+    border-left: 3px solid var(--forest);
+    padding: 16px;
+  }
+  .coach-team-col h4 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--forest);
+  }
+  .coach-card {
+    background: var(--bone-dim);
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .coach-card:last-child { margin-bottom: 0; }
+  @media (max-width: 600px) {
+    .coach-grid { grid-template-columns: 1fr; }
+  }
 </style>
 
 <link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
@@ -601,11 +633,26 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 05</div>
       <h2>Who's <em>coaching.</em></h2>
-      <p>Bantams coaches are experienced LYHA staff. Coaching assignments for 2026-27 are finalized in July. We'll publish names and photos here once they're set.</p>
+      <p>Meet the 2026-27 Bantam coaching staff.</p>
     </div>
 
-    <div class="coaches-pending reveal">
-      2026 - 27 Bantams coaches will be confirmed in July. Check back, or reach out and we'll let you know.
+    <div class="coach-grid reveal">
+      <div class="coach-team-col">
+        <h4>14U Black</h4>
+        <div class="coach-card">Steve Devlin</div>
+        <div class="coach-card">Tom Bowman</div>
+        <div class="coach-card">Mike Spradlin</div>
+        <div class="coach-card">Jaxson Devlin</div>
+        <div class="coach-card">Brent Whorley</div>
+      </div>
+      <div class="coach-team-col">
+        <h4>14U Green</h4>
+        <div class="coach-card">Steve Devlin</div>
+        <div class="coach-card">John Gauger</div>
+        <div class="coach-card">Scott Bloomfield</div>
+        <div class="coach-card">Chris Lawton</div>
+        <div class="coach-card">Brent Whorley</div>
+      </div>
     </div>
   </div>
 </section>

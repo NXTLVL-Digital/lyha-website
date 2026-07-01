@@ -371,6 +371,24 @@
     .stat-strip > div:last-child { border-bottom: none; }
     .div-section { padding: 56px 18px; }
   }
+
+  /* Coach grid */
+  .coach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .coach-card {
+    background: var(--bone);
+    border-left: 3px solid var(--forest);
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  @media (max-width: 600px) {
+    .coach-grid { grid-template-columns: 1fr; }
+  }
 </style>
 
 <link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
@@ -495,8 +513,8 @@
       </div>
       <div class="criteria-item">
         <div class="criteria-eyebrow">Commitment</div>
-        <h3>Travel games and away weekends</h3>
-        <p>Peewee plays 10 to 15 games per season against clubs in the PVAHA region, across Virginia and into neighboring states. Most games are day trips. Some weekends require an overnight stay.</p>
+        <h3>Travel games, tournaments, and away weekends</h3>
+        <p>Peewee plays 25 to 40 games per season, including 3 tournament weekends, against clubs in the PVAHA region, across Virginia and into neighboring states. Most games are day trips. Some weekends require an overnight stay.</p>
         <p style="margin-top: 12px;">Two practices a week at LaHaye, plus away game weekends. Plan for about six months of scheduling from September through March.</p>
       </div>
     </div>
@@ -522,7 +540,7 @@
       </div>
       <div>
         <div class="stat-strip-label">Games</div>
-        <div class="stat-strip-value">10 to 15 per season</div>
+        <div class="stat-strip-value">25 to 40 per season</div>
       </div>
       <div>
         <div class="stat-strip-label">Travel</div>
@@ -601,11 +619,13 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 05</div>
       <h2>Who's <em>coaching.</em></h2>
-      <p>Peewee coaches are experienced LYHA staff and <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a> players. Coaching assignments for 2026-27 are finalized in July. We'll publish names and photos here once they're set.</p>
+      <p>Meet the 2026-27 Peewee coaching staff.</p>
     </div>
 
-    <div class="coaches-pending reveal">
-      2026 - 27 Peewee coaches will be confirmed in July. Check back, or reach out and we'll let you know.
+    <div class="coach-grid reveal">
+      <div class="coach-card">Jason Todd</div>
+      <div class="coach-card">Scott Bloomfield</div>
+      <div class="coach-card">Tim Jackman</div>
     </div>
   </div>
 </section>

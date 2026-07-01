@@ -371,6 +371,24 @@
     .stat-strip > div:last-child { border-bottom: none; }
     .div-section { padding: 56px 18px; }
   }
+
+  /* Coach grid */
+  .coach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .coach-card {
+    background: var(--bone);
+    border-left: 3px solid var(--forest);
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  @media (max-width: 600px) {
+    .coach-grid { grid-template-columns: 1fr; }
+  }
 </style>
 
 <link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
@@ -597,11 +615,14 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 05</div>
       <h2>Who's <em>coaching.</em></h2>
-      <p>Squirts are coached by experienced LYHA staff and <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a> players who volunteer their time. Coaching assignments for 2026-27 are finalized in July. We'll publish names and photos here once they're set.</p>
+      <p>Meet the 2026-27 10U coaching staff.</p>
     </div>
 
-    <div class="coaches-pending reveal">
-      2026 - 27 Squirts coaches will be confirmed in July. Check back, or reach out and we'll let you know.
+    <div class="coach-grid reveal">
+      <div class="coach-card">Caleb Atkins</div>
+      <div class="coach-card">Aimee Seckman</div>
+      <div class="coach-card">Kris McNaney</div>
+      <div class="coach-card">Mike Lewis</div>
     </div>
   </div>
 </section>

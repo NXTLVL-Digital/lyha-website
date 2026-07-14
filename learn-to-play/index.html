@@ -343,58 +343,8 @@
     border-color: var(--bone);
   }
 
-  .ltp-video {
-    padding: 80px 48px 90px;
-    background: var(--forest);
-  }
-  .ltp-video-inner {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  .ltp-video-label {
-    font-family: var(--athletic);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--green-bright);
-    margin-bottom: 12px;
-  }
-  .ltp-video-heading {
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1.1;
-    color: var(--bone);
-    margin-bottom: 40px;
-    letter-spacing: -0.02em;
-  }
-  .ltp-video-heading em {
-    font-style: italic;
-    color: var(--green-bright);
-    font-weight: 300;
-  }
-  .ltp-video-embed {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 */
-    background: var(--ink);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .ltp-video-embed iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
   @media (max-width: 900px) {
     .div-hero { padding: 110px 24px 70px; }
-    .ltp-video { padding: 60px 24px 70px; }
-    .ltp-video-heading { margin-bottom: 28px; }
     .div-hero h1 { font-size: clamp(48px, 12vw, 80px); }
     .div-hero-lede { font-size: 18px; }
     .div-section { padding: 70px 24px; }
@@ -515,23 +465,6 @@
         <div class="stat-strip-label">Home Ice</div>
         <div class="stat-strip-value"><a href="https://libertyclubsports.com/sports/2023/11/14/lahaye-ice-center/" target="_blank" rel="noopener">LaHaye Ice Center</a></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="ltp-video" aria-label="Watch a Learn to Play video">
-  <div class="ltp-video-inner">
-    <div class="ltp-video-label">Watch a video</div>
-    <h2 class="ltp-video-heading">See what a Learn to Play <em>season</em> is like.</h2>
-    <div class="ltp-video-embed">
-      <iframe
-        src="https://player.vimeo.com/video/998902491?h=aec05076e9&autoplay=0&title=0&portrait=0&byline=0&badge=0&loop=0&muted=0&controls=1"
-        title="Lynchburg Youth Hockey Learn to Play"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-      ></iframe>
     </div>
   </div>
 </section>

@@ -468,6 +468,106 @@
     .stat-strip > div:last-child { border-bottom: none; }
     .div-section { padding: 56px 18px; }
     .mites-gallery-section { padding: 56px 18px; }
+    .coach-doc-viewer-frame { height: 500px; }
+  }
+
+  /* ============ COACH META + DOC VIEWER ============ */
+  .coach-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin: 28px 0 36px;
+  }
+  .coach-meta > div {
+    padding: 20px 24px;
+    border-right: 1px solid var(--rule);
+  }
+  .coach-meta > div:last-child { border-right: none; }
+  .coach-meta-label {
+    font-family: var(--athletic);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 8px;
+  }
+  .coach-meta-value {
+    font-family: var(--display);
+    font-size: 17px;
+    color: var(--bone);
+    line-height: 1.35;
+  }
+
+  .coach-doc-viewer { width: 100%; margin-top: 8px; }
+  .coach-doc-viewer-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--forest);
+    border: 1px solid var(--rule);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  .coach-doc-viewer-bar-title {
+    font-family: var(--athletic);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone);
+  }
+  .coach-doc-viewer-bar-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone);
+    border: 1px solid var(--rule);
+    background: transparent;
+    padding: 6px 14px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+  }
+  .btn-pdf:hover {
+    background: rgba(244, 241, 234, 0.06);
+    border-color: var(--bone);
+  }
+  .btn-pdf svg { flex-shrink: 0; }
+  .coach-doc-viewer-frame {
+    width: 100%;
+    height: 800px;
+    border: 1px solid var(--rule);
+    border-radius: 0 0 4px 4px;
+    background: #fff;
+  }
+  .coach-doc-fallback {
+    display: block;
+    padding: 20px 24px;
+    background: var(--forest);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-top: 16px;
+  }
+  .coach-doc-fallback a {
+    color: var(--green-bright);
+    border-bottom: 1px solid var(--green-bright);
   }
 </style>
 
@@ -736,12 +836,62 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 05</div>
       <h2>Who's <em>coaching.</em></h2>
-      <p>Mites are coached by experienced LYHA staff and <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a> players who volunteer their time. Coaching assignments for 2026-27 are finalized in July. We'll publish names and photos here once they're set.</p>
+      <p>Mites are coached by experienced LYHA staff and <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a> players who volunteer their time. For 2026-27, the 8U Mites team is led by Head Coach John Anderson, with assistant coaches Kyle Unruh, Kyle Lessard, Ryan Stephens, and David Semenyna.</p>
     </div>
 
-    <div class="coaches-pending reveal">
-      2026 - 27 Mites coaches will be confirmed in July. Check back, or reach out and we'll let you know.
+    <div class="coach-meta reveal">
+      <div>
+        <div class="coach-meta-label">Head Coach</div>
+        <div class="coach-meta-value">John Anderson</div>
+      </div>
+      <div>
+        <div class="coach-meta-label">Assistant Coaches</div>
+        <div class="coach-meta-value">Kyle Unruh, Kyle Lessard, Ryan Stephens, David Semenyna</div>
+      </div>
     </div>
+
+    <div class="div-section-head reveal" style="margin-top: 56px; margin-bottom: 24px;">
+      <div class="section-label">From Coach John Anderson</div>
+      <h3 style="font-family: var(--display); font-weight: 400; font-size: clamp(24px, 3vw, 32px); color: var(--bone); margin-top: 12px;">The full <em>season rundown.</em></h3>
+      <p>Coach Anderson put together a season info sheet covering team philosophy, cost, practice schedule, jamborees, jerseys, and more. Read it below, or open it in a new tab.</p>
+    </div>
+
+    <div class="coach-doc-viewer reveal">
+      <div class="coach-doc-viewer-bar">
+        <span class="coach-doc-viewer-bar-title">8U Mites &middot; 2026-2027 Season Information</span>
+        <div class="coach-doc-viewer-bar-actions">
+          <a class="btn-pdf" href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open in new tab
+          </a>
+          <a class="btn-pdf" href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+      <iframe
+        class="coach-doc-viewer-frame"
+        src="/assets/uploads/mites-8u-coach-info-2026-2027.pdf"
+        title="8U Mites 2026-2027 Season Information PDF viewer"
+        loading="lazy"
+        aria-label="8U Mites season information document viewer"
+      ></iframe>
+    </div>
+
+    <div class="coach-doc-fallback">
+      If the viewer does not load on your device, open the PDF in a new tab or download the file.
+      <a href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" target="_blank" rel="noopener">Open PDF in new tab</a> &middot;
+      <a href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" download>Download PDF</a>
+    </div>
+
+    <noscript>
+      <div class="coach-doc-fallback" style="display: block;">
+        Your browser needs JavaScript enabled to view the embedded PDF.
+        <a href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf">Download the 8U Mites season information PDF</a> or
+        <a href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" target="_blank" rel="noopener">open it in a new tab</a>.
+      </div>
+    </noscript>
   </div>
 </section>
 

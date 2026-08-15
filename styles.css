@@ -63,7 +63,7 @@
     gap: 34px;
     font-family: var(--athletic);
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
@@ -139,7 +139,7 @@
   .nav-cta {
     font-family: var(--athletic);
     font-weight: 700;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     padding: 11px 22px;

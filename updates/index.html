@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Updates &middot; Lynchburg Youth Hockey Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============ UPDATES PAGE ============ */
+  .div-hero {
+    position: relative;
+    padding: 160px 48px 100px;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(6, 123, 63, 0.22), transparent 55%),
+      radial-gradient(ellipse at 15% 90%, rgba(19, 45, 28, 0.55), transparent 60%),
+      var(--ink);
+    overflow: hidden;
+  }
+  .div-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(115deg,
+        transparent 0, transparent 40px,
+        rgba(244, 241, 234, 0.015) 40px,
+        rgba(244, 241, 234, 0.015) 41px);
+    pointer-events: none;
+  }
+  .div-hero-inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  .div-hero-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 36px;
+    transition: color 0.2s ease;
+  }
+  .div-hero-back:hover { color: var(--green-bright); }
+  .div-hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(64px, 9vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin: 16px 0 28px;
+    font-variation-settings: "opsz" 144;
+  }
+  .div-hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--green-bright);
+  }
+  .div-hero-lede {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(22px, 2.5vw, 32px);
+    line-height: 1.35;
+    color: var(--bone-dim);
+    max-width: 760px;
+    margin-bottom: 0;
+  }
+
+  .div-section {
+    padding: 130px 48px;
+    position: relative;
+  }
+  .div-section.alt { background: var(--forest); }
+  .div-section.ink { background: var(--ink); }
+  .div-section-inner { max-width: 1280px; margin: 0 auto; }
+  .div-section-head { max-width: 900px; margin-bottom: 70px; }
+  .div-section-head h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-top: 18px;
+  }
+  .div-section-head h2 em {
+    font-style: italic;
+    color: var(--green-bright);
+    font-weight: 300;
+  }
+  .div-section-head p {
+    color: var(--bone-dim);
+    font-size: 17px;
+    line-height: 1.65;
+    max-width: 640px;
+    margin-top: 22px;
+  }
+
+  @media (max-width: 900px) {
+    .div-hero { padding: 110px 24px 70px; }
+    .div-hero h1 { font-size: clamp(48px, 12vw, 80px); }
+    .div-hero-lede { font-size: 18px; }
+    .div-section { padding: 70px 24px; }
+    .div-section-head { margin-bottom: 40px; }
+  }
+  @media (max-width: 480px) {
+    .div-hero { padding: 96px 18px 56px; }
+    .div-hero h1 { font-size: clamp(42px, 13vw, 64px); }
+    .div-hero-lede { font-size: 17px; }
+    .div-section { padding: 56px 18px; }
+  }
+</style>
+
+<link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
+<meta property="og:title" content="Updates &middot; Lynchburg Youth Hockey" />
+<meta property="og:description" content="Team and organization updates from the LYHA board and coaches. Registration windows, schedule changes, and program news." />
+<meta property="og:url" content="https://lynchburgyouthhockey.com/updates/" />
+<meta property="og:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta name="twitter:image:alt" content="Lynchburg Youth Hockey Hill City Coyotes social preview" />
+</head>
+<body>
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <img src="/assets/coyote-mark.webp" alt="Lynchburg Coyotes" />
+    <span>Lynchburg</span>
+    <span>Coyotes</span>
+  </a>
+  <div class="nav-links" id="primary-nav">
+    <div class="nav-item nav-has-dropdown">
+      <a href="/#programs" class="nav-link-main">Programs</a>
+      <div class="nav-dropdown" aria-label="Programs submenu">
+      <a href="/learn-to-play/">Learn to Play</a>
+      <a href="/mites/">Mites (U8)</a>
+      <a href="/squirts/">Squirts (U10)</a>
+      <a href="/peewee/">Peewee (U12)</a>
+      <a href="/bantams/">Bantams (U14)</a>
+      <a href="/u16/">U16</a>
+      </div>
+    </div>
+    <div class="nav-item nav-has-dropdown">
+      <a href="/about/" class="nav-link-main">About</a>
+      <div class="nav-dropdown" aria-label="About submenu">
+      <a href="/board/">Board</a>
+      <a href="/bylaws/">Bylaws</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
+      <a href="/about/">Our Story</a>
+      </div>
+    </div>
+    <a href="/ice-time/">Ice Time</a>
+    <a href="https://shop.lynchburgyouthhockey.com/">Shop</a>
+  </div>
+  <a href="/#register" class="nav-cta">Register</a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="div-hero">
+  <div class="div-hero-inner">
+    <a href="/" class="div-hero-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <div class="section-label">Team &amp; Org Updates</div>
+    <h1>Updates.<br/><em>What's new with the Coyotes.</em></h1>
+    <p class="div-hero-lede">
+      Announcements from the board and coaches. Registration windows, schedule changes, and program news, all in one place.
+    </p>
+  </div>
+</section>
+
+<section class="div-section alt">
+  <div class="div-section-inner">
+    <div class="div-section-head reveal">
+      <div class="section-label">All Updates</div>
+      <h2>Newest <em>first.</em></h2>
+    </div>
+
+    <div class="updates-page-list reveal" id="updates-page-list">
+      <p class="updates-empty" id="updates-status">Loading updates&hellip;</p>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-cta-inner reveal">
+    <div class="section-label section-label-center" style="justify-content: center;">Have a Question?</div>
+    <h2>Send us a note and <em>a board member will reply.</em></h2>
+    <p>Updates cover the headlines. For anything specific to your family, just ask.</p>
+    <div class="hero-cta-row" style="justify-content: center;">
+      <a href="/faq/" class="btn-ghost">Read FAQs</a>
+    </div>
+    <div class="contact-form-embed" id="contact-form">
+      <iframe
+        src="https://lyha-contact.netlify.app"
+        width="100%"
+        height="600"
+        frameborder="0"
+        loading="lazy"
+        title="Contact Lynchburg Youth Hockey"
+      >
+        <a href="https://lyha-contact.netlify.app">Contact Lynchburg Youth Hockey</a>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="/assets/coyote-mark.webp" alt="Lynchburg Coyotes" />
+      <p>
+        Lynchburg Youth Hockey Association &middot; Hill City Coyotes. A 501(c)(3) nonprofit committed to ice hockey, character, and community in Central Virginia.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h5>Programs</h5>
+      <ul>
+        <li><a href="/learn-to-play/">Learn to Play</a></li>
+        <li><a href="/mites/">Mites (U8)</a></li>
+        <li><a href="/squirts/">Squirts (U10)</a></li>
+        <li><a href="/peewee/">Peewee (U12)</a></li>
+        <li><a href="/bantams/">Bantams (U14)</a></li>
+        <li><a href="/u16/">U16</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="/about/">Our Story</a></li>
+        <li><a href="/ice-time/">Ice Time</a></li>
+        <li><a href="/board/">Our Board</a></li>
+        <li><a href="/bylaws/">Bylaws</a></li>
+        <li><a href="/faq/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Affiliations</h5>
+      <ul>
+        <li>USA Hockey</li>
+        <li><a href="https://www.pvaha.org/" target="_blank" rel="noopener">PVAHA</a></li>
+        <li>Home: <a href="https://libertyclubsports.com/sports/2023/11/14/lahaye-ice-center/" target="_blank" rel="noopener">LaHaye Ice Center</a></li>
+        <li>501(c)(3) Nonprofit</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Lynchburg Youth Hockey Association. All Rights Reserved.</div>
+    <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+    <div class="footer-credit">Website by <a href="https://www.nxtlvl-digital.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">NXTLVL-Digital</a></div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  (function () {
+    const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.nav-toggle');
+    if (!nav || !toggle) return;
+    const setOpen = (open) => {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+    nav.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && nav.classList.contains('open')) setOpen(false);
+    });
+  })();
+
+  // Renders every update from the board-editable data file, newest first.
+  (function () {
+    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const fmtDate = (iso) => {
+      const p = String(iso || '').split('-');
+      const m = parseInt(p[1], 10);
+      if (p.length !== 3 || !m || m < 1 || m > 12) return iso || '';
+      return MONTHS[m - 1] + ' ' + parseInt(p[2], 10) + ', ' + p[0];
+    };
+    const list = document.getElementById('updates-page-list');
+    const status = document.getElementById('updates-status');
+    fetch('/data/updates.json')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((data) => {
+        const items = (data.updates || [])
+          .filter((u) => u && u.title)
+          .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+        if (!items.length) {
+          status.textContent = 'No updates posted yet. Check back soon.';
+          return;
+        }
+        status.remove();
+        items.forEach((u) => {
+          const item = document.createElement('div');
+          item.className = 'update-item';
+          const date = document.createElement('div');
+          date.className = 'update-date';
+          date.textContent = fmtDate(u.date);
+          const title = document.createElement('h4');
+          title.className = 'update-title';
+          if (u.link && /^(\/|https:\/\/)/.test(u.link)) {
+            const a = document.createElement('a');
+            a.href = u.link;
+            a.textContent = u.title;
+            title.appendChild(a);
+          } else {
+            title.textContent = u.title;
+          }
+          item.appendChild(date);
+          item.appendChild(title);
+          if (u.body) {
+            const body = document.createElement('p');
+            body.className = 'update-body';
+            body.textContent = u.body;
+            item.appendChild(body);
+          }
+          list.appendChild(item);
+        });
+      })
+      .catch(() => {
+        status.textContent = 'Updates are temporarily unavailable. Try again in a bit.';
+      });
+  })();
+</script>
+
+</body>
+</html>

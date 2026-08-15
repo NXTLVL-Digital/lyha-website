@@ -93,6 +93,16 @@ When designing a new page, prefer reusing these. New components should use exist
 
 **Before every commit:** run `grep -c "—" <file>` and `grep -ci "\bskater\b" <file>` on any new copy and confirm both return 0 for user-visible content (CSS comments don't count).
 
+## Team & Org Updates feed (added 2026-08-15)
+
+Board-editable news, approved by Jeff. `data/updates.json` is edited via the
+Sveltia CMS ("Team & Org Updates" collection) and rendered client-side by
+vanilla JS in two places: a compact band on the homepage between the FAQ and
+final CTA sections (hidden entirely when there are no updates), and the full
+list at `/updates/`. This is the first content where the CMS edit actually
+changes what visitors see. The homepage band shows the 3 newest titles; the
+updates page shows everything, newest first. No build step involved.
+
 ## Phase 1 — status
 
 **Done:**

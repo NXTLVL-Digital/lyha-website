@@ -1,0 +1,14 @@
+# Keep internal project docs and infra out of the deployed site.
+# Honored by both deploy paths: the Vercel Git integration (main)
+# and the Deploy CMS Production workflow (vercel CLI upload).
+.git
+.github
+.gitignore
+.vercel
+.vercelignore
+CLAUDE.md
+HANDOFF.md
+README.md
+brand-voice.md
+docs
+cloudflare

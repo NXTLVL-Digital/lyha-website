@@ -167,7 +167,7 @@ _Gear & Equipment:_
 - Q: What gear does a child need?
   A: Helmet with cage, neck guard, shoulder pads, elbow pads, hockey pants, shin guards, skates, gloves, and a stick. The jersey is covered by registration. Full gear list comes with your welcome email.
 - Q: Do we need gear before the first practice?
-  A: Not if you use our loaner program. We have used equipment available to borrow — enough to get a child through a first season. Ask when you register. First come, first served.
+  A: Yes, full equipment is required from day one. We sometimes have donated used gear you can buy with a donation, but sizes and stock aren't guaranteed. Ask when you register before buying anything new.
 - Q: Where do we buy gear near Lynchburg?
   A: Used gear: Play It Again Sports in Roanoke (~1 hour). New gear: Pure Hockey in Morrisville, NC (~3 hours, just outside Raleigh). Both are linked on each division page.
 - Q: What size gear does my child need?

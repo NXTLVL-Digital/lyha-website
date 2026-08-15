@@ -141,6 +141,77 @@
     margin-top: 22px;
   }
 
+  /* ============ BOARD CARDS (page-local) ============ */
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 28px;
+  }
+  .board-card {
+    background: rgba(244, 241, 234, 0.03);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .board-card:hover { border-color: rgba(244, 241, 234, 0.25); }
+  .board-card-photo {
+    width: 100%;
+    aspect-ratio: 388 / 388;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .board-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .board-card-photo .placeholder-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(244, 241, 234, 0.02);
+  }
+  .board-card-body {
+    padding: 20px 22px 24px;
+  }
+  .board-card-eyebrow {
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: 10px;
+  }
+  .board-card-name {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .board-card-bio {
+    color: var(--bone-dim);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .board-card-bio .missing {
+    color: var(--bone-mute);
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .board-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 540px) {
+    .board-grid { grid-template-columns: 1fr; }
+  }
+
   .criteria-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -372,16 +443,21 @@
     .div-section { padding: 56px 18px; }
   }
 </style>
-<link rel="stylesheet" href="/styles.css?v=20260522-cssfix" />
+<link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
 <meta property="og:title" content="Our Board &middot; Lynchburg Youth Hockey" />
 <meta property="og:description" content="Meet the LYHA board volunteers supporting the Hill City Coyotes." />
-<meta property="og:url" content="https://lynchburg.hockey/board/" />
-<meta property="og:image" content="https://lynchburg.hockey/assets/coyote-mark.webp" />
+<meta property="og:url" content="https://lynchburgyouthhockey.com/board/" />
+<meta property="og:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/webp" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta name="twitter:image:alt" content="Lynchburg Youth Hockey Hill City Coyotes social preview" />
 </head>
 <body>
 <nav class="nav">
@@ -399,7 +475,7 @@
       <a href="/squirts/">Squirts (U10)</a>
       <a href="/peewee/">Peewee (U12)</a>
       <a href="/bantams/">Bantams (U14)</a>
-      <a href="/u15/">U15</a>
+      <a href="/u16/">U16</a>
       </div>
     </div>
     <div class="nav-item nav-has-dropdown">
@@ -408,11 +484,12 @@
       <a href="/board/">Board</a>
       <a href="/bylaws/">Bylaws</a>
       <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
       <a href="/about/">Our Story</a>
       </div>
     </div>
-    <a href="/calendar/">Calendar</a>
-    <a href="/shop/">Shop</a>
+    <a href="/ice-time/">Ice Time</a>
+    <a href="https://shop.lynchburgyouthhockey.com/">Shop</a>
   </div>
   <a href="/#register" class="nav-cta">Register</a>
   <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
@@ -432,19 +509,87 @@
 </section>
 <section class="div-section alt">
   <div class="div-section-inner">
-    <div class="div-section-head reveal"><div class="section-label">Section 01 &middot; 2026-27 Board</div><h2>The people helping <em>move the season forward.</em></h2><p>The board roster below uses placeholder photos for now. Final bios can be added through the CMS before launch.</p></div>
-    <div class="criteria-grid reveal">
-      <div class="criteria-item"><div class="criteria-eyebrow">President</div><h3>Brandon Brown</h3><p>Board member details will be finalized before launch.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Vice President</div><h3>Brent Whorley</h3><p>Bio coming soon.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Head of Coaches</div><h3>Jeff Boetger</h3><p>Bio coming soon.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Treasurer</div><h3>Amanda Boyer</h3><p>Board member details will be finalized before launch.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Secretary</div><h3>Rebecca Todd</h3><p>Board member details will be finalized before launch.</p><div class="gear-meta">Placeholder photo</div></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Marketing/IT</div><h3>Jeff Walker</h3><p>Bio coming soon.</p><div class="gear-meta">Placeholder photo</div></div>
+    <div class="div-section-head reveal"><div class="section-label">Section 01 &middot; Our Board</div><h2>The people helping <em>move the season forward.</em></h2><p>Meet the seven board volunteers who guide the LYHA season.</p></div>
+    <div class="board-grid reveal">
+      <!-- Board card: Brandon Brown - President (imported photo + source bio) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/board/brandon-brown.jpg" alt="Brandon Brown" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">President</div>
+          <div class="board-card-name">Brandon Brown</div>
+          <p class="board-card-bio">Brandon is married to Dara Brown and has two boys; Parker and Dawson. He is the owner of the local company Brown's heating, air and plumbing. Brandon has always enjoyed helping his boys in any sport they play. He has served as the president of LYHA since 2022 and is looking forward to growing the program in Lynchburg.</p>
+        </div>
+      </div>
+      <!-- Board card: Brent Whorley - Vice President (placeholder, no imported photo) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/coyote-mark.webp" alt="Board member photo" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Vice President</div>
+          <div class="board-card-name">Brent Whorley</div>
+          <p class="board-card-bio"><span class="missing">Bio coming soon.</span></p>
+        </div>
+      </div>
+      <!-- Board card: Jeff Boetger - Head of Coaches (placeholder, no imported photo) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/coyote-mark.webp" alt="Board member photo" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Head of Coaches</div>
+          <div class="board-card-name">Jeff Boetger</div>
+          <p class="board-card-bio"><span class="missing">Bio coming soon.</span></p>
+        </div>
+      </div>
+      <!-- Board card: John Anderson - Head of Learn to Play (placeholder, no imported photo) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/coyote-mark.webp" alt="Board member photo" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Head of Learn to Play</div>
+          <div class="board-card-name">John Anderson</div>
+          <p class="board-card-bio"><span class="missing">Bio coming soon.</span></p>
+        </div>
+      </div>
+      <!-- Board card: Amanda Bowyer - Treasurer (placeholder, no imported photo) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/coyote-mark.webp" alt="Board member photo" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Treasurer</div>
+          <div class="board-card-name">Amanda Bowyer</div>
+          <p class="board-card-bio"><span class="missing">Bio coming soon.</span></p>
+        </div>
+      </div>
+      <!-- Board card: Rebecca Todd - Secretary (imported becca-todd.jpg photo + source bio, name display updated) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/board/becca-todd.jpg" alt="Rebecca Todd" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Secretary</div>
+          <div class="board-card-name">Rebecca Todd</div>
+          <p class="board-card-bio">Rebecca Todd is the wife of Coach Jason Todd and mom to two kids, 8 Eli and 3yo Nora. Jason and Eli are the hockey players in their family and she enjoys watching them both play the game as well as watch Jason coach their son's team. She graduated from LU in 2007 with her bachelors. She is an accountant by trade for a local business for the last several years.</p>
+        </div>
+      </div>
+      <!-- Board card: Jeff Walker - Marketing/IT (profile photo provided) -->
+      <div class="board-card">
+        <div class="board-card-photo">
+          <img src="/assets/board/jeff-walker.jpg" alt="Jeff Walker" />
+        </div>
+        <div class="board-card-body">
+          <div class="board-card-eyebrow">Marketing/IT</div>
+          <div class="board-card-name">Jeff Walker</div>
+          <p class="board-card-bio">Jeff Walker serves LYHA through marketing and IT. He and his wife, Emily, have three children, Ava, Owen, and Elijah. Owen is the Coyote in the family, and Jeff loves watching him play. Jeff hopes to help grow ice hockey in Central Virginia and make the sport easier for more families to find. He graduated from Johnson Bible College and owns NXTLVL-Digital, a web and digital marketing agency based in Gretna, Virginia.</p>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-<section class="div-section ink">
-  <div class="div-section-inner"><div class="coaches-pending reveal">Board photos are placeholders until LYHA provides final images.</div></div>
 </section>
 <section class="final-cta">
   <div class="final-cta-inner reveal">
@@ -452,8 +597,19 @@
     <h2>Questions can go to <em>the LYHA inbox.</em></h2>
     <p>A board member will route your message to the right person.</p>
     <div class="hero-cta-row" style="justify-content: center;">
-      <a href="mailto:info@lynchburg.hockey" class="btn-primary">Email Us<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
       <a href="/faq/" class="btn-ghost">Read FAQs</a>
+    </div>
+    <div class="contact-form-embed" id="contact-form">
+      <iframe
+        src="https://lyha-contact.netlify.app"
+        width="100%"
+        height="600"
+        frameborder="0"
+        loading="lazy"
+        title="Contact Lynchburg Youth Hockey"
+      >
+        <a href="https://lyha-contact.netlify.app">Contact Lynchburg Youth Hockey</a>
+      </iframe>
     </div>
   </div>
 </section>
@@ -480,9 +636,11 @@
       <h5>About</h5>
       <ul>
         <li><a href="/about/">Our Story</a></li>
+        <li><a href="/ice-time/">Ice Time</a></li>
         <li><a href="/board/">Our Board</a></li>
         <li><a href="/bylaws/">Bylaws</a></li>
         <li><a href="/faq/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -498,6 +656,7 @@
   <div class="footer-bottom">
     <div>&copy; 2026 Lynchburg Youth Hockey Association. All Rights Reserved.</div>
     <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+    <div class="footer-credit">Website by <a href="https://www.nxtlvl-digital.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">NXTLVL-Digital</a></div>
   </div>
 </footer>
 <script>

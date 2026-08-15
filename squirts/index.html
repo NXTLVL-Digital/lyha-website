@@ -371,18 +371,41 @@
     .stat-strip > div:last-child { border-bottom: none; }
     .div-section { padding: 56px 18px; }
   }
+
+  /* Coach grid */
+  .coach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .coach-card {
+    background: var(--bone);
+    border-left: 3px solid var(--forest);
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  @media (max-width: 600px) {
+    .coach-grid { grid-template-columns: 1fr; }
+  }
 </style>
 
-<link rel="stylesheet" href="/styles.css?v=20260522-cssfix" />
+<link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
 <meta property="og:title" content="Squirts (U10) · Lynchburg Youth Hockey" />
-<meta property="og:description" content="Squirts is house development hockey for ages 9 to 10 at LYHA. Children build real skills and compete in regional jamborees." />
-<meta property="og:url" content="https://lynchburg.hockey/squirts/" />
-<meta property="og:image" content="https://lynchburg.hockey/assets/coyote-mark.webp" />
+<meta property="og:description" content="Squirts is house development hockey for ages 9 to 10 at LYHA. Children build real skills and compete in intersquad games." />
+<meta property="og:url" content="https://lynchburgyouthhockey.com/squirts/" />
+<meta property="og:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/webp" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta name="twitter:image:alt" content="Lynchburg Youth Hockey Hill City Coyotes social preview" />
 </head>
 <body>
 <nav class="nav">
@@ -400,7 +423,7 @@
       <a href="/squirts/">Squirts (U10)</a>
       <a href="/peewee/">Peewee (U12)</a>
       <a href="/bantams/">Bantams (U14)</a>
-      <a href="/u15/">U15</a>
+      <a href="/u16/">U16</a>
       </div>
     </div>
     <div class="nav-item nav-has-dropdown">
@@ -409,11 +432,12 @@
       <a href="/board/">Board</a>
       <a href="/bylaws/">Bylaws</a>
       <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
       <a href="/about/">Our Story</a>
       </div>
     </div>
-    <a href="/calendar/">Calendar</a>
-    <a href="/shop/">Shop</a>
+    <a href="/ice-time/">Ice Time</a>
+    <a href="https://shop.lynchburgyouthhockey.com/">Shop</a>
   </div>
   <a href="/#register" class="nav-cta">Register</a>
   <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
@@ -430,7 +454,7 @@
     <div class="section-label">House Development &middot; Ages 9 to 10</div>
     <h1>Squirts.<br/><em>Building the game.</em></h1>
     <p class="div-hero-lede">
-      House hockey for ages nine and ten. Children who know how to skate come here to learn how to actually play. Practices are structured, jamborees are competitive, and the goal is a strong foundation before travel begins.
+      House hockey for ages nine and ten. Children who know how to skate come here to learn how to actually play. Practices are structured, intersquad games are competitive, and the goal is a strong foundation before travel begins.
     </p>
 
     <div class="hero-cta-row" style="margin-bottom: 64px;">
@@ -486,7 +510,7 @@
       <div class="criteria-item">
         <div class="criteria-eyebrow">Format</div>
         <h3>House hockey, no travel team</h3>
-        <p>Squirts is a house division. Your child plays and practices at LaHaye. Jamborees take the team to nearby rinks a few times a season, but there is no travel team and no away game schedule.</p>
+        <p>Squirts is a house division. Your child plays and practices at LaHaye. Games are played at LaHaye with no away game schedule and no travel team.</p>
         <p style="margin-top: 12px;">Travel hockey starts at Peewee (ages 11 to 12).</p>
       </div>
     </div>
@@ -498,7 +522,7 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 02</div>
       <h2>What's the <em>commitment?</em></h2>
-      <p>Squirts is a step up from Mites in structure and competition. No regular game schedule, but jamborees are real competitive hockey.</p>
+      <p>Squirts is a step up from Mites in structure and competition. No regular game schedule, but intersquad games are real competitive hockey.</p>
     </div>
 
     <div class="stat-strip reveal">
@@ -511,21 +535,21 @@
         <div class="stat-strip-value">2 per week at LaHaye</div>
       </div>
       <div>
-        <div class="stat-strip-label">Games</div>
-        <div class="stat-strip-value">0 (jamborees only)</div>
+        <div class="stat-strip-label">Intersquad games</div>
+        <div class="stat-strip-value">3 to 4 intersquad games</div>
       </div>
       <div>
-        <div class="stat-strip-label">Jamborees</div>
+        <div class="stat-strip-label">Intersquad games</div>
         <div class="stat-strip-value">About 3 to 4 per season</div>
       </div>
       <div>
         <div class="stat-strip-label">Travel</div>
-        <div class="stat-strip-value">Day trips, within 90 min</div>
+        <div class="stat-strip-value">LaHaye only</div>
       </div>
     </div>
 
     <p style="color: var(--bone-dim); font-size: 16px; line-height: 1.7; margin-top: 36px; max-width: 760px;">
-      A jamboree is a half-day of games at another rink. Teams from several clubs show up and play short games round-robin style. For Squirts, they run from roughly 9 AM to 1 PM. Three or four of these fit into the season. They are more competitive than Mites jamborees. Scores count and kids know it. Travel is day-trip only, mostly within 90 minutes of Lynchburg.
+      Intersquad games are structured at LaHaye. Kids play a round-robin style format against other groups in the house program. For Squirts, they run from roughly 9 AM to 1 PM. Three or four of these fit into the season. They are more competitive than Mites games. Scores count and kids know it. All games stay at LaHaye. There is no away game schedule and no travel team.
     </p>
   </div>
 </section>
@@ -541,9 +565,9 @@
     <div class="criteria-grid reveal">
       <div class="criteria-item">
         <div class="criteria-eyebrow">First Choice</div>
-        <h3>LYHA loaner gear</h3>
-        <p>We have used equipment available to borrow. Skates, helmets, pads. Enough to get a child through a first season without buying anything. Ask at registration.</p>
-        <div class="gear-meta">Free &middot; First come, first served</div>
+        <h3>LYHA donated gear</h3>
+        <p>We sometimes have donated used equipment for sale. Skates, helmets, pads. When gear is available, you can buy it with a donation to LYHA. We can't promise sizes or stock, so ask at registration before buying anything new.</p>
+        <div class="gear-meta">By donation &middot; Availability varies</div>
       </div>
       <div class="criteria-item">
         <div class="criteria-eyebrow">Used Gear</div>
@@ -573,7 +597,7 @@
     <div class="cost-card reveal">
       <div class="cost-card-inner">
         <h3>Cost should not <em>be the reason a Lynchburg kid can't play.</em></h3>
-        <p>Current Squirts season pricing is published with the registration link we send you. Tuition covers ice time, coaching, and USA Hockey and PVAHA registration. Jamboree fees are paid by families as the schedule firms up. We offer financial aid for families who need it. Ask any board member.</p>
+        <p>Current Squirts season pricing is published with the registration link we send you. Tuition covers ice time, coaching, and USA Hockey and PVAHA registration. House game fees are paid by families as the schedule firms up. We offer financial aid for families who need it. Ask any board member.</p>
         <div class="hero-cta-row" style="margin-bottom: 0;">
           <a href="#sign-up" class="btn-primary">
             View Pricing &amp; Register
@@ -591,11 +615,14 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 05</div>
       <h2>Who's <em>coaching.</em></h2>
-      <p>Squirts are coached by experienced LYHA staff and <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a> players who volunteer their time. Coaching assignments for 2026-27 are finalized in July. We'll publish names and photos here once they're set.</p>
+      <p>Meet the 2026-27 10U coaching staff.</p>
     </div>
 
-    <div class="coaches-pending reveal">
-      2026 - 27 Squirts coaches will be confirmed in July. Check back, or reach out and we'll let you know.
+    <div class="coach-grid reveal">
+      <div class="coach-card">Caleb Atkins</div>
+      <div class="coach-card">Aimee Seckman</div>
+      <div class="coach-card">Kris McNaney</div>
+      <div class="coach-card">Mike Lewis</div>
     </div>
   </div>
 </section>
@@ -629,14 +656,14 @@
         <div class="step-num">03</div>
         <div class="step-body">
           <h4>First practice</h4>
-          <p>September at LaHaye. We'll send a welcome note with the schedule, gear list, and loaner pickup details before the season starts.</p>
+          <p>September at LaHaye. We'll send a welcome note with the schedule, gear list, and how to ask about donated gear before the season starts.</p>
         </div>
         <div class="step-meta">September</div>
       </div>
     </div>
 
     <div class="hero-cta-row" style="margin-top: 56px;">
-      <a href="mailto:info@lynchburg.hockey" class="btn-primary">
+      <a href="/contact/" class="btn-primary">
         Email Us to Get Started
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
@@ -655,7 +682,7 @@
     <div class="div-faq reveal">
       <div class="div-faq-item">
         <h4>What's the difference between Squirts and Mites?</h4>
-        <p>Mites is for ages six to eight and puts the focus almost entirely on fundamentals and fun. Squirts picks up where Mites leaves off. Children are older, practices have more structure, and jamborees carry a bit more competitive weight. The format is still house hockey, but the game starts to feel more real.</p>
+        <p>Mites is for ages six to eight and puts the focus almost entirely on fundamentals and fun. Squirts picks up where Mites leaves off. Children are older, practices have more structure, and intersquad games carry a bit more competitive weight. The format is still house hockey, but the game starts to feel more real.</p>
       </div>
       <div class="div-faq-item">
         <h4>My child skips straight to Squirts without playing Mites. Is that OK?</h4>
@@ -663,7 +690,7 @@
       </div>
       <div class="div-faq-item">
         <h4>Does my child need their own gear?</h4>
-        <p>Not to start. We have loaner gear available to borrow. When your child is ready for their own, Play It Again Sports in Roanoke is good for used gear and Pure Hockey in Morrisville (just outside Raleigh) carries brand-new equipment.</p>
+        <p>Yes, full equipment is required. We sometimes have donated used gear you can buy with a donation, but sizes and stock aren't guaranteed. Ask when you register before buying new. Play It Again Sports in Roanoke is good for used gear and Pure Hockey in Morrisville (just outside Raleigh) carries brand-new equipment.</p>
       </div>
       <div class="div-faq-item">
         <h4>Are there tryouts?</h4>
@@ -694,11 +721,19 @@
     <h2>The fastest way to <em>get an answer</em> is to ask.</h2>
     <p>If you're unsure whether Squirts is the right starting point for your child, send a note. We'll talk it through.</p>
     <div class="hero-cta-row" style="justify-content: center;">
-      <a href="mailto:info@lynchburg.hockey" class="btn-primary">
-        Email a Coach
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
       <a href="/faq/" class="btn-ghost">Browse the General FAQ</a>
+    </div>
+    <div class="contact-form-embed" id="contact-form">
+      <iframe
+        src="https://lyha-contact.netlify.app"
+        width="100%"
+        height="600"
+        frameborder="0"
+        loading="lazy"
+        title="Contact Lynchburg Youth Hockey"
+      >
+        <a href="https://lyha-contact.netlify.app">Contact Lynchburg Youth Hockey</a>
+      </iframe>
     </div>
   </div>
 </section>
@@ -726,9 +761,11 @@
       <h5>About</h5>
       <ul>
         <li><a href="/about/">Our Story</a></li>
+        <li><a href="/ice-time/">Ice Time</a></li>
         <li><a href="/board/">Our Board</a></li>
         <li><a href="/bylaws/">Bylaws</a></li>
         <li><a href="/faq/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -744,6 +781,7 @@
   <div class="footer-bottom">
     <div>&copy; 2026 Lynchburg Youth Hockey Association. All Rights Reserved.</div>
     <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+    <div class="footer-credit">Website by <a href="https://www.nxtlvl-digital.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">NXTLVL-Digital</a></div>
   </div>
 </footer>
 

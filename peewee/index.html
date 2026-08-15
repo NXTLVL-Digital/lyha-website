@@ -371,18 +371,41 @@
     .stat-strip > div:last-child { border-bottom: none; }
     .div-section { padding: 56px 18px; }
   }
+
+  /* Coach grid */
+  .coach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .coach-card {
+    background: var(--bone);
+    border-left: 3px solid var(--forest);
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  @media (max-width: 600px) {
+    .coach-grid { grid-template-columns: 1fr; }
+  }
 </style>
 
-<link rel="stylesheet" href="/styles.css?v=20260522-cssfix" />
+<link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
 <meta property="og:title" content="Peewee (U12) · Lynchburg Youth Hockey" />
 <meta property="og:description" content="Peewee is travel hockey for ages 11 to 12 at LYHA. Real games, regional travel, and a season that runs through March." />
-<meta property="og:url" content="https://lynchburg.hockey/peewee/" />
-<meta property="og:image" content="https://lynchburg.hockey/assets/coyote-mark.webp" />
+<meta property="og:url" content="https://lynchburgyouthhockey.com/peewee/" />
+<meta property="og:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/webp" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta name="twitter:image:alt" content="Lynchburg Youth Hockey Hill City Coyotes social preview" />
 </head>
 <body>
 <nav class="nav">
@@ -400,7 +423,7 @@
       <a href="/squirts/">Squirts (U10)</a>
       <a href="/peewee/">Peewee (U12)</a>
       <a href="/bantams/">Bantams (U14)</a>
-      <a href="/u15/">U15</a>
+      <a href="/u16/">U16</a>
       </div>
     </div>
     <div class="nav-item nav-has-dropdown">
@@ -409,11 +432,12 @@
       <a href="/board/">Board</a>
       <a href="/bylaws/">Bylaws</a>
       <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
       <a href="/about/">Our Story</a>
       </div>
     </div>
-    <a href="/calendar/">Calendar</a>
-    <a href="/shop/">Shop</a>
+    <a href="/ice-time/">Ice Time</a>
+    <a href="https://shop.lynchburgyouthhockey.com/">Shop</a>
   </div>
   <a href="/#register" class="nav-cta">Register</a>
   <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
@@ -456,7 +480,7 @@
       </div>
       <div>
         <div class="stat-strip-label">Games</div>
-        <div class="stat-strip-value">10 to 15 per season</div>
+        <div class="stat-strip-value">Set each season</div>
       </div>
       <div>
         <div class="stat-strip-label">Travel</div>
@@ -484,13 +508,13 @@
       <div class="criteria-item">
         <div class="criteria-eyebrow">Tryouts</div>
         <h3>There is a tryout</h3>
-        <p>Peewee is not open enrollment. There is a tryout process before the season starts. We hold tryouts in late summer. Contact us in the spring and we'll put you on the list for dates and details.</p>
+        <p>Peewee is not open enrollment. There is a tryout process before the season starts. We hold tryouts in mid-late April. Contact us in the spring and we'll put you on the list for dates and details.</p>
         <p style="margin-top: 12px;">Your child does not need to have played Squirts at LYHA to try out. Kids coming from other clubs or house programs are welcome.</p>
       </div>
       <div class="criteria-item">
         <div class="criteria-eyebrow">Commitment</div>
-        <h3>Travel games and away weekends</h3>
-        <p>Peewee plays 10 to 15 games per season against clubs in the PVAHA region, across Virginia and into neighboring states. Most games are day trips. Some weekends require an overnight stay.</p>
+        <h3>Travel games, tournaments, and away weekends</h3>
+        <p>Peewee plays a full schedule of games each season, including tournament weekends, against clubs in the PVAHA region, across Virginia and into neighboring states. Most games are day trips. Some weekends require an overnight stay.</p>
         <p style="margin-top: 12px;">Two practices a week at LaHaye, plus away game weekends. Plan for about six months of scheduling from September through March.</p>
       </div>
     </div>
@@ -516,7 +540,7 @@
       </div>
       <div>
         <div class="stat-strip-label">Games</div>
-        <div class="stat-strip-value">10 to 15 per season</div>
+        <div class="stat-strip-value">Set each season</div>
       </div>
       <div>
         <div class="stat-strip-label">Travel</div>
@@ -524,7 +548,7 @@
       </div>
       <div>
         <div class="stat-strip-label">Tryouts</div>
-        <div class="stat-strip-value">Late summer</div>
+        <div class="stat-strip-value">Mid-late April</div>
       </div>
     </div>
 
@@ -545,9 +569,9 @@
     <div class="criteria-grid reveal">
       <div class="criteria-item">
         <div class="criteria-eyebrow">First Choice</div>
-        <h3>LYHA loaner gear</h3>
-        <p>We have used equipment available to borrow for new players. Ask when you reach out about tryouts. Availability is limited, so it helps to ask early.</p>
-        <div class="gear-meta">Free &middot; First come, first served</div>
+        <h3>LYHA donated gear</h3>
+        <p>We sometimes have donated used equipment for sale to new players. When gear is available, you can buy it with a donation to LYHA. Sizes and stock aren't guaranteed, so ask early when you reach out about tryouts.</p>
+        <div class="gear-meta">By donation &middot; Availability varies</div>
       </div>
       <div class="criteria-item">
         <div class="criteria-eyebrow">Used Gear</div>
@@ -595,11 +619,13 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 05</div>
       <h2>Who's <em>coaching.</em></h2>
-      <p>Peewee coaches are experienced LYHA staff and <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a> players. Coaching assignments for 2026-27 are finalized in July. We'll publish names and photos here once they're set.</p>
+      <p>Meet the 2026-27 Peewee coaching staff.</p>
     </div>
 
-    <div class="coaches-pending reveal">
-      2026 - 27 Peewee coaches will be confirmed in July. Check back, or reach out and we'll let you know.
+    <div class="coach-grid reveal">
+      <div class="coach-card">Jason Todd</div>
+      <div class="coach-card">Scott Bloomfield</div>
+      <div class="coach-card">Tim Jackman</div>
     </div>
   </div>
 </section>
@@ -625,9 +651,9 @@
         <div class="step-num">02</div>
         <div class="step-body">
           <h4>Tryout</h4>
-          <p>Held at LaHaye in late summer. Coaches evaluate skating, puck handling, and hockey sense. We let families know placement decisions quickly.</p>
+          <p>Held at LaHaye Ice Center in mid-late April. Coaches evaluate skating, puck handling, and hockey sense. We let families know placement decisions quickly.</p>
         </div>
-        <div class="step-meta">Late summer</div>
+        <div class="step-meta">Mid-late April</div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
@@ -640,7 +666,7 @@
     </div>
 
     <div class="hero-cta-row" style="margin-top: 56px;">
-      <a href="mailto:info@lynchburg.hockey" class="btn-primary">
+      <a href="/contact/" class="btn-primary">
         Email Us About Tryouts
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
@@ -659,7 +685,7 @@
     <div class="div-faq reveal">
       <div class="div-faq-item">
         <h4>How do tryouts work?</h4>
-        <p>Tryouts are held at LaHaye in late summer, typically over one or two sessions. Coaches look at skating skill, puck control, hockey awareness, and attitude. We try to keep it low-pressure. Kids wear a number and skate through drills. No parents on the ice. We send placement decisions within a few days.</p>
+        <p>Tryouts are held at LaHaye Ice Center in mid-late April, typically over one or two sessions. Coaches look at skating skill, puck control, hockey awareness, and attitude. We try to keep it low-pressure. Kids wear a number and skate through drills. No parents on the ice. We send placement decisions within a few days.</p>
       </div>
       <div class="div-faq-item">
         <h4>What if my child doesn't make the team?</h4>
@@ -698,11 +724,19 @@
     <h2>The fastest way to <em>get an answer</em> is to ask.</h2>
     <p>If you're thinking about Peewee for your child, reach out. We'll tell you what to expect and whether the timing is right.</p>
     <div class="hero-cta-row" style="justify-content: center;">
-      <a href="mailto:info@lynchburg.hockey" class="btn-primary">
-        Email a Coach
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
       <a href="/faq/" class="btn-ghost">Browse the General FAQ</a>
+    </div>
+    <div class="contact-form-embed" id="contact-form">
+      <iframe
+        src="https://lyha-contact.netlify.app"
+        width="100%"
+        height="600"
+        frameborder="0"
+        loading="lazy"
+        title="Contact Lynchburg Youth Hockey"
+      >
+        <a href="https://lyha-contact.netlify.app">Contact Lynchburg Youth Hockey</a>
+      </iframe>
     </div>
   </div>
 </section>
@@ -730,9 +764,11 @@
       <h5>About</h5>
       <ul>
         <li><a href="/about/">Our Story</a></li>
+        <li><a href="/ice-time/">Ice Time</a></li>
         <li><a href="/board/">Our Board</a></li>
         <li><a href="/bylaws/">Bylaws</a></li>
         <li><a href="/faq/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -748,6 +784,7 @@
   <div class="footer-bottom">
     <div>&copy; 2026 Lynchburg Youth Hockey Association. All Rights Reserved.</div>
     <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+    <div class="footer-credit">Website by <a href="https://www.nxtlvl-digital.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">NXTLVL-Digital</a></div>
   </div>
 </footer>
 

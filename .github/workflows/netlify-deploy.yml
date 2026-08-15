@@ -1,0 +1,36 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Prepare static site files
+        run: |
+          mkdir -p netlify-publish
+          rsync -av --delete ./ netlify-publish/ \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='docs' \
+            --exclude='cloudflare' \
+            --exclude='CLAUDE.md' \
+            --exclude='HANDOFF.md' \
+            --exclude='README.md' \
+            --exclude='brand-voice.md' \
+            --exclude='.gitignore' \
+            --exclude='netlify-publish'
+
+      - name: Deploy to Netlify
+        run: npx --yes netlify-cli@latest deploy --prod --no-build --dir=netlify-publish --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.LYHA_WEBSITE_NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.LYHA_WEBSITE_NETLIFY_AUTH_TOKEN }}

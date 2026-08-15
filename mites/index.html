@@ -343,6 +343,95 @@
     border-color: var(--bone);
   }
 
+  .mites-gallery-section {
+    padding: 110px 48px;
+    background:
+      radial-gradient(ellipse at 80% 8%, rgba(6, 123, 63, 0.14), transparent 55%),
+      var(--ink);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .mites-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 240px;
+    grid-auto-flow: dense;
+    gap: 10px;
+  }
+  .mg-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0;
+    background: var(--forest-2);
+    cursor: pointer;
+  }
+  .mg-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .mg-item:hover img,
+  .mg-item:focus-visible img { transform: scale(1.045); }
+  .mg-item:focus-visible {
+    outline: 2px solid var(--green-bright);
+    outline-offset: 2px;
+  }
+  .mg-item.feature { grid-column: span 2; grid-row: span 2; }
+  .mg-item.tall { grid-row: span 2; }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 22, 16, 0.94);
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox-img {
+    max-width: 92vw;
+    max-height: 84vh;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .lightbox button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(244, 241, 234, 0.4);
+    border-radius: 50%;
+    background: rgba(19, 45, 28, 0.6);
+    color: var(--bone);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .lightbox button:hover {
+    background: var(--green);
+    border-color: var(--green-bright);
+  }
+  .lightbox-close { top: 22px; right: 22px; }
+  .lightbox-prev { left: 22px; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 22px; top: 50%; transform: translateY(-50%); }
+  .lightbox-count {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--athletic);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--bone-dim);
+  }
+
   @media (max-width: 900px) {
     .div-hero { padding: 110px 24px 70px; }
     .div-hero h1 { font-size: clamp(48px, 12vw, 80px); }
@@ -361,6 +450,14 @@
     .step-body h4 { font-size: 21px; }
     .cost-card { padding: 40px 26px; }
     .next-card { padding: 48px 24px; }
+    .mites-gallery-section { padding: 70px 24px; }
+    .mites-gallery-grid { grid-auto-rows: 170px; }
+    .lightbox-prev { left: 10px; }
+    .lightbox-next { right: 10px; }
+    .lightbox-close { top: 12px; right: 12px; }
+  }
+  @media (max-width: 700px) {
+    .mites-gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; gap: 8px; }
   }
   @media (max-width: 480px) {
     .div-hero { padding: 96px 18px 56px; }
@@ -370,19 +467,125 @@
     .stat-strip > div { border-right: none; border-bottom: 1px solid var(--rule); }
     .stat-strip > div:last-child { border-bottom: none; }
     .div-section { padding: 56px 18px; }
+    .mites-gallery-section { padding: 56px 18px; }
+    .coach-doc-viewer-frame { height: 500px; }
+  }
+
+  /* ============ COACH META + DOC VIEWER ============ */
+  .coach-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin: 28px 0 36px;
+  }
+  .coach-meta > div {
+    padding: 20px 24px;
+    border-right: 1px solid var(--rule);
+  }
+  .coach-meta > div:last-child { border-right: none; }
+  .coach-meta-label {
+    font-family: var(--athletic);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 8px;
+  }
+  .coach-meta-value {
+    font-family: var(--display);
+    font-size: 17px;
+    color: var(--bone);
+    line-height: 1.35;
+  }
+
+  .coach-doc-viewer { width: 100%; margin-top: 8px; }
+  .coach-doc-viewer-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--forest);
+    border: 1px solid var(--rule);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  .coach-doc-viewer-bar-title {
+    font-family: var(--athletic);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone);
+  }
+  .coach-doc-viewer-bar-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone);
+    border: 1px solid var(--rule);
+    background: transparent;
+    padding: 6px 14px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+  }
+  .btn-pdf:hover {
+    background: rgba(244, 241, 234, 0.06);
+    border-color: var(--bone);
+  }
+  .btn-pdf svg { flex-shrink: 0; }
+  .coach-doc-viewer-frame {
+    width: 100%;
+    height: 800px;
+    border: 1px solid var(--rule);
+    border-radius: 0 0 4px 4px;
+    background: #fff;
+  }
+  .coach-doc-fallback {
+    display: block;
+    padding: 20px 24px;
+    background: var(--forest);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-top: 16px;
+  }
+  .coach-doc-fallback a {
+    color: var(--green-bright);
+    border-bottom: 1px solid var(--green-bright);
   }
 </style>
 
-<link rel="stylesheet" href="/styles.css?v=20260522-cssfix" />
+<link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
 <meta property="og:title" content="Mites (U8) · Lynchburg Youth Hockey" />
 <meta property="og:description" content="Mites is the youngest travel division at LYHA. Children ages 6 to 8 learn the game and compete in the Potomac Valley region." />
-<meta property="og:url" content="https://lynchburg.hockey/mites/" />
-<meta property="og:image" content="https://lynchburg.hockey/assets/coyote-mark.webp" />
+<meta property="og:url" content="https://lynchburgyouthhockey.com/mites/" />
+<meta property="og:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/webp" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta name="twitter:image:alt" content="Lynchburg Youth Hockey Hill City Coyotes social preview" />
 </head>
 <body>
 <nav class="nav">
@@ -400,7 +603,7 @@
       <a href="/squirts/">Squirts (U10)</a>
       <a href="/peewee/">Peewee (U12)</a>
       <a href="/bantams/">Bantams (U14)</a>
-      <a href="/u15/">U15</a>
+      <a href="/u16/">U16</a>
       </div>
     </div>
     <div class="nav-item nav-has-dropdown">
@@ -409,11 +612,12 @@
       <a href="/board/">Board</a>
       <a href="/bylaws/">Bylaws</a>
       <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
       <a href="/about/">Our Story</a>
       </div>
     </div>
-    <a href="/calendar/">Calendar</a>
-    <a href="/shop/">Shop</a>
+    <a href="/ice-time/">Ice Time</a>
+    <a href="https://shop.lynchburgyouthhockey.com/">Shop</a>
   </div>
   <a href="/#register" class="nav-cta">Register</a>
   <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
@@ -458,6 +662,49 @@
         <div class="stat-strip-label">Home Ice</div>
         <div class="stat-strip-value"><a href="https://libertyclubsports.com/sports/2023/11/14/lahaye-ice-center/" target="_blank" rel="noopener">LaHaye Ice Center</a></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="mites-gallery-section" aria-label="Mites photo gallery">
+  <div class="div-section-inner">
+    <div class="div-section-head reveal">
+      <div class="section-label">See For Yourself</div>
+      <h2>This is what Mites <em>looks like.</em></h2>
+      <p>Locker rooms, huddles, and a lot of smiling through face cages. These are real photos from a real Mites season. Click any photo to see it up close.</p>
+    </div>
+
+    <div class="mites-gallery-grid reveal">
+      <button class="mg-item feature" data-full="/assets/gallery/mites/mites-01.webp" type="button">
+        <img src="/assets/gallery/mites/mites-01-thumb.webp" alt="Four Mites teammates in Coyotes jerseys, arms over shoulders in the locker room" loading="lazy" />
+      </button>
+      <button class="mg-item tall" data-full="/assets/gallery/mites/mites-02.webp" type="button">
+        <img src="/assets/gallery/mites/mites-02-thumb.webp" alt="A Mites group poses with their coach in the hallway at LaHaye Ice Center" loading="lazy" />
+      </button>
+      <button class="mg-item" data-full="/assets/gallery/mites/mites-03.webp" type="button">
+        <img src="/assets/gallery/mites/mites-03-thumb.webp" alt="The full Mites team gathered for a group photo in front of the rink mural" loading="lazy" />
+      </button>
+      <button class="mg-item" data-full="/assets/gallery/mites/mites-04.webp" type="button">
+        <img src="/assets/gallery/mites/mites-04-thumb.webp" alt="The whole team packed into the locker room after a game, grinning" loading="lazy" />
+      </button>
+      <button class="mg-item tall" data-full="/assets/gallery/mites/mites-05.webp" type="button">
+        <img src="/assets/gallery/mites/mites-05-thumb.webp" alt="A coach kneels rink-side to talk through the next shift with his players" loading="lazy" />
+      </button>
+      <button class="mg-item tall" data-full="/assets/gallery/mites/mites-06.webp" type="button">
+        <img src="/assets/gallery/mites/mites-06-thumb.webp" alt="Three teammates and their goalie pose in full gear in the locker room" loading="lazy" />
+      </button>
+      <button class="mg-item" data-full="/assets/gallery/mites/mites-07.webp" type="button">
+        <img src="/assets/gallery/mites/mites-07-thumb.webp" alt="The team lined up along the glass at an away rink" loading="lazy" />
+      </button>
+      <button class="mg-item tall" data-full="/assets/gallery/mites/mites-08.webp" type="button">
+        <img src="/assets/gallery/mites/mites-08-thumb.webp" alt="Players seated down the hallway, geared up and waiting to take the ice" loading="lazy" />
+      </button>
+      <button class="mg-item tall" data-full="/assets/gallery/mites/mites-09.webp" type="button">
+        <img src="/assets/gallery/mites/mites-09-thumb.webp" alt="Mites players stand on the ice with Liberty University players during pregame introductions" loading="lazy" />
+      </button>
+      <button class="mg-item" data-full="/assets/gallery/mites/mites-10.webp" type="button">
+        <img src="/assets/gallery/mites/mites-10-thumb.webp" alt="Coaches gather the team for a talk before heading out to the ice" loading="lazy" />
+      </button>
     </div>
   </div>
 </section>
@@ -539,9 +786,9 @@
     <div class="criteria-grid reveal">
       <div class="criteria-item">
         <div class="criteria-eyebrow">First Choice</div>
-        <h3>LYHA loaner gear</h3>
-        <p>We have used equipment available to borrow. Skates, helmets, pads. Enough to get a child through a first season without buying anything. Ask at registration.</p>
-        <div class="gear-meta">Free &middot; First come, first served</div>
+        <h3>LYHA donated gear</h3>
+        <p>We sometimes have donated used equipment for sale. Skates, helmets, pads. When gear is available, you can buy it with a donation to LYHA. We can't promise sizes or stock, so ask at registration before buying anything new.</p>
+        <div class="gear-meta">By donation &middot; Availability varies</div>
       </div>
       <div class="criteria-item">
         <div class="criteria-eyebrow">Used Gear</div>
@@ -589,12 +836,62 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 05</div>
       <h2>Who's <em>coaching.</em></h2>
-      <p>Mites are coached by experienced LYHA staff and <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a> players who volunteer their time. Coaching assignments for 2026-27 are finalized in July. We'll publish names and photos here once they're set.</p>
+      <p>Mites are coached by experienced LYHA staff and <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a> players who volunteer their time. For 2026-27, the 8U Mites team is led by Head Coach John Anderson, with assistant coaches Kyle Unruh, Kyle Lessard, Ryan Stephens, and David Semenyna.</p>
     </div>
 
-    <div class="coaches-pending reveal">
-      2026 - 27 Mites coaches will be confirmed in July. Check back, or reach out and we'll let you know.
+    <div class="coach-meta reveal">
+      <div>
+        <div class="coach-meta-label">Head Coach</div>
+        <div class="coach-meta-value">John Anderson</div>
+      </div>
+      <div>
+        <div class="coach-meta-label">Assistant Coaches</div>
+        <div class="coach-meta-value">Kyle Unruh, Kyle Lessard, Ryan Stephens, David Semenyna</div>
+      </div>
     </div>
+
+    <div class="div-section-head reveal" style="margin-top: 56px; margin-bottom: 24px;">
+      <div class="section-label">From Coach John Anderson</div>
+      <h3 style="font-family: var(--display); font-weight: 400; font-size: clamp(24px, 3vw, 32px); color: var(--bone); margin-top: 12px;">The full <em>season rundown.</em></h3>
+      <p>Coach Anderson put together a season info sheet covering team philosophy, cost, practice schedule, jamborees, jerseys, and more. Read it below, or open it in a new tab.</p>
+    </div>
+
+    <div class="coach-doc-viewer reveal">
+      <div class="coach-doc-viewer-bar">
+        <span class="coach-doc-viewer-bar-title">8U Mites &middot; 2026-2027 Season Information</span>
+        <div class="coach-doc-viewer-bar-actions">
+          <a class="btn-pdf" href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open in new tab
+          </a>
+          <a class="btn-pdf" href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+      <iframe
+        class="coach-doc-viewer-frame"
+        src="/assets/uploads/mites-8u-coach-info-2026-2027.pdf"
+        title="8U Mites 2026-2027 Season Information PDF viewer"
+        loading="lazy"
+        aria-label="8U Mites season information document viewer"
+      ></iframe>
+    </div>
+
+    <div class="coach-doc-fallback">
+      If the viewer does not load on your device, open the PDF in a new tab or download the file.
+      <a href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" target="_blank" rel="noopener">Open PDF in new tab</a> &middot;
+      <a href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" download>Download PDF</a>
+    </div>
+
+    <noscript>
+      <div class="coach-doc-fallback" style="display: block;">
+        Your browser needs JavaScript enabled to view the embedded PDF.
+        <a href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf">Download the 8U Mites season information PDF</a> or
+        <a href="/assets/uploads/mites-8u-coach-info-2026-2027.pdf" target="_blank" rel="noopener">open it in a new tab</a>.
+      </div>
+    </noscript>
   </div>
 </section>
 
@@ -627,14 +924,14 @@
         <div class="step-num">03</div>
         <div class="step-body">
           <h4>First practice</h4>
-          <p>September at LaHaye. We'll send a welcome note with the schedule, gear list, and loaner pickup details.</p>
+          <p>September at LaHaye. We'll send a welcome note with the schedule, gear list, and how to ask about donated gear.</p>
         </div>
         <div class="step-meta">September</div>
       </div>
     </div>
 
     <div class="hero-cta-row" style="margin-top: 56px;">
-      <a href="mailto:info@lynchburg.hockey" class="btn-primary">
+      <a href="/contact/" class="btn-primary">
         Email Us to Get Started
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
@@ -657,7 +954,7 @@
       </div>
       <div class="div-faq-item">
         <h4>Does my child need their own gear to start?</h4>
-        <p>Not for a first season. We have loaner gear available to borrow. When your child is ready for their own, Play It Again Sports in Roanoke is good for used gear and Pure Hockey in Morrisville (just outside Raleigh) is the closest place for brand-new equipment.</p>
+        <p>Yes, full equipment is required. We sometimes have donated used gear you can buy with a donation, but sizes and stock aren't guaranteed. Ask when you register before buying new. Play It Again Sports in Roanoke is good for used gear and Pure Hockey in Morrisville (just outside Raleigh) is the closest place for brand-new equipment.</p>
       </div>
       <div class="div-faq-item">
         <h4>What's a jamboree?</h4>
@@ -692,11 +989,19 @@
     <h2>The fastest way to <em>get an answer</em> is to ask.</h2>
     <p>If you're on the fence about whether Mites is the right starting point for your child, send a note. We'll talk it through.</p>
     <div class="hero-cta-row" style="justify-content: center;">
-      <a href="mailto:info@lynchburg.hockey" class="btn-primary">
-        Email a Coach
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
       <a href="/faq/" class="btn-ghost">Browse the General FAQ</a>
+    </div>
+    <div class="contact-form-embed" id="contact-form">
+      <iframe
+        src="https://lyha-contact.netlify.app"
+        width="100%"
+        height="600"
+        frameborder="0"
+        loading="lazy"
+        title="Contact Lynchburg Youth Hockey"
+      >
+        <a href="https://lyha-contact.netlify.app">Contact Lynchburg Youth Hockey</a>
+      </iframe>
     </div>
   </div>
 </section>
@@ -724,9 +1029,11 @@
       <h5>About</h5>
       <ul>
         <li><a href="/about/">Our Story</a></li>
+        <li><a href="/ice-time/">Ice Time</a></li>
         <li><a href="/board/">Our Board</a></li>
         <li><a href="/bylaws/">Bylaws</a></li>
         <li><a href="/faq/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -742,8 +1049,23 @@
   <div class="footer-bottom">
     <div>&copy; 2026 Lynchburg Youth Hockey Association. All Rights Reserved.</div>
     <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+    <div class="footer-credit">Website by <a href="https://www.nxtlvl-digital.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">NXTLVL-Digital</a></div>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="lightbox-close" type="button" aria-label="Close photo viewer">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="lightbox-prev" type="button" aria-label="Previous photo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <img class="lightbox-img" src="" alt="" />
+  <button class="lightbox-next" type="button" aria-label="Next photo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+  <div class="lightbox-count"></div>
+</div>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -771,6 +1093,51 @@
     });
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900 && nav.classList.contains('open')) setOpen(false);
+    });
+  })();
+
+  (function () {
+    const items = Array.from(document.querySelectorAll('.mg-item'));
+    const box = document.getElementById('lightbox');
+    if (!items.length || !box) return;
+    const img = box.querySelector('.lightbox-img');
+    const count = box.querySelector('.lightbox-count');
+    let current = 0;
+    let lastFocus = null;
+
+    const show = (i) => {
+      current = (i + items.length) % items.length;
+      const thumb = items[current].querySelector('img');
+      img.src = items[current].dataset.full;
+      img.alt = thumb ? thumb.alt : '';
+      count.textContent = (current + 1) + ' / ' + items.length;
+    };
+    const open = (i) => {
+      lastFocus = document.activeElement;
+      show(i);
+      box.hidden = false;
+      document.body.style.overflow = 'hidden';
+      box.querySelector('.lightbox-close').focus();
+    };
+    const close = () => {
+      box.hidden = true;
+      img.src = '';
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    };
+
+    items.forEach((item, i) => item.addEventListener('click', () => open(i)));
+    box.querySelector('.lightbox-close').addEventListener('click', close);
+    box.querySelector('.lightbox-prev').addEventListener('click', () => show(current - 1));
+    box.querySelector('.lightbox-next').addEventListener('click', () => show(current + 1));
+    box.addEventListener('click', (e) => {
+      if (e.target === box) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (box.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
     });
   })();
 </script>

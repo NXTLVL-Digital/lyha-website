@@ -16,3 +16,5 @@ Auto-deployed via Vercel on every push to `main`.
 ## Stack
 
 Plain HTML/CSS/JS. No build step. Phase 1 now includes Sveltia CMS at `/admin` for board-member content editing before public launch.
+
+Deployment refresh: 2026-06-22

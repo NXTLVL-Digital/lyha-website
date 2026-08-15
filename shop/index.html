@@ -18,6 +18,7 @@
       var(--ink);
     overflow: hidden;
   }
+  .shop-hero { padding: 132px 48px 84px; }
   .div-hero::after {
     content: '';
     position: absolute;
@@ -116,10 +117,13 @@
     padding: 130px 48px;
     position: relative;
   }
+  .shop-section { padding: 96px 48px; }
   .div-section.alt { background: var(--forest); }
   .div-section.ink { background: var(--ink); }
   .div-section-inner { max-width: 1280px; margin: 0 auto; }
   .div-section-head { max-width: 900px; margin-bottom: 70px; }
+  .shop-section .div-section-head { margin-bottom: 48px; }
+  .final-cta.shop-final-cta { padding: 90px 48px; }
   .div-section-head h2 {
     font-family: var(--display);
     font-weight: 400;
@@ -345,9 +349,12 @@
 
   @media (max-width: 900px) {
     .div-hero { padding: 110px 24px 70px; }
+    .shop-hero { padding: 104px 24px 58px; }
     .div-hero h1 { font-size: clamp(48px, 12vw, 80px); }
     .div-hero-lede { font-size: 18px; }
     .div-section { padding: 70px 24px; }
+    .shop-section { padding: 64px 24px; }
+    .final-cta.shop-final-cta { padding: 70px 24px; }
     .div-section-head { margin-bottom: 40px; }
     .criteria-grid { grid-template-columns: 1fr; }
     .criteria-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 32px 24px; }
@@ -364,6 +371,7 @@
   }
   @media (max-width: 480px) {
     .div-hero { padding: 96px 18px 56px; }
+    .shop-hero { padding: 92px 18px 48px; }
     .div-hero h1 { font-size: clamp(42px, 13vw, 64px); }
     .div-hero-lede { font-size: 17px; }
     .stat-strip { grid-template-columns: 1fr; }
@@ -372,16 +380,21 @@
     .div-section { padding: 56px 18px; }
   }
 </style>
-<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
 <link rel="icon" href="/assets/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
 <meta property="og:title" content="Shop &middot; Lynchburg Youth Hockey" />
 <meta property="og:description" content="LYHA merch shop information for Hill City Coyotes families and supporters." />
-<meta property="og:url" content="https://lynchburg.hockey/shop/" />
-<meta property="og:image" content="https://lynchburg.hockey/assets/coyote-mark.webp" />
+<meta property="og:url" content="https://lynchburgyouthhockey.com/shop/" />
+<meta property="og:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/webp" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta name="twitter:image:alt" content="Lynchburg Youth Hockey Hill City Coyotes social preview" />
 </head>
 <body>
 <nav class="nav">
@@ -399,7 +412,7 @@
       <a href="/squirts/">Squirts (U10)</a>
       <a href="/peewee/">Peewee (U12)</a>
       <a href="/bantams/">Bantams (U14)</a>
-      <a href="/u15/">U15</a>
+      <a href="/u16/">U16</a>
       </div>
     </div>
     <div class="nav-item nav-has-dropdown">
@@ -408,18 +421,19 @@
       <a href="/board/">Board</a>
       <a href="/bylaws/">Bylaws</a>
       <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
       <a href="/about/">Our Story</a>
       </div>
     </div>
-    <a href="/calendar/">Calendar</a>
-    <a href="/shop/">Shop</a>
+    <a href="/ice-time/">Ice Time</a>
+    <a href="https://shop.lynchburgyouthhockey.com/">Shop</a>
   </div>
   <a href="/#register" class="nav-cta">Register</a>
   <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<section class="div-hero">
+<section class="div-hero shop-hero">
   <div class="div-hero-inner">
     <a href="/" class="div-hero-back">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -427,31 +441,47 @@
     </a>
     <div class="section-label">Coyotes Shop</div>
     <h1>Hill City<br/><em>Coyotes gear.</em></h1>
-    <p class="div-hero-lede">The LYHA merch shop is planned for Fourthwall print-on-demand. Families will be able to order Coyotes gear online once the shop is connected.</p>
+    <p class="div-hero-lede">Order Hill City Coyotes gear through the official LYHA team shop. Fourthwall handles checkout, production, and shipping.</p>
+    <div class="hero-cta-row">
+      <a href="https://lynchburg-youth-hockey-shop.fourthwall.com/" class="btn-primary" target="_blank" rel="noopener">Shop Coyotes Gear</a>
+      <a href="mailto:info@lynchburg.hockey" class="btn-ghost">Questions? Email Us</a>
+    </div>
   </div>
 </section>
-<section class="div-section alt">
+<section class="div-section alt shop-section">
   <div class="div-section-inner">
     <div class="div-section-head reveal">
-      <div class="section-label">Coming Soon</div>
-      <h2>Merch without extra inventory work.</h2>
-      <p>Fourthwall will handle print-on-demand orders, production, and fulfillment after the shop is set up.</p>
+      <div class="section-label">Team Shop</div>
+      <h2>Official Coyotes gear is ready to order.</h2>
+      <p>Shop shirts, hoodies, hats, and other Coyotes gear through Fourthwall. Orders are produced as they come in, so LYHA does not need to keep inventory.</p>
     </div>
     <div class="criteria-grid reveal">
-      <div class="criteria-item"><div class="criteria-eyebrow">Platform</div><h3>Fourthwall</h3><p>The shop platform selected for phase 2 is Fourthwall.</p></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Fulfillment</div><h3>Print-on-demand</h3><p>Orders will be produced as families place them, instead of requiring LYHA to hold merchandise inventory.</p></div>
-      <div class="criteria-item"><div class="criteria-eyebrow">Status</div><h3>Not live yet</h3><p>This page is a placeholder until the official Coyotes shop URL or embed is ready.</p></div>
+      <div class="criteria-item"><div class="criteria-eyebrow">Shop</div><h3>Fourthwall</h3><p>Use the official Fourthwall storefront to browse current LYHA gear and place orders.</p></div>
+      <div class="criteria-item"><div class="criteria-eyebrow">Fulfillment</div><h3>Print-on-demand</h3><p>Orders, payment, production, and shipping are handled through Fourthwall.</p></div>
+      <div class="criteria-item"><div class="criteria-eyebrow">Status</div><h3>Open now</h3><p><a href="https://lynchburg-youth-hockey-shop.fourthwall.com/" target="_blank" rel="noopener">Visit the LYHA team shop</a> to see current products.</p></div>
     </div>
   </div>
 </section>
-<section class="final-cta">
+<section class="final-cta shop-final-cta">
   <div class="final-cta-inner reveal">
     <div class="section-label section-label-center" style="justify-content: center;">Need Help?</div>
     <h2>Questions about LYHA gear?</h2>
-    <p>Send us a note and we can point you to current team gear information.</p>
+    <p>Use the team shop button to order gear. If you have LYHA questions, send us a note.</p>
     <div class="hero-cta-row" style="justify-content: center;">
-      <a href="mailto:info@lynchburg.hockey" class="btn-primary">Email Us</a>
-      <a href="/calendar/" class="btn-ghost">View Calendar</a>
+      <a href="https://lynchburg-youth-hockey-shop.fourthwall.com/" class="btn-primary" target="_blank" rel="noopener">Shop Coyotes Gear</a>
+    </div>
+    <div class="contact-form-embed" id="contact-form">
+      <div class="section-label" style="justify-content: center; margin: 0 0 18px;">About LYHA</div>
+      <iframe
+        src="https://lyha-contact.netlify.app"
+        width="100%"
+        height="600"
+        frameborder="0"
+        loading="lazy"
+        title="Contact Lynchburg Youth Hockey"
+      >
+        <a href="https://lyha-contact.netlify.app">Contact Lynchburg Youth Hockey</a>
+      </iframe>
     </div>
   </div>
 </section>
@@ -471,16 +501,18 @@
         <li><a href="/squirts/">Squirts (U10)</a></li>
         <li><a href="/peewee/">Peewee (U12)</a></li>
         <li><a href="/bantams/">Bantams (U14)</a></li>
-        <li><a href="/u15/">U15</a></li>
+        <li><a href="/u16/">U16</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>About</h5>
       <ul>
         <li><a href="/about/">Our Story</a></li>
+        <li><a href="/ice-time/">Ice Time</a></li>
         <li><a href="/board/">Our Board</a></li>
         <li><a href="/bylaws/">Bylaws</a></li>
         <li><a href="/faq/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -496,6 +528,7 @@
   <div class="footer-bottom">
     <div>&copy; 2026 Lynchburg Youth Hockey Association. All Rights Reserved.</div>
     <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+    <div class="footer-credit">Website by <a href="https://www.nxtlvl-digital.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">NXTLVL-Digital</a></div>
   </div>
 </footer>
 <script>

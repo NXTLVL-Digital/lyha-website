@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ice Time · Lynchburg Youth Hockey Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============ ICE TIME PAGE ============ */
+  .div-hero {
+    position: relative;
+    padding: 160px 48px 100px;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(6, 123, 63, 0.22), transparent 55%),
+      radial-gradient(ellipse at 15% 90%, rgba(19, 45, 28, 0.55), transparent 60%),
+      var(--ink);
+    overflow: hidden;
+  }
+  .div-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(115deg,
+        transparent 0, transparent 40px,
+        rgba(244, 241, 234, 0.015) 40px,
+        rgba(244, 241, 234, 0.015) 41px);
+    pointer-events: none;
+  }
+  .div-hero-inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  .div-hero-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 36px;
+    transition: color 0.2s ease;
+  }
+  .div-hero-back:hover { color: var(--green-bright); }
+  .div-hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 100px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 16px 0 28px;
+    font-variation-settings: "opsz" 144;
+  }
+  .div-hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--green-bright);
+  }
+  .div-hero-lede {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(18px, 2.2vw, 26px);
+    line-height: 1.35;
+    color: var(--bone-dim);
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+
+  .section {
+    padding: 64px 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+  .section h2 {
+    font-family: var(--display);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    margin: 0 0 24px;
+    color: var(--bone);
+  }
+  .section h3 {
+    font-family: var(--athletic);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0 0 16px;
+  }
+  .section p, .section li {
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--bone-dim);
+  }
+  .section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .section ul li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+  .divider {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+  .info-card {
+    background: rgba(6, 123, 63, 0.08);
+    border: 1px solid rgba(6, 123, 63, 0.2);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+  }
+  .info-card h3 {
+    margin-top: 0;
+  }
+  .info-card p { margin-bottom: 12px; }
+  .info-card p:last-child { margin-bottom: 0; }
+
+  .gear-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .gear-item {
+    background: rgba(244, 241, 234, 0.04);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .gear-item strong {
+    display: block;
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--bone);
+    margin-bottom: 6px;
+  }
+  .gear-item span {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--bone-dim);
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 24px;
+  }
+  .comparison-col h3 {
+    margin-bottom: 12px;
+  }
+  .comparison-col ul {
+    margin-bottom: 20px;
+  }
+
+  .next-card {
+    background: linear-gradient(135deg, var(--green), var(--green-bright));
+    border-radius: 8px;
+    padding: 40px 48px;
+    margin-top: 64px;
+    text-align: center;
+  }
+  .next-card h3 {
+    color: var(--bone);
+    margin: 0 0 16px;
+  }
+  .next-card p {
+    color: var(--bone);
+    max-width: 560px;
+    margin: 0 auto 24px;
+  }
+  .next-card a {
+    color: var(--ink);
+  }
+
+  .final-cta {
+    text-align: center;
+    padding: 48px 24px 64px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .final-cta-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .contact-form-embed {
+    margin-top: 32px;
+    background: rgba(244,241,234,0.04);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .final-cta p {
+    font-family: var(--display);
+    font-size: 22px;
+    color: var(--bone-dim);
+    margin-bottom: 24px;
+  }
+  .final-cta .btn-row {
+    display: inline-flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* CTA button styles */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--green);
+    color: var(--bone);
+    font-family: var(--athletic);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--green);
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .btn-primary:hover {
+    background: var(--green-bright);
+    border-color: var(--green-bright);
+    color: var(--ink);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--bone);
+    font-family: var(--athletic);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--bone-dim);
+    border-radius: 6px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost:hover {
+    border-color: var(--green-bright);
+    color: var(--green-bright);
+  }
+  .btn-row {
+    display: inline-flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .div-hero { padding: 120px 24px 64px; }
+    .section, .section-inner { padding: 48px 24px; }
+    .comparison-grid { grid-template-columns: 1fr; gap: 24px; }
+    .gear-list { grid-template-columns: 1fr 1fr; }
+    .info-card { padding: 24px; }
+    .next-card { padding: 32px 24px; }
+  }
+  @media (max-width: 480px) {
+    .gear-list { grid-template-columns: 1fr; }
+  }
+</style>
+<link rel="stylesheet" href="/styles.css?v=20260606-navbridge" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Lynchburg Youth Hockey Association" />
+<meta property="og:title" content="Ice Time · Lynchburg Youth Hockey" />
+<meta property="og:description" content="Public skating, open hockey, and drop-in sessions at local rinks. Get your child on the ice before joining a full program." />
+<meta property="og:url" content="https://lynchburgyouthhockey.com/ice-time/" />
+<meta property="og:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://lynchburgyouthhockey.com/assets/social-preview.webp" />
+<meta name="twitter:image:alt" content="Lynchburg Youth Hockey Hill City Coyotes social preview" />
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <img src="/assets/coyote-mark.webp" alt="Lynchburg Coyotes" />
+    <span>Lynchburg</span>
+    <span>Coyotes</span>
+  </a>
+  <div class="nav-links" id="primary-nav">
+    <div class="nav-item nav-has-dropdown">
+      <a href="/#programs" class="nav-link-main">Programs</a>
+      <div class="nav-dropdown" aria-label="Programs submenu">
+      <a href="/learn-to-play/">Learn to Play</a>
+      <a href="/mites/">Mites (U8)</a>
+      <a href="/squirts/">Squirts (U10)</a>
+      <a href="/peewee/">Peewee (U12)</a>
+      <a href="/bantams/">Bantams (U14)</a>
+      <a href="/u16/">U16</a>
+      </div>
+    </div>
+    <div class="nav-item nav-has-dropdown">
+      <a href="/about/" class="nav-link-main">About</a>
+      <div class="nav-dropdown" aria-label="About submenu">
+      <a href="/board/">Board</a>
+      <a href="/bylaws/">Bylaws</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/contact/">Contact</a>
+      <a href="/about/">Our Story</a>
+      </div>
+    </div>
+    <a href="/ice-time/">Ice Time</a>
+    <a href="https://shop.lynchburgyouthhockey.com/">Shop</a>
+  </div>
+  <a href="/#register" class="nav-cta">Register</a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="div-hero">
+  <div class="div-hero-inner">
+    <a href="/#programs" class="div-hero-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Programs
+    </a>
+    <div class="section-label">Where to Start · No Program Needed</div>
+    <h1>Get on the<br/><em>ice first.</em></h1>
+    <p class="div-hero-lede">
+      Before joining a team or signing up for a full program, most kids skate the public sessions at the rink. This page explains where to go, what to expect, and how to get your child on the ice for the first time.
+    </p>
+    <div class="hero-cta-row" style="margin-bottom: 64px;">
+      <a href="https://www.liberty.edu/lahaye-ice-center/" target="_blank" rel="noopener" class="btn-primary">
+        View LaHaye Ice Center Schedule
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://lancerlotsportscomplex.com/ice-rink-schedule/" target="_blank" rel="noopener" class="btn-ghost">View Lancerlot Schedule</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: LAHAYE ICE CENTER -->
+<section class="section-inner" id="lahey">
+  <div class="info-card">
+    <h3>First choice: LaHaye Ice Center</h3>
+    <p>
+      <a href="https://www.liberty.edu/lahaye-ice-center/" target="_blank" rel="noopener">LaHaye Ice Center</a> is in Lynchburg, right on the campus of <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a>. It is the home rink for the Lynchburg Coyotes (LYHA) and many Liberty hockey programs.
+    </p>
+    <!-- CALENDAR FIRST -->
+    <h3>Check the LaHaye calendar first</h3>
+    <p>
+      Before heading to the rink, check the <a href="https://www.liberty.edu/lahaye-ice-center/" target="_blank" rel="noopener">LaHaye Ice Center schedule</a> to see what sessions are scheduled. This is the quickest way to find out what is available <strong>right now</strong>. The calendar lists Public Skates, Stick and Pucks, and Youth Open Hockey with dates and times. If something is on the calendar, show up and you are good to go.
+    </p>
+    <p>
+      <a href="https://www.liberty.edu/lahaye-ice-center/" target="_blank" rel="noopener" class="btn-primary">
+        View LaHaye Ice Center Schedule
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </p>
+    <h3>Public Skate</h3>
+    <p>
+      Public Skate is just for skating. There is no hockey. You can rent skates right at the rink, so you do not need to bring your own. The only thing you need is a skate ticket and warm clothes. Great practice for getting comfortable on the ice.
+    </p>
+    <h3>Stick and Puck</h3>
+    <p>
+      A casual drop-in session. Bring a helmet, a stick, and gloves. Pucks are provided by the rink. Just show up, buy in, and take shots.
+    </p>
+    <h3>Youth Open Hockey</h3>
+    <p>
+      Full hockey gear is required: helmet with cage, gloves, skates, stick, and all protective equipment. Youth Open Hockey is casual drop-in ice time, not structured shifts. Most sessions turn into relaxed games with kids and coaches, and all skill levels are welcome.
+    </p>
+    <p>
+      <strong>Address:</strong> 1971 University Blvd, Lynchburg, VA 24515
+    </p>
+    <p>
+      <strong>Phone:</strong> <a href="tel:4345923953">(434) 592-3953</a>
+    </p>
+  </div>
+</section>
+
+
+
+<hr class="divider" />
+
+<!-- LANCERLOT SPORTSPLEX: BACKUP RINK -->
+<section class="section-inner" id="lanc">
+  <h3>Check Lancerlot Sportsplex if LaHaye has nothing scheduled</h3>
+  <div class="info-card">
+    <p>
+      If there is nothing on LaHaye's calendar right now, the next best place is <a href="https://lancerlotsportscomplex.com/" target="_blank" rel="noopener">Lancerlot Sportsplex</a> in Vinton, VA (about 55 miles west of Lynchburg). They list sessions on a weekly basis year-round.
+    </p>
+    <h3>Lancerlot Sportsplex Schedule</h3>
+    <p>
+      Check the <a href="https://lancerlotsportscomplex.com/ice-rink-schedule/" target="_blank" rel="noopener">Lancerlot ice rink schedule</a> for available sessions. Public Skates, Stick and Puck, and drop-in hockey are typically offered.
+    </p>
+    <p>
+      <a href="https://lancerlotsportscomplex.com/ice-rink-schedule/" target="_blank" rel="noopener" class="btn-primary">
+        View Lancerlot Schedule
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </p>
+    <p>
+      <strong>Address:</strong> 1110 Vinyard Road, Vinton, VA 24179
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- WHAT TO BRING -->
+<section class="section-inner" id="bring">
+  <h3>What to bring</h3>
+  <p>Gear requirements depend on the session. Here is exactly what each one needs:</p>
+  <div class="gear-list">
+    <div class="gear-item">
+      <strong>Public Skate</strong>
+      <span>Nothing. No gear at all. You can rent skates from the rink. Just a ticket, warm clothes, and nothing else.</span>
+    </div>
+    <div class="gear-item">
+      <strong>Youth Open Hockey</strong>
+      <span>Full hockey gear is required: helmet with cage, gloves, skates, stick, and all protective equipment. All skill levels are welcome. Most sessions are casual games with kids and coaches, not formal shifts.</span>
+    </div>
+    <div class="gear-item">
+      <strong>Stick and Puck</strong>
+      <span>Helmet, stick, gloves. Pucks provided by the rink. That is all you need to show up and take shots.</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CTA -->
+<section class="final-cta" id="contact-form">
+  <div class="final-cta-inner">
+    <p>Get in touch and we will help you get on the ice.</p>
+    <div class="contact-form-embed">
+      <div class="section-label" style="justify-content: center; margin: 0 0 18px;">Drop a Note</div>
+      <iframe
+        src="https://lyha-contact.netlify.app"
+        width="100%"
+        height="600"
+        frameborder="0"
+        loading="lazy"
+        title="Contact Lynchburg Youth Hockey"
+      >
+        <a href="https://lyha-contact.netlify.app">Contact Lynchburg Youth Hockey</a>
+      </iframe>
+    </div>
+    <div class="btn-row" style="margin-top: 32px;">
+      <a href="/learn-to-play/" class="btn-primary">
+        Learn to Play Program
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="/assets/coyote-mark.webp" alt="Lynchburg Coyotes" />
+      <p>
+        Lynchburg Youth Hockey Association &middot; Hill City Coyotes. A 501(c)(3) nonprofit committed to ice hockey, character, and community in Central Virginia.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h5>Programs</h5>
+      <ul>
+        <li><a href="/learn-to-play/">Learn to Play</a></li>
+        <li><a href="/mites/">Mites (U8)</a></li>
+        <li><a href="/squirts/">Squirts (U10)</a></li>
+        <li><a href="/peewee/">Peewee (U12)</a></li>
+        <li><a href="/bantams/">Bantams (U14)</a></li>
+        <li><a href="/u16/">U16</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Travel Teams</h5>
+      <ul>
+        <li><a href="/mites/">Mites (U8)</a></li>
+        <li><a href="/squirts/">Squirts (U10)</a></li>
+        <li><a href="/peewee/">Peewee (U12)</a></li>
+        <li><a href="/bantams/">Bantams (U14)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="/ice-time/">Ice Time</a></li>
+        <li><a href="/board/">Our Board</a></li>
+        <li><a href="/faq/">FAQs</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/bylaws/">Bylaws</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Lynchburg Youth Hockey. All Rights Reserved.</div>
+    <div>P.O. Box 10471 &middot; Lynchburg, VA 24506</div>
+    <div class="footer-credit">Website by <a href="https://www.nxtlvl-digital.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">NXTLVL-Digital</a></div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  (function () {
+    const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.nav-toggle');
+    if (!nav || !toggle) return;
+    const setOpen = (open) => {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+    nav.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && nav.classList.contains('open')) setOpen(false);
+    });
+  })();
+</script>
+
+</body>
+</html>

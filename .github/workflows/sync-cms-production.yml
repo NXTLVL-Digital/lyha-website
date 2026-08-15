@@ -1,0 +1,49 @@
+name: Sync cms-production with main
+
+# Keeps cms-production in lockstep with main so Deploy CMS Production can
+# never publish a stale tree over the live site (incident: 2026-08-14, a
+# push to the diverged branch rolled production back to May 28).
+#
+# Pushes here use GITHUB_TOKEN, which intentionally does NOT trigger the
+# Deploy CMS Production workflow — main pushes are already deployed by the
+# Vercel Git integration, so a second deploy would be redundant. Sveltia CMS
+# edits are pushed with the editor's own OAuth token and still deploy.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-cms-production
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Merge main into cms-production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Merge main into cms-production and push
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin cms-production
+          git checkout -B cms-production origin/cms-production
+          if git merge --no-edit origin/main; then
+            git push origin cms-production
+            echo "cms-production synced to $(git rev-parse --short HEAD)"
+          else
+            echo "::error::Merge conflict syncing main into cms-production. Resolve manually: CMS edits and a main change touched the same lines."
+            exit 1
+          fi

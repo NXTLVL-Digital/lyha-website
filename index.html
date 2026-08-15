@@ -329,6 +329,20 @@
   </div>
 </section>
 
+<!-- ============ TEAM & ORG UPDATES ============ -->
+<section class="updates-band" id="updates" hidden>
+  <div class="updates-band-inner">
+    <div class="updates-band-head reveal">
+      <div class="section-label">Team &amp; Org Updates</div>
+      <h2>The latest <em>from the Coyotes.</em></h2>
+    </div>
+    <div class="updates-band-list" id="updates-band-list"></div>
+    <div class="updates-band-more">
+      <a href="/updates/" class="btn-ghost">All Updates</a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FINAL CTA ============ -->
 <section class="final-cta" id="register">
   <div class="final-cta-inner reveal">
@@ -430,6 +444,53 @@
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900 && nav.classList.contains('open')) setOpen(false);
     });
+  })();
+
+  // Team & Org Updates band: renders the 3 newest items from the
+  // board-editable data file. The section stays hidden if the file is
+  // missing or empty so the homepage flow is untouched.
+  (function () {
+    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const fmtDate = (iso) => {
+      const p = String(iso || '').split('-');
+      const m = parseInt(p[1], 10);
+      if (p.length !== 3 || !m || m < 1 || m > 12) return iso || '';
+      return MONTHS[m - 1] + ' ' + parseInt(p[2], 10) + ', ' + p[0];
+    };
+    fetch('/data/updates.json')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((data) => {
+        const items = (data.updates || [])
+          .filter((u) => u && u.title)
+          .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+          .slice(0, 3);
+        if (!items.length) return;
+        const list = document.getElementById('updates-band-list');
+        items.forEach((u) => {
+          const item = document.createElement('div');
+          item.className = 'update-item';
+          const date = document.createElement('div');
+          date.className = 'update-date';
+          date.textContent = fmtDate(u.date);
+          const title = document.createElement('h4');
+          title.className = 'update-title';
+          if (u.link && /^(\/|https:\/\/)/.test(u.link)) {
+            const a = document.createElement('a');
+            a.href = u.link;
+            a.textContent = u.title;
+            title.appendChild(a);
+          } else {
+            title.textContent = u.title;
+          }
+          item.appendChild(date);
+          item.appendChild(title);
+          list.appendChild(item);
+        });
+        const band = document.getElementById('updates');
+        band.hidden = false;
+        band.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      })
+      .catch(() => {});
   })();
 </script>
 

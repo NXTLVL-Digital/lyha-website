@@ -61,6 +61,19 @@ collections:
               - { label: Email, name: email, widget: string, required: false }
               - { label: Photo, name: photo, widget: image, required: false }
               - { label: Bio, name: bio, widget: text, required: false }
+      - name: team_updates
+        label: Team & Org Updates
+        file: data/updates.json
+        fields:
+          - label: Updates
+            name: updates
+            widget: list
+            summary: "{{fields.date}}: {{fields.title}}"
+            fields:
+              - { label: "Date (YYYY-MM-DD)", name: date, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text, required: false }
+              - { label: "Link (optional, like /learn-to-play/)", name: link, widget: string, required: false }
       - name: faq_items
         label: FAQ Items
         file: data/faq.json

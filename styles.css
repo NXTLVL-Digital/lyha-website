@@ -1322,3 +1322,72 @@
     .final-cta { padding: 70px 18px; }
     footer { padding: 48px 18px 28px; }
   }
+
+/* ============ TEAM & ORG UPDATES (homepage band + /updates/ page) ============ */
+.updates-band {
+  background: var(--forest);
+  border-top: 1px solid var(--rule);
+  padding: 96px 48px;
+}
+.updates-band-inner { max-width: 1280px; margin: 0 auto; }
+.updates-band-head h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-top: 18px;
+}
+.updates-band-head h2 em {
+  font-style: italic;
+  color: var(--green-bright);
+  font-weight: 300;
+}
+.updates-band-list { margin-top: 42px; }
+.update-item {
+  border-bottom: 1px solid var(--rule);
+  padding: 26px 0;
+}
+.updates-band-list .update-item:first-child,
+.updates-page-list .update-item:first-child { border-top: 1px solid var(--rule); }
+.update-date {
+  font-family: var(--athletic);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 8px;
+}
+.update-title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+.update-title a {
+  color: var(--bone);
+  transition: color 0.2s ease;
+}
+.update-title a:hover { color: var(--green-bright); }
+.update-body {
+  color: var(--bone-dim);
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 780px;
+  margin-top: 10px;
+}
+.updates-band-more { margin-top: 36px; }
+.updates-empty {
+  color: var(--bone-mute);
+  font-size: 16px;
+  line-height: 1.7;
+}
+@media (max-width: 900px) {
+  .updates-band { padding: 64px 24px; }
+}
+@media (max-width: 480px) {
+  .updates-band { padding: 56px 18px; }
+  .update-title { font-size: 20px; }
+}

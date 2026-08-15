@@ -280,6 +280,51 @@
     text-transform: uppercase;
   }
 
+  .coach-card {
+    max-width: 320px;
+    background: rgba(244, 241, 234, 0.03);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .coach-card:hover { border-color: rgba(244, 241, 234, 0.25); }
+  .coach-card-photo {
+    width: 100%;
+    aspect-ratio: 388 / 388;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .coach-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .coach-card-body { padding: 20px 22px 24px; }
+  .coach-card-eyebrow {
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: 10px;
+  }
+  .coach-card-name {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .coach-card-role {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--bone-dim);
+  }
+
   .div-faq { display: grid; grid-template-columns: 1fr; }
   .div-faq-item {
     border-bottom: 1px solid var(--rule);
@@ -619,11 +664,18 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 06</div>
       <h2>Who's <em>coaching.</em></h2>
-      <p>Learn to Play coaches are LYHA staff and experienced volunteers. They're used to working with children who have never been on ice. Patience and progression are the standard. Coaching assignments are confirmed each season. Check back or reach out and we'll let you know.</p>
+      <p>Learn to Play coaches are LYHA staff and experienced volunteers. They're used to working with children who have never been on ice. Patience and progression are the standard. For 2026-27, the program is led by Head Coach John Anderson.</p>
     </div>
 
-    <div class="coaches-pending reveal">
-      Coaching staff for the current season will be listed here. Contact us for details.
+    <div class="coach-card reveal">
+      <div class="coach-card-photo">
+        <img src="/assets/coyote-mark.webp" alt="Coach photo" />
+      </div>
+      <div class="coach-card-body">
+        <div class="coach-card-eyebrow">Head Coach</div>
+        <div class="coach-card-name">John Anderson</div>
+        <p class="coach-card-role">Head Coach for Learn to Play &amp; Mites (8U). LYHA Board Member.</p>
+      </div>
     </div>
   </div>
 </section>

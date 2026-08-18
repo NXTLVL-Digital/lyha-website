@@ -1,0 +1,65 @@
+name: Monthly analytics snapshot
+
+# Captures the previous month's GA4 numbers on the 1st of each month and
+# opens a PR with the snapshot JSON plus the regenerated TRENDS.md.
+# Note: PRs opened with the built-in token don't auto-trigger CI; if the
+# required check is missing on the PR, close and reopen it to kick CI.
+
+on:
+  schedule:
+    - cron: '17 12 1 * *'
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Month to snapshot (YYYY-MM); empty = previous month'
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: analytics-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run snapshot
+        env:
+          GA4_OAUTH_CLIENT_ID: ${{ secrets.GA4_OAUTH_CLIENT_ID }}
+          GA4_OAUTH_CLIENT_SECRET: ${{ secrets.GA4_OAUTH_CLIENT_SECRET }}
+          GA4_OAUTH_REFRESH_TOKEN: ${{ secrets.GA4_OAUTH_REFRESH_TOKEN }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+        run: |
+          set -euo pipefail
+          if [ -n "${{ inputs.month }}" ]; then
+            node scripts/analytics-snapshot.mjs --month "${{ inputs.month }}"
+          else
+            node scripts/analytics-snapshot.mjs
+          fi
+
+      - name: Open PR with snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "No snapshot changes; nothing to do."
+            exit 0
+          fi
+          MONTH=$(ls data/analytics-snapshots/*.json | sort | tail -1 | sed 's/.*\///; s/\.json//')
+          BRANCH="analytics-snapshot-$MONTH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add data/analytics-snapshots docs/analytics
+          git commit -m "chore: analytics snapshot for $MONTH"
+          git push -f origin "$BRANCH"
+          gh pr create --head "$BRANCH" \
+            --title "Analytics snapshot: $MONTH" \
+            --body "Automated monthly GA4 snapshot. Review the numbers in docs/analytics/TRENDS.md and merge. If the required check has not run on this PR, close and reopen it to trigger CI." \
+            || echo "PR already exists for $BRANCH"

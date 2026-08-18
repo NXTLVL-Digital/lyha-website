@@ -93,6 +93,17 @@ When designing a new page, prefer reusing these. New components should use exist
 
 **Before every commit:** run `grep -c "—" <file>` and `grep -ci "\bskater\b" <file>` on any new copy and confirm both return 0 for user-visible content (CSS comments don't count).
 
+## Analytics & Search Console (added 2026-08-17)
+
+GA4 is installed sitewide: measurement ID `G-7E8S3X0KH3`, property "LYHA
+Website" in the dedicated Google Analytics account "Lynchburg Youth Hockey
+Association" (kept separate from other client accounts). The gtag.js snippet
+sits immediately after the viewport meta on every page — new pages must
+include it. Google Search Console has a Domain property for
+`lynchburgyouthhockey.com` (plus an https URL-prefix property), verified via
+a DNS TXT record at the domain registrar — do not remove that record.
+`sitemap.xml` is submitted there; add new pages to the sitemap when created.
+
 ## Team & Org Updates feed (added 2026-08-15)
 
 Board-editable news, approved by Jeff. `data/updates.json` is edited via the

@@ -49,7 +49,7 @@
     var href = a.getAttribute('href') || '';
     if (href.indexOf('mailto:') === 0) {
       gtag('event', 'email_click', { link_url: href, page_location_path: path });
-    } else if (href === '/#register' || href === '#sign-up' || a.classList.contains('nav-cta')) {
+    } else if (href === '/#register' || href === '#sign-up' || a.classList.contains('nav-cta') || href.indexOf('sportngin.com/register/') !== -1) {
       gtag('event', 'register_cta_click', {
         cta_location: path,
         cta_text: (a.textContent || '').trim().slice(0, 60)

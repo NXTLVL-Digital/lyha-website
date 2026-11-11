@@ -142,6 +142,8 @@ updates page shows everything, newest first. No build step involved.
 
 **Registration link policy (decided 2026-05-12):** Do NOT link to SportsEngine directly on any page. Links change every season and old links have caused misdirected payments. Flow: parent contacts LYHA via email → board sends current link. All pages use this flow. Mites sign-up section rewritten 2026-05-12 to contact-first, 3-step flow (CTA: mailto:info@lynchburg.hockey).
 
+**Exception, Learn to Play (Jeff, 2026-11-11):** Jeff supplied a public SportsEngine form link for LTP Session 2 (Jan to Feb 2027) to post on the page. It lives in the `#session-updates` block near the top of `/learn-to-play/` and in the Section 07 sign-up button. Everything else on the page (FAQ, steps, cost card, `/faq/`, `/updates/`) points to `#session-updates` instead of repeating dates. When a session's registration closes, replace or remove the link in both spots the same day. The form requires a USA Hockey confirmation code first, so the sign-up steps start there. Other divisions keep the contact-first flow.
+
 **Phase 1 sitewide enhancements (List 2 priority-1 items folded in):**
 - USA Hockey + PVAHA affiliation badges in footer sitewide. Currently shown as text in the Mites page footer; expand to badge images sitewide once we have logos.
 - Mission statement section on About page.

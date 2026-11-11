@@ -398,6 +398,131 @@
     border-color: var(--bone);
   }
 
+  /* ============ SESSION UPDATES ============ */
+  .ltp-updates {
+    background: var(--ink);
+    border-top: 1px solid var(--rule);
+    padding: 100px 48px 110px;
+  }
+  .ltp-updates-inner { max-width: 1280px; margin: 0 auto; }
+  .ltp-update {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+    padding: 56px;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--ink) 100%);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--green);
+    border-radius: 4px;
+  }
+  .ltp-update-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    margin-bottom: 22px;
+  }
+  .ltp-update-meta .update-date { margin-bottom: 0; color: var(--bone-mute); }
+  .ltp-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid var(--green-bright);
+    border-radius: 999px;
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+  }
+  .ltp-status::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green-bright);
+  }
+  .ltp-update h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .ltp-update h2 em { font-style: italic; font-weight: 300; color: var(--green-bright); }
+  .ltp-update-copy > p {
+    color: var(--bone-dim);
+    font-size: 17px;
+    line-height: 1.65;
+    max-width: 520px;
+    margin-bottom: 32px;
+  }
+  .ltp-dates-label {
+    font-family: var(--athletic);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 20px;
+  }
+  .ltp-month + .ltp-month { margin-top: 24px; }
+  .ltp-month h3 {
+    font-family: var(--athletic);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--bone);
+    margin-bottom: 10px;
+  }
+  .ltp-month ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .ltp-month li {
+    padding: 12px 6px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: rgba(244, 241, 234, 0.03);
+    text-align: center;
+  }
+  .ltp-month li span {
+    display: block;
+    font-family: var(--athletic);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-mute);
+    margin-bottom: 6px;
+  }
+  .ltp-month time {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--bone);
+  }
+
+  @media (max-width: 900px) {
+    .ltp-updates { padding: 70px 24px; }
+    .ltp-update { grid-template-columns: 1fr; gap: 40px; padding: 40px 26px; }
+    .ltp-month time { font-size: 30px; }
+  }
+  @media (max-width: 480px) {
+    .ltp-updates { padding: 56px 18px; }
+    .ltp-update { padding: 32px 20px; }
+    .ltp-month ul { gap: 8px; }
+    .ltp-month time { font-size: 26px; }
+  }
+
   @media (max-width: 900px) {
     .div-hero { padding: 110px 24px 70px; }
     .div-hero h1 { font-size: clamp(48px, 12vw, 80px); }
@@ -525,6 +650,53 @@
   </div>
 </section>
 
+<!-- Session Updates: the one place for current dates and the registration link.
+     The sign-up steps, both FAQs, and /updates/ point here. Replace the link when
+     registration closes: stale links have sent payments to the wrong place before. -->
+<section class="ltp-updates" id="session-updates">
+  <div class="ltp-updates-inner">
+    <div class="section-label reveal">Session Updates</div>
+    <div class="ltp-update reveal">
+      <div class="ltp-update-copy">
+        <div class="ltp-update-meta">
+          <span class="ltp-status">Registration open</span>
+          <time class="update-date" datetime="2026-11-11">Posted Nov 11, 2026</time>
+        </div>
+        <h2>Session 2 registration<br/><em>is open.</em></h2>
+        <p>Eight Saturdays at LaHaye Ice Center in January and February. These dates are tentative. If anything changes, we'll post it here.</p>
+        <div class="hero-cta-row" style="margin-bottom: 0;">
+          <a href="https://lynchburgyouthhockeyassociation.sportngin.com/register/form/961200412" class="btn-primary" target="_blank" rel="noopener">
+            Register for Session 2
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#sign-up" class="btn-ghost">How Registration Works</a>
+        </div>
+      </div>
+      <div class="ltp-dates">
+        <div class="ltp-dates-label">Tentative dates &middot; Saturdays</div>
+        <div class="ltp-month">
+          <h3>January 2027</h3>
+          <ul>
+            <li><span>Sat</span><time datetime="2027-01-09">9</time></li>
+            <li><span>Sat</span><time datetime="2027-01-16">16</time></li>
+            <li><span>Sat</span><time datetime="2027-01-23">23</time></li>
+            <li><span>Sat</span><time datetime="2027-01-30">30</time></li>
+          </ul>
+        </div>
+        <div class="ltp-month">
+          <h3>February 2027</h3>
+          <ul>
+            <li><span>Sat</span><time datetime="2027-02-06">6</time></li>
+            <li><span>Sat</span><time datetime="2027-02-13">13</time></li>
+            <li><span>Sat</span><time datetime="2027-02-20">20</time></li>
+            <li><span>Sat</span><time datetime="2027-02-27">27</time></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="div-section alt">
   <div class="div-section-inner">
     <div class="div-section-head reveal">
@@ -609,7 +781,7 @@
     </div>
 
     <p style="color: var(--bone-dim); font-size: 16px; line-height: 1.7; margin-top: 36px; max-width: 760px;">
-      Session 1 registration is open now and closes September 20. The session runs eight Saturday mornings, 8:15 to 9:15, at <a href="https://libertyclubsports.com/sports/2023/11/14/lahaye-ice-center/" target="_blank" rel="noopener">LaHaye Ice Center</a> on <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a>'s campus: September 26, October 3, 10, 17, and 24, November 7, and December 5 and 12. No sessions on October 31, November 14, 21, or 28.
+      Each session runs eight Saturdays at <a href="https://libertyclubsports.com/sports/2023/11/14/lahaye-ice-center/" target="_blank" rel="noopener">LaHaye Ice Center</a> on <a href="https://www.liberty.edu/" target="_blank" rel="noopener">Liberty University</a>'s campus. Current dates are posted in <a href="#session-updates" style="color: var(--green-bright); border-bottom: 1px solid var(--green-bright);">Session Updates</a> at the top of this page.
     </p>
   </div>
 </section>
@@ -657,10 +829,10 @@
     <div class="cost-card reveal">
       <div class="cost-card-inner">
         <h3>Cost should not <em>be the reason a Lynchburg kid doesn't try hockey.</em></h3>
-        <p>Current Learn to Play pricing is available when you contact us for the registration link. Tuition covers ice time, instruction, and USA Hockey registration. Donated used gear is sometimes available to buy with a donation. Financial aid is available for families who need it. Ask any board member.</p>
+        <p>Contact us for current Learn to Play pricing. Tuition covers ice time, instruction, and USA Hockey registration. Donated used gear is sometimes available to buy with a donation. Financial aid is available for families who need it. Ask any board member.</p>
         <div class="hero-cta-row" style="margin-bottom: 0;">
           <a href="#sign-up" class="btn-primary">
-            Get the Registration Link
+            How to Register
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
           <a href="#contact" class="btn-ghost">Ask About Financial Aid</a>
@@ -699,49 +871,42 @@
     <div class="div-section-head reveal">
       <div class="section-label">Section 07</div>
       <h2>How to <em>sign up.</em></h2>
-      <p>Session 1 registration is open now and closes September 20. We don't post the registration link publicly. Links change each season, and old links have caused payment problems in the past. Here's how registration works.</p>
+      <p>Session 2 registration is open. It takes two steps online. Dates and any schedule changes are posted in <a href="#session-updates" style="color: var(--green-bright); border-bottom: 1px solid var(--green-bright);">Session Updates</a> at the top of this page.</p>
     </div>
 
     <div class="steps reveal">
       <div class="step">
         <div class="step-num">01</div>
         <div class="step-body">
-          <h4>Contact us</h4>
-          <p>Send us an email or use the contact form below. Tell us your child's age and whether they've skated before. We'll confirm Learn to Play is the right fit.</p>
-        </div>
-        <div class="step-meta">5 min</div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h4>We send you the current link</h4>
-          <p>We'll reply with the active SportsEngine registration link for the current season. This way the link is always right and you always know who to call if something doesn't add up.</p>
-        </div>
-        <div class="step-meta">Same day</div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h4>Complete registration</h4>
-          <p>Create a family account on SportsEngine and fill out the player registration form. Questions during this step? Reply to our email and we'll walk you through it.</p>
+          <h4>Register with USA Hockey</h4>
+          <p>Every player needs a USA Hockey registration first. Sign your child up at <a href="https://www.usahockeyregistration.com/" target="_blank" rel="noopener" style="color: var(--green-bright); border-bottom: 1px solid var(--green-bright);">usahockeyregistration.com</a> and save the confirmation code. You'll need it in the next step.</p>
         </div>
         <div class="step-meta">~ 10 min</div>
       </div>
       <div class="step">
-        <div class="step-num">04</div>
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h4>Complete the LYHA form</h4>
+          <p>Open the Session 2 form on SportsEngine. Create a family account, fill out the player form, and enter your USA Hockey code. Stuck on a step? Use the contact form below and we'll walk you through it.</p>
+        </div>
+        <div class="step-meta">~ 10 min</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
         <div class="step-body">
           <h4>First session</h4>
-          <p>We'll send a welcome note with session dates, what to bring, and how to ask about donated gear if you need it.</p>
+          <p>We'll send a welcome note with what to bring and how to ask about donated gear if you need it.</p>
         </div>
         <div class="step-meta">Confirmed after signup</div>
       </div>
     </div>
 
     <div class="hero-cta-row" style="margin-top: 56px;">
-      <a href="/contact/" class="btn-primary">
-        Email Us to Get Started
+      <a href="https://lynchburgyouthhockeyassociation.sportngin.com/register/form/961200412" class="btn-primary" target="_blank" rel="noopener">
+        Register for Session 2
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
+      <a href="/contact/" class="btn-ghost">Questions? Contact Us</a>
     </div>
   </div>
 </section>
@@ -755,6 +920,10 @@
     </div>
 
     <div class="div-faq reveal">
+      <div class="div-faq-item">
+        <h4>When is the next session, and how do I register?</h4>
+        <p>Dates can shift from session to session, so we keep them in one place. The current dates and the registration link are in <a href="#session-updates" style="color: var(--green-bright); border-bottom: 1px solid var(--green-bright);">Session Updates</a> at the top of this page.</p>
+      </div>
       <div class="div-faq-item">
         <h4>My child has never been on ice. Is that OK?</h4>
         <p>Yes. Learn to Play starts from zero. Coaches are experienced with children who have never worn skates. Your child will not be the only one starting from the beginning.</p>

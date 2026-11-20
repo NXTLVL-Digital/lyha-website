@@ -173,7 +173,10 @@ reconciled to the post on 2026-11-20: hero lede, hero stat strip, the Section 01
 check, the Section 02 skating card, the coaches paragraph, the `#session-updates` block, the
 og:description, and the "never been on ice" FAQ. The page no longer states a session time,
 because the Winter Session time is still unconfirmed; it points at `#session-updates`
-instead. Keep the page and the post saying the same thing.
+instead. Keep the page and the post saying the same thing. Two homepage lines were corrected to
+match (Jeff, 2026-11-20): the Learn to Play program row, and the "How old does my child
+need to be?" FAQ card, which used to say a child comfortable leaving you at the gate is
+ready to skate.
 
 **Phase 1 sitewide enhancements (List 2 priority-1 items folded in):**
 - USA Hockey + PVAHA affiliation badges in footer sitewide. Currently shown as text in the Mites page footer; expand to badge images sitewide once we have logos.

@@ -87,6 +87,7 @@ collections:
                 name: team
                 widget: select
                 options:
+                  - { label: "Learn to Play", value: learn-to-play }
                   - { label: Mites, value: mites }
                   - { label: Squirts, value: squirts }
                   - { label: Peewee, value: peewee }

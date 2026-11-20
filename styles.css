@@ -1398,3 +1398,26 @@
   .updates-band { padding: 56px 18px; }
   .update-title { font-size: 20px; }
 }
+
+/* ============ TEAM POSTS (division pages) ============ */
+/* Reuses the .updates-band / .update-item components. Ink background so the band
+   reads as part of the hero and the forest section below it still separates. */
+.team-posts { background: var(--ink); }
+.post-photo {
+  margin: 20px auto 0;
+  max-width: 780px;
+}
+.post-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.post-photo figcaption {
+  color: var(--bone-mute);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-align: center;
+}

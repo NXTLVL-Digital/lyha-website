@@ -114,6 +114,24 @@ list at `/updates/`. This is the first content where the CMS edit actually
 changes what visitors see. The homepage band shows the 3 newest titles; the
 updates page shows everything, newest first. No build step involved.
 
+## Team page posts (added 2026-11-20)
+
+Each division page (`/mites/`, `/squirts/`, `/peewee/`, `/bantams/`, `/u16/`) carries a
+"Team Updates" band directly under the hero, for the kind of note or photo a head coach
+sends in during the season. `/learn-to-play/` has the same band, labelled "Program
+Updates", below its `#session-updates` block. Posts live in `data/team-posts.json`, edited through the
+Sveltia CMS collection "Team Page Posts", and are rendered client-side by
+`assets/team-posts.js`. Each post carries a `team` key matching the `data-team` attribute
+on that page's `#team-posts` section, so one data file feeds all five pages. A page with
+no posts keeps the band hidden, exactly like the homepage updates band.
+
+A post can hold a date, title, body, optional link, and an optional photo with alt text and
+a caption. Photos go in `assets/uploads/` (the CMS media folder). Only paths starting with
+`/` or `https://` render, so a bad entry cannot inject a URL scheme.
+
+This is separate from `data/updates.json`, which stays org-wide news for the homepage band
+and `/updates/`. Team posts do not appear there.
+
 ## Phase 1 — status
 
 **Done:**
@@ -143,6 +161,22 @@ updates page shows everything, newest first. No build step involved.
 **Registration link policy (decided 2026-05-12):** Do NOT link to SportsEngine directly on any page. Links change every season and old links have caused misdirected payments. Flow: parent contacts LYHA via email → board sends current link. All pages use this flow. Mites sign-up section rewritten 2026-05-12 to contact-first, 3-step flow (CTA: mailto:info@lynchburg.hockey).
 
 **Exception, Learn to Play (Jeff, 2026-11-11):** Jeff supplied a public SportsEngine form link for the LTP Winter Session (Jan to Feb 2027) to post on the page. Sessions are named by season (Fall Session, Winter Session), never numbered: each one is a separate chance to start, and "Session 2" made parents think they had to take Session 1 first (Jeff, 2026-11-11). The SportsEngine form itself is still titled "Learn To Play session 2 2027". It lives in the `#session-updates` block near the top of `/learn-to-play/` and in the Section 07 sign-up button. Everything else on the page (FAQ, steps, cost card, `/faq/`, `/updates/`) points to `#session-updates` instead of repeating dates. When a session's registration closes, replace or remove the link in both spots the same day. The form requires a USA Hockey confirmation code first, so the sign-up steps start there. Other divisions keep the contact-first flow.
+
+**Learn to Play skating prerequisite (coach, via Jeff, 2026-11-20):** Learn to Play is no
+longer "no experience required." A child must be able to stand and move on skates without
+help. Children who can't are pointed to Learn to Skate at LaHaye Ice Center, taught by
+instructors from Liberty University's skating teams, spring registration opening December 1
+(`https://libertyclubsports.com/sports/2023/11/14/lahaye-ice-center/`). This came from the
+coach's change request on the Winter Session Facebook post, whose graphic and caption live
+in `/Users/aragorn/Projects/lyha/social/2026-11-ltp-winter-session/`. The page was
+reconciled to the post on 2026-11-20: hero lede, hero stat strip, the Section 01 readiness
+check, the Section 02 skating card, the coaches paragraph, the `#session-updates` block, the
+og:description, and the "never been on ice" FAQ. The page no longer states a session time,
+because the Winter Session time is still unconfirmed; it points at `#session-updates`
+instead. Keep the page and the post saying the same thing. Two homepage lines were corrected to
+match (Jeff, 2026-11-20): the Learn to Play program row, and the "How old does my child
+need to be?" FAQ card, which used to say a child comfortable leaving you at the gate is
+ready to skate.
 
 **Phase 1 sitewide enhancements (List 2 priority-1 items folded in):**
 - USA Hockey + PVAHA affiliation badges in footer sitewide. Currently shown as text in the Mites page footer; expand to badge images sitewide once we have logos.

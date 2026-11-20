@@ -1404,7 +1404,7 @@
    reads as part of the hero and the forest section below it still separates. */
 .team-posts { background: var(--ink); }
 .post-photo {
-  margin-top: 20px;
+  margin: 20px auto 0;
   max-width: 780px;
 }
 .post-photo img {
@@ -1419,4 +1419,5 @@
   font-size: 13px;
   line-height: 1.6;
   margin-top: 10px;
+  text-align: center;
 }

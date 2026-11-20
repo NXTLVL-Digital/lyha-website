@@ -114,6 +114,23 @@ list at `/updates/`. This is the first content where the CMS edit actually
 changes what visitors see. The homepage band shows the 3 newest titles; the
 updates page shows everything, newest first. No build step involved.
 
+## Team page posts (added 2026-11-20)
+
+Each division page (`/mites/`, `/squirts/`, `/peewee/`, `/bantams/`, `/u16/`) carries a
+"Team Updates" band directly under the hero, for the kind of note or photo a head coach
+sends in during the season. Posts live in `data/team-posts.json`, edited through the
+Sveltia CMS collection "Team Page Posts", and are rendered client-side by
+`assets/team-posts.js`. Each post carries a `team` key matching the `data-team` attribute
+on that page's `#team-posts` section, so one data file feeds all five pages. A page with
+no posts keeps the band hidden, exactly like the homepage updates band.
+
+A post can hold a date, title, body, optional link, and an optional photo with alt text and
+a caption. Photos go in `assets/uploads/` (the CMS media folder). Only paths starting with
+`/` or `https://` render, so a bad entry cannot inject a URL scheme.
+
+This is separate from `data/updates.json`, which stays org-wide news for the homepage band
+and `/updates/`. Team posts do not appear there.
+
 ## Phase 1 — status
 
 **Done:**

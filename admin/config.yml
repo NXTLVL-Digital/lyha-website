@@ -74,6 +74,31 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Body, name: body, widget: text, required: false }
               - { label: "Link (optional, like /learn-to-play/)", name: link, widget: string, required: false }
+      - name: team_posts
+        label: Team Page Posts
+        file: data/team-posts.json
+        fields:
+          - label: Posts
+            name: posts
+            widget: list
+            summary: "{{fields.team}} {{fields.date}}: {{fields.title}}"
+            fields:
+              - label: Team Page
+                name: team
+                widget: select
+                options:
+                  - { label: Mites, value: mites }
+                  - { label: Squirts, value: squirts }
+                  - { label: Peewee, value: peewee }
+                  - { label: Bantams, value: bantams }
+                  - { label: U16, value: u16 }
+              - { label: "Date (YYYY-MM-DD)", name: date, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text, required: false }
+              - { label: Photo, name: image, widget: image, required: false }
+              - { label: "Photo description (for screen readers)", name: alt, widget: string, required: false }
+              - { label: "Photo caption", name: caption, widget: string, required: false }
+              - { label: "Link (optional, like /calendar/)", name: link, widget: string, required: false }
       - name: faq_items
         label: FAQ Items
         file: data/faq.json
